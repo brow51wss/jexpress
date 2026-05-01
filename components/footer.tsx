@@ -133,7 +133,7 @@ export default function Footer() {
                   size={16}
                   className="text-[#f58c23] mt-0.5 flex-shrink-0"
                 />
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-5">
                   <div>
                     <p className="text-white/30 font-inter text-xs uppercase tracking-wide mb-0.5">Bookings</p>
                     <a

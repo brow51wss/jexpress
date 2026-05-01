@@ -34,7 +34,7 @@ const infoItems = [
     type: 'hours',
     hours: [
       { sublabel: 'Weekdays', day: 'Monday – Friday', time: '8:00 AM – 5:00 PM' },
-      { sublabel: 'Saturday', day: 'Saturday', time: '8:00 AM – 12:00 PM' },
+      { sublabel: 'Weekend', day: 'Saturday', time: '8:00 AM – 12:00 PM' },
     ],
   },
 ]
