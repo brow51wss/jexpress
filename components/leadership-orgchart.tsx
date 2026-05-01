@@ -10,7 +10,7 @@ const orgLevels = [
   {
     label: 'Chairperson / Vice Chairperson',
     description: 'Executive leadership',
-    color: '#383838',
+    color: '#d97b1a',
     textColor: '#ffffff',
   },
   {
