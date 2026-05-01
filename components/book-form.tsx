@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Send, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
@@ -27,6 +27,15 @@ export default function BookForm() {
     preferredVehicle: '',
     additionalNotes: '',
   })
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const service = (e as CustomEvent<string>).detail
+      setFormData((prev) => ({ ...prev, serviceNeeded: service }))
+    }
+    window.addEventListener('selectService', handler)
+    return () => window.removeEventListener('selectService', handler)
+  }, [])
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>

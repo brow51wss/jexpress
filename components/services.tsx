@@ -1,4 +1,5 @@
-import Link from 'next/link'
+'use client'
+
 import {
   RiBusLine,
   RiMapPinLine,
@@ -8,6 +9,7 @@ import {
   RiShipLine,
   RiShoppingBasketLine,
 } from 'react-icons/ri'
+import Link from 'next/link'
 
 const services = [
   {
@@ -15,38 +17,50 @@ const services = [
     title: 'Tourist Transport Services',
     description:
       'Land and sea tourist transport for organized tours, delegations, and groups. Air-conditioned, spacious, and well-maintained vehicles for every journey.',
+    serviceValue: 'Tourist Transport Services',
   },
   {
     icon: RiGroupLine,
     title: 'Shuttle Services',
     description:
       'Reliable shuttle operations for companies, hospitals, schools, and government agencies. Consistent, punctual, and professionally managed.',
+    serviceValue: 'Shuttle Services',
   },
   {
     icon: RiTruckLine,
     title: 'Logistic Transport Services',
     description:
       'End-to-end logistics transport covering cargo movement, supply chain support, and point-to-point delivery for businesses and institutions.',
+    serviceValue: 'Logistic Transport Services',
   },
   {
     icon: RiMapPinLine,
     title: 'Passenger Transport Solutions',
     description:
       'Tailored passenger transport packages for recurring government operations, corporate travel, and institutional use nationwide.',
+    serviceValue: 'Passenger Transport',
   },
   {
     icon: RiShoppingBasketLine,
     title: 'Food Supply & Delivery Support',
     description:
       'Allied support services including food supply sourcing and delivery coordination for cooperatives, institutions, and community programs.',
+    serviceValue: 'Other Transport Requirements',
   },
   {
     icon: RiShipLine,
     title: 'Allied Transport Services',
     description:
       'Additional allied transport-related services including spare parts distribution, vehicle and driver insurance marketing, and transport coordination.',
+    serviceValue: 'Other Transport Requirements',
   },
 ]
+
+function bookService(serviceValue: string) {
+  window.dispatchEvent(new CustomEvent('selectService', { detail: serviceValue }))
+  const form = document.getElementById('booking-form')
+  if (form) form.scrollIntoView({ behavior: 'smooth' })
+}
 
 export default function Services() {
   return (
@@ -90,13 +104,13 @@ export default function Services() {
                 </p>
               </div>
               <div className="mt-auto">
-                <Link
-                  href="#contact"
+                <button
+                  onClick={() => bookService(service.serviceValue)}
                   className="inline-flex items-center gap-1.5 text-[#f58c23] font-semibold text-sm font-inter group-hover:gap-3 transition-all duration-200"
                 >
                   Book This Service
                   <RiArrowRightLine size={16} />
-                </Link>
+                </button>
               </div>
             </div>
           ))}
