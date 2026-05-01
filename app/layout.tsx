@@ -46,7 +46,7 @@ export const metadata: Metadata = {
       'Safe, comfortable, and reliable tourist transport services in Bloomingdale, DC. Professional and courteous service for DAR and OCD.',
     images: [
       {
-        url: 'https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/logos/Jexpress%20Tourist%20Transport%20Cooperative/1775101248882-logo_no_bg.png',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Jexpress Tourist Transport Cooperative',
@@ -58,9 +58,7 @@ export const metadata: Metadata = {
     title: 'Jexpress Tourist Transport Cooperative | Safe & Reliable Transport Services',
     description:
       'Safe, comfortable, and reliable tourist transport services in Bloomingdale, DC.',
-    images: [
-      'https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/logos/Jexpress%20Tourist%20Transport%20Cooperative/1775101248882-logo_no_bg.png',
-    ],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -71,9 +69,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: 'https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-uploads/uploads/favicon/varakit-favicon.png',
-    shortcut: 'https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-uploads/uploads/favicon/varakit-favicon.png',
-    apple: 'https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-uploads/uploads/favicon/varakit-favicon.png',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
     generator: 'v0.app'
 }
@@ -110,10 +108,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#f58c23" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://jexpresstransport.com" />
-        <link
-          rel="icon"
-          href="https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-uploads/uploads/favicon/varakit-favicon.png"
-        />
+        <link rel="icon" href="/favicon.png" />
         <title>Jexpress Tourist Transport Cooperative | Safe & Reliable Transport Services</title>
         <meta
           name="description"
