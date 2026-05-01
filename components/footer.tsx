@@ -165,7 +165,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/10 pt-8 pb-16 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-xs font-inter text-center sm:text-left">
             &copy; {year} Jexpress Tourist Transport Cooperative. All rights reserved.
           </p>
@@ -187,12 +187,12 @@ export default function Footer() {
             <p className="text-white/30 text-xs font-inter">
               Designed &amp; Developed by{' '}
               <a
-                href="https://varakit.com"
+                href="https://www.dumlaoandco.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#f58c23]/60 hover:text-[#f58c23] transition-colors"
               >
-                varakit.com
+                Dumlao &amp; Co.
               </a>
             </p>
           </div>
