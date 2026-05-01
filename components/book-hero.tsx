@@ -1,11 +1,11 @@
 export default function BookHero() {
   return (
     <section
-      className="relative min-h-[62vh] flex items-end pb-20 pt-40 overflow-hidden"
+      className="relative min-h-[62vh] flex items-center justify-center overflow-hidden pt-24"
       style={{ background: '#383838' }}
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="max-w-2xl">
+        <div className="max-w-3xl mx-auto text-center">
           <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
             Transport Reservations
           </span>
@@ -13,7 +13,7 @@ export default function BookHero() {
             Book Your Transport{' '}
             <span className="text-[#f58c23]">With JTTC</span>
           </h1>
-          <p className="font-inter text-white/60 text-base sm:text-lg leading-relaxed max-w-xl">
+          <p className="font-inter text-white/60 text-base sm:text-lg leading-relaxed mx-auto">
             Reserve dependable transport services with Jexpress Tourist Transport Cooperative.
             We assist clients with tourist transport, shuttle services, logistics transport,
             and other transport requirements through reliable service, professional drivers,
