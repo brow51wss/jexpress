@@ -73,7 +73,7 @@ export default function ContactInfo() {
                   <p className="font-sans font-bold text-[#383838] text-sm uppercase tracking-wide">
                     {item.label}
                   </p>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-4">
                     {item.lines.map((line, i) => {
                       const link = href(item.type, line)
                       const sublabel = item.sublabels?.[i]
