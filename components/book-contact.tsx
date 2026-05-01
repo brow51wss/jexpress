@@ -1,0 +1,93 @@
+import { MapPin, Phone, Mail } from 'lucide-react'
+
+const contactDetails = [
+  {
+    icon: MapPin,
+    label: 'Office Address',
+    items: [
+      { text: 'Espasyo Learning and Recreation Hub', href: undefined },
+      { text: '#6 Torres Bugallon Street', href: undefined },
+      { text: 'Marikina Heights, Marikina City', href: undefined },
+    ],
+  },
+  {
+    icon: Mail,
+    label: 'Email Address',
+    items: [
+      { text: 'jexpresstouristtransport.jttsc@gmail.com', href: 'mailto:jexpresstouristtransport.jttsc@gmail.com' },
+      { text: 'espasyostudyandofficehub@gmail.com', href: 'mailto:espasyostudyandofficehub@gmail.com' },
+    ],
+  },
+  {
+    icon: Phone,
+    label: 'Contact Numbers',
+    items: [
+      { text: '+63 916-611-2928', href: 'tel:+639166112928' },
+      { text: '+632 8700-600 42', href: 'tel:+63287006042' },
+      { text: '+63 919-009-1985', href: 'tel:+639190091985' },
+    ],
+  },
+]
+
+export default function BookContact() {
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+            Direct Contact
+          </span>
+          <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-4">
+            Need Help With{' '}
+            <span className="text-[#f58c23]">Your Booking?</span>
+          </h2>
+          <p className="font-inter text-[#6b6b6b] text-base leading-relaxed max-w-2xl mx-auto">
+            You may also contact JTTC directly for transport inquiries and reservation requests.
+            Our team is ready to assist you with the right transport solution.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {contactDetails.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.label}
+                className="bg-[#fff8f0] rounded-2xl p-8 border border-[#e8e0d8] flex flex-col gap-5 hover:border-[#f58c23]/40 hover:shadow-md transition-all duration-200"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#f58c23] flex items-center justify-center shadow-lg shadow-[#f58c23]/30 flex-shrink-0">
+                  <Icon size={22} className="text-white" strokeWidth={1.8} />
+                </div>
+                <div>
+                  <p className="font-sans font-bold text-[#383838] text-sm uppercase tracking-wide mb-3">
+                    {item.label}
+                  </p>
+                  <div className="flex flex-col gap-1.5">
+                    {item.items.map((i) =>
+                      i.href ? (
+                        <a
+                          key={i.text}
+                          href={i.href}
+                          className="font-inter text-[#6b6b6b] text-sm leading-relaxed hover:text-[#f58c23] transition-colors break-all"
+                        >
+                          {i.text}
+                        </a>
+                      ) : (
+                        <span
+                          key={i.text}
+                          className="font-inter text-[#6b6b6b] text-sm leading-relaxed"
+                        >
+                          {i.text}
+                        </span>
+                      )
+                    )}
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}

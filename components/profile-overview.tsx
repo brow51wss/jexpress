@@ -1,0 +1,102 @@
+import Image from 'next/image'
+import { CheckCircle } from 'lucide-react'
+
+const services = [
+  'Tourist transport services',
+  'Shuttle transport services',
+  'Logistic transport services',
+  'Transportation service center operations',
+  'Spare parts and supplies support',
+  'Vehicle and driver insurance-related services',
+  'Food supply and delivery support',
+]
+
+export default function ProfileOverview() {
+  return (
+    <section className="py-24" style={{ background: '#f9f7f4' }}>
+      <div className="max-w-7xl mx-auto px-6">
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start mb-24">
+          <div className="flex flex-col gap-6">
+            <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em]">
+              Company Overview
+            </span>
+            <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance">
+              Who We Are &amp; What{' '}
+              <span className="text-[#f58c23]">We Do</span>
+            </h2>
+            <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
+              JTTC was organized to provide public tourist transport services primarily to members
+              and the commuting public. The cooperative is committed to delivering reliable and
+              quality work while maintaining transparency, openness, fairness, and high standards
+              of safety and health for drivers, clients, and passengers.
+            </p>
+            <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
+              JTTC has a clear focus on serving the growing needs of companies, industries,
+              hospitals, logistics operations, tourism-related clients, and other emerging markets
+              that require reliable transport shuttle services nationwide.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-5">
+            <div className="bg-white rounded-2xl p-8 border border-[#e8e0d8] shadow-sm">
+              <h3 className="font-sans font-bold text-[#383838] text-base uppercase tracking-wider mb-5">
+                Areas of Service
+              </h3>
+              <ul className="flex flex-col gap-3">
+                {services.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle size={18} className="text-[#f58c23] flex-shrink-0 mt-0.5" strokeWidth={2} />
+                    <span className="font-inter text-[#6b6b6b] text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-[#383838] rounded-3xl p-10 lg:p-14">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="flex flex-col gap-6">
+              <span className="inline-block text-[#fed16c] font-inter text-xs font-semibold uppercase tracking-[0.2em]">
+                Our Focus
+              </span>
+              <h2 className="font-sans font-black text-white text-3xl sm:text-4xl leading-tight text-balance">
+                Why We Are <span className="text-[#f58c23]">Trusted</span>
+              </h2>
+              <p className="font-inter text-white/70 text-base leading-relaxed">
+                Our organization is built on professionalism, integrity, sincerity,
+                trustworthiness, quality service, and a strong commitment to safety. We aim to
+                provide dependable transport support backed by capable personnel, professional
+                drivers, and service-driven operations.
+              </p>
+              <p className="font-inter text-white/70 text-base leading-relaxed">
+                One of the goals of JTTC is to help improve the quality of life of its members
+                and contribute to inclusive growth, enterprise development, and employment.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                ['Professionalism', 'Skilled drivers and a service-oriented team'],
+                ['Integrity', 'Honesty, sincerity, and trustworthiness in all dealings'],
+                ['Safety', 'Highest standards of safety for drivers and passengers'],
+                ['Reliability', 'Dependable, quality transport solutions nationwide'],
+              ].map(([title, desc]) => (
+                <div
+                  key={title}
+                  className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-[#f58c23]/40 transition-colors duration-200"
+                >
+                  <div className="w-2 h-2 rounded-full bg-[#f58c23] mb-4" />
+                  <p className="font-sans font-bold text-white text-sm mb-2">{title}</p>
+                  <p className="font-inter text-white/50 text-xs leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )
+}

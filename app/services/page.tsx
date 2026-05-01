@@ -1,0 +1,56 @@
+import type { Metadata } from 'next'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
+import ServicesHero from '@/components/services-hero'
+import ServicesIntro from '@/components/services-intro'
+import ServicesList from '@/components/services-list'
+import ServicesFleet from '@/components/services-fleet'
+import ServicesWhy from '@/components/services-why'
+import ServicesCta from '@/components/services-cta'
+
+export const metadata: Metadata = {
+  title: 'Our Services | Jexpress Tourist Transport Cooperative',
+  description:
+    'Explore the full range of transport and allied services offered by Jexpress Tourist Transport Cooperative — tourist transport, shuttle services, logistics, passenger solutions, and more.',
+  alternates: {
+    canonical: 'https://jexpresstransport.com/services',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://jexpresstransport.com/services',
+    siteName: 'Jexpress Tourist Transport Cooperative',
+    title: 'Our Services | Jexpress Tourist Transport Cooperative',
+    description:
+      'Tourist transport, shuttle services, logistics, passenger solutions, and allied transport services by JTTC.',
+    images: [
+      {
+        url: 'https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/logos/Jexpress%20Tourist%20Transport%20Cooperative/1775101248882-logo_no_bg.png',
+        width: 1200,
+        height: 630,
+        alt: 'Jexpress Tourist Transport Cooperative',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Our Services | Jexpress Tourist Transport Cooperative',
+    description:
+      'Tourist transport, shuttle services, logistics, passenger solutions, and allied transport services by JTTC.',
+  },
+}
+
+export default function ServicesPage() {
+  return (
+    <main>
+      <Header />
+      <ServicesHero />
+      <ServicesIntro />
+      <ServicesList />
+      <ServicesFleet />
+      <ServicesWhy />
+      <ServicesCta />
+      <Footer />
+    </main>
+  )
+}
