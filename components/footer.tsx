@@ -169,17 +169,33 @@ export default function Footer() {
           <p className="text-white/40 text-xs font-inter text-center sm:text-left">
             &copy; {year} Jexpress Tourist Transport Cooperative. All rights reserved.
           </p>
-          <p className="text-white/30 text-xs font-inter">
-            Designed &amp; Developed by{' '}
-            <a
-              href="https://varakit.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#f58c23]/60 hover:text-[#f58c23] transition-colors"
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <Link
+              href="/privacy-policy"
+              className="text-white/30 hover:text-[#f58c23] text-xs font-inter transition-colors"
             >
-              varakit.com
-            </a>
-          </p>
+              Privacy Policy
+            </Link>
+            <span className="text-white/20 text-xs">·</span>
+            <Link
+              href="/terms"
+              className="text-white/30 hover:text-[#f58c23] text-xs font-inter transition-colors"
+            >
+              Terms of Use
+            </Link>
+            <span className="text-white/20 text-xs hidden sm:inline">·</span>
+            <p className="text-white/30 text-xs font-inter">
+              Designed &amp; Developed by{' '}
+              <a
+                href="https://varakit.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#f58c23]/60 hover:text-[#f58c23] transition-colors"
+              >
+                varakit.com
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

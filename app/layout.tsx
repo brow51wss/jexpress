@@ -4,6 +4,7 @@ import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import ScrollToTop from '@/components/scroll-to-top'
 import MessengerButton from '@/components/messenger-button'
+import CookieConsent from '@/components/cookie-consent'
 import './globals.css'
 
 const lato = Lato({
@@ -119,6 +120,30 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* GA Consent Mode — defaults to denied until visitor accepts cookies */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                analytics_storage: 'denied',
+                ad_storage: 'denied',
+                wait_for_update: 500
+              });
+            `,
+          }}
+        />
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKG78J4XKM" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              gtag('js', new Date());
+              gtag('config', 'G-WKG78J4XKM');
+            `,
+          }}
+        />
         {/* Microsoft Clarity */}
         <script
           dangerouslySetInnerHTML={{
@@ -131,23 +156,12 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKG78J4XKM" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-WKG78J4XKM');
-            `,
-          }}
-        />
       </head>
       <body className={`${lato.variable} ${inter.variable} font-sans antialiased`}>
         <ScrollToTop />
         {children}
         <MessengerButton />
+        <CookieConsent />
         <Analytics />
       </body>
     </html>
