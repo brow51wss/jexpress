@@ -22,6 +22,10 @@ All file operations must stay within this directory. If asked to work on files o
 
 - **GitHub**: https://github.com/brow51wss/jexpress.git
 
+## Git Policy
+
+**CRITICAL**: Never run `git commit` or `git push` (or any command that commits or pushes to the remote) unless the user explicitly asks you to commit or push. Make all code changes and stop — the user will handle all commits and pushes themselves.
+
 ## Services
 
 - **Email**: Resend.com
