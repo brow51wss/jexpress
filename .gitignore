@@ -29,7 +29,8 @@ pnpm-debug.log*
 Thumbs.db
 
 # IDE
-.cursor/
+.cursor/*
+!.cursor/rules/
 .vscode/
 
 # TypeScript

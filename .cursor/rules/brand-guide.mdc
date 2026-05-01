@@ -1,0 +1,339 @@
+---
+description: Jexpress Tourist Transport Cooperative brand guide. Apply strictly when building, editing, or reviewing any UI section, page, or component in this project. Covers typography, color palette, spacing, buttons, links, cards, and all interactive states.
+globs: ["**/*.tsx", "**/*.ts", "**/*.css"]
+alwaysApply: true
+---
+
+# Jexpress Brand Guide
+
+This is the single source of truth for visual design in this project. Do not introduce colors, fonts, spacing patterns, or UI patterns not defined here.
+
+---
+
+## 1. Typography
+
+### Font Families
+
+| Role | Family | Variable | Tailwind Class |
+|---|---|---|---|
+| Headings & body copy | Lato | `--font-lato` | `font-sans` |
+| UI labels, nav, meta, tags | Inter | `--font-inter` | `font-inter` |
+
+Both fonts are loaded via `next/font/google` in `app/layout.tsx`. Never import fonts manually or use system fallbacks as primary faces.
+
+### Font Weights (Lato)
+
+| Weight | Usage |
+|---|---|
+| `font-black` (900) | Page `<h1>`, section `<h2>`, hero stats, number callouts |
+| `font-bold` (700) | `<h3>`, CTA button labels, footer section headings |
+| `font-semibold` (600) | Badge labels, tag labels (via Inter) |
+| `font-medium` (500) | Nav links (via Inter), sub-labels |
+| `font-normal` (400) | Body paragraphs, descriptions |
+| `font-light` (300) | Captions, fine print when needed |
+
+### Type Scale & Responsive Sizing
+
+| Element | Mobile | Tablet (`sm`) | Desktop (`lg`) | Extra Large (`xl`) |
+|---|---|---|---|---|
+| `<h1>` hero | `text-4xl` | `text-5xl` | `text-6xl` | `text-7xl` |
+| `<h1>` inner page | `text-4xl` | `text-5xl` | `text-6xl` | — |
+| `<h2>` section | `text-3xl` | `text-4xl` | `text-5xl` | — |
+| `<h3>` card/item | `text-xl` | `text-2xl` | — | — |
+| Body / description | `text-base` | `text-lg` | — | — |
+| Small body | `text-sm` | — | — | — |
+| UI meta / labels | `text-xs` | — | — | — |
+
+### Line Heights & Tracking
+
+- Headings: `leading-tight`
+- Body paragraphs: `leading-relaxed`
+- Section eyebrow labels: `tracking-[0.2em]` or `tracking-widest`
+- Nav links: `tracking-wide`
+- Footer headings / key area labels: `tracking-widest`
+- Use `text-balance` on all multi-line headings to prevent orphans.
+
+### Eyebrow Labels (Section Labels)
+
+All section eyebrow labels follow this exact pattern:
+
+```tsx
+<span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+  Section Name
+</span>
+```
+
+---
+
+## 2. Color Palette
+
+All colors are defined as CSS variables in `app/globals.css`. Use the token names — never hardcode a hex value that isn't in this table.
+
+### Brand Colors
+
+| Token | Hex | Tailwind Utility | Usage |
+|---|---|---|---|
+| `--brand-orange` / `--primary` | `#f58c23` | `text-[#f58c23]` / `bg-[#f58c23]` | Primary CTA, highlights, icons, underlines, active states |
+| `--brand-orange-dark` | `#d97b1a` | `bg-[#d97b1a]` | Hover state of orange buttons |
+| `--brand-yellow` / `--accent` | `#fed16c` | `text-[#fed16c]` | Active nav links, decorative accents, star ratings |
+| `--brand-dark` / `--secondary` | `#383838` | `bg-[#383838]` / `text-[#383838]` | Hero bg, header bg, dark sections, dark text on light |
+| `--brand-light` | `#fff8f0` | `bg-[#fff8f0]` | Warm light section backgrounds |
+
+### Semantic / Surface Colors
+
+| Token | Hex | Usage |
+|---|---|---|
+| `--background` | `#ffffff` | Default page background |
+| `--foreground` | `#383838` | Default body text |
+| `--muted` | `#f9f4ef` | Alternating card row backgrounds |
+| `--muted-foreground` | `#6b6b6b` | Secondary descriptive text |
+| `--border` | `#e8e0d8` | Card borders, dividers, input borders |
+| `--card` | `#ffffff` | Card surfaces on light backgrounds |
+
+### Dark Section Background Variants
+
+| Hex | Usage |
+|---|---|
+| `#383838` | Primary dark bg (hero, header, inner page heroes) |
+| `#2a2a2a` | Darker surface (footer, dropdowns, floating cards) |
+| `#1a1a1a` | Deepest gradient stop only |
+
+### Opacity Conventions on Dark Backgrounds
+
+| Class | Usage |
+|---|---|
+| `text-white` | Primary text on dark bg |
+| `text-white/80` | Nav links (default) |
+| `text-white/70` | Hero body text |
+| `text-white/60` | Secondary descriptive text on dark |
+| `text-white/50` | Footer body and contact text |
+| `text-white/40` | Copyright / legal fine print |
+| `text-white/30` | Subtle attribution text |
+| `bg-white/10` | Ghost surface hover, icon circle bg |
+| `bg-white/5` | Subtle row hover in dropdowns |
+| `border-white/10` | Dividers on dark surfaces |
+| `border-white/5` | Very subtle borders in menus |
+| `border-white/30` | Ghost button border (default) |
+
+### Gradient Patterns
+
+- **Hero background**: `linear-gradient(135deg, #383838 0%, #2a2a2a 40%, #1a1a1a 100%)`
+- **Hero overlay accents**: Radial orange glow top-right at 20% opacity; radial yellow glow bottom-left at 10% opacity
+- **Inner page hero overlay**: `linear-gradient(to bottom, #38383880 0%, #383838 100%)`
+- **Decorative hr**: `linear-gradient(to right, transparent, #f58c23, transparent)`
+- **Card image overlay**: `linear-gradient(to bottom right, transparent 60%, #383838 100%)`
+
+---
+
+## 3. Buttons
+
+### Primary Button (CTA)
+
+```tsx
+className="inline-flex items-center gap-2 bg-[#f58c23] hover:bg-[#d97b1a] text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#f58c23]/40"
+```
+
+- Shape: `rounded-full`
+- Default padding: `px-8 py-4` (large sections), `px-6 py-2.5` (header/compact)
+- Font: `font-bold`, `text-base` (large) or `text-sm` (compact)
+- Hover: background → `#d97b1a`, scale up `hover:scale-105`
+- Active: scale down `active:scale-95`
+- Shadow: `shadow-xl shadow-[#f58c23]/40` on large, `shadow-lg shadow-[#f58c23]/30` on compact
+
+### Ghost / Outline Button (Secondary)
+
+```tsx
+className="inline-flex items-center gap-2 border-2 border-white/30 hover:border-[#f58c23] text-white hover:text-[#f58c23] font-semibold text-base px-8 py-4 rounded-full transition-all duration-200"
+```
+
+- Used on dark backgrounds only
+- Hover: border and text both transition to `#f58c23`
+- No background fill; no shadow
+
+### Rules
+
+- All buttons use `transition-all duration-200`
+- All buttons include icons (`RiArrowRightLine` or similar) where directional intent exists
+- Disabled state: `opacity-50 pointer-events-none`
+- Never use square corners (`rounded-md`) on marketing CTA buttons — always `rounded-full`
+
+---
+
+## 4. Links & Navigation
+
+### Nav Links (Desktop)
+
+```tsx
+className="font-inter text-sm tracking-wide font-medium relative group transition-colors duration-200 text-white/80 hover:text-[#fed16c]"
+// Active:
+className="font-inter text-sm tracking-wide font-medium ... text-[#fed16c]"
+```
+
+- Active state: `text-[#fed16c]` + full-width `h-0.5 bg-[#f58c23]` underline
+- Hover state: text → `#fed16c`, underline animates from `w-0` to `w-full`
+- Underline animation: `transition-all duration-300`
+
+### Dropdown Menu Links
+
+```tsx
+// Default:
+className="text-white/70 hover:text-[#fed16c] hover:bg-white/5"
+// Active:
+className="text-[#fed16c] bg-white/5"
+```
+
+- Container: `bg-[#2a2a2a] border border-white/10 rounded-xl shadow-2xl`
+- Padding: `px-5 py-3`
+- Separator: `border-b border-white/5`
+
+### Footer Links
+
+```tsx
+className="text-white/50 hover:text-[#f58c23] font-inter text-sm transition-colors duration-200"
+```
+
+### Inline Text Links (on light bg)
+
+```tsx
+className="text-[#f58c23] hover:text-[#d97b1a] transition-colors"
+```
+
+### External / Contact Links
+
+Same pattern as footer links. Use `hover:text-[#f58c23]` for all contact details (phone, email).
+
+---
+
+## 5. Cards
+
+### Service / Content Card (Light Background)
+
+```tsx
+className="rounded-2xl overflow-hidden border border-[#e8e0d8] bg-white"
+// Alternating rows:
+className="rounded-2xl overflow-hidden border border-[#e8e0d8] bg-[#fdf8f4]"
+```
+
+- Border radius: `rounded-2xl`
+- Border: `border border-[#e8e0d8]`
+- No drop shadow by default
+
+### Floating / Overlay Card (Dark Background)
+
+```tsx
+className="bg-[#383838]/90 backdrop-blur-sm border border-[#f58c23]/30 rounded-xl px-4 py-3 shadow-xl"
+```
+
+### Image Frame Card
+
+```tsx
+className="rounded-2xl overflow-hidden border-2 border-[#f58c23]/30 shadow-2xl shadow-[#f58c23]/20"
+```
+
+### Icon Badge
+
+```tsx
+className="w-12 h-12 rounded-xl bg-[#f58c23]/10 flex items-center justify-center"
+// Icon inside:
+className="text-[#f58c23]"  // size={22} strokeWidth={1.75}
+```
+
+### Tag / Pill
+
+```tsx
+className="inline-block bg-[#f58c23]/10 text-[#c97818] font-inter font-semibold text-xs px-4 py-2 rounded-full"
+```
+
+### Eyebrow Badge (Dark BG)
+
+```tsx
+className="inline-flex items-center gap-2 bg-[#f58c23]/15 border border-[#f58c23]/30 text-[#fed16c] text-xs font-inter font-semibold uppercase tracking-widest px-4 py-2 rounded-full w-fit"
+```
+
+---
+
+## 6. Section Layout
+
+### Max Width & Padding
+
+```tsx
+className="max-w-7xl mx-auto px-6"
+```
+
+Always `max-w-7xl`. Horizontal padding is always `px-6` (24px) at all breakpoints — never less.
+
+### Section Vertical Spacing
+
+| Context | Spacing |
+|---|---|
+| Standard section | `py-24` |
+| Hero inner content | `pt-32 pb-20` |
+| Inner page hero | `pt-40 pb-20` |
+| Footer | `pt-16 pb-8` |
+
+### Section Header Block
+
+```tsx
+<div className="text-center mb-16">
+  <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+    Eyebrow Label
+  </span>
+  <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance">
+    Section <span className="text-[#f58c23]">Highlight Word</span>
+  </h2>
+</div>
+```
+
+- The highlighted keyword within `<h2>` is always wrapped in `<span className="text-[#f58c23]">`.
+- Use `text-balance` on all headings.
+
+### Background Alternation
+
+| Surface | Color |
+|---|---|
+| Light default | `bg-white` |
+| Light warm alternate | `bg-[#f9f4ef]` or `bg-[#fff8f0]` |
+| Dark primary | `bg-[#383838]` |
+| Dark footer | `bg-[#2a2a2a]` |
+
+Never use arbitrary grays that are not from the palette above.
+
+---
+
+## 7. Iconography
+
+- Library: `react-icons/ri` (Remix Icons) for UI icons; `lucide-react` for content/service icons
+- Icon size on nav/utility: `size={16–18}`
+- Icon size in cards: `size={22}` with `strokeWidth={1.75}` (Lucide)
+- Icon size in hero badges: `size={14}`
+- All icons inherit color from their parent's `text-*` class
+
+---
+
+## 8. Spacing & Border Radius Tokens
+
+| Token | Value | Usage |
+|---|---|---|
+| `--radius` | `0.5rem` | Base radius |
+| `rounded-full` | 9999px | All CTA buttons, tags, pills, badges |
+| `rounded-2xl` | 1rem | Cards, image frames |
+| `rounded-xl` | 0.75rem | Dropdown menus, floating cards, icon badges |
+| `rounded-lg` | `--radius-lg` | Form inputs, secondary containers |
+
+---
+
+## 9. Transitions & Motion
+
+- All interactive elements: `transition-all duration-200` or `transition-colors duration-200`
+- Nav underline: `transition-all duration-300`
+- Scroll reveal animations: use `tw-animate-css` utility classes only
+- Hover scale on primary buttons: `hover:scale-105`
+- Active press on primary buttons: `active:scale-95`
+- Dropdown arrow rotation: `transition-transform duration-200 group-hover:rotate-180`
+- No animation libraries beyond `tw-animate-css` should be introduced
+
+---
+
+## 10. Dark Mode
+
+This project does **not** implement a user-toggled dark mode. The `.dark` variant in `styles/globals.css` is a legacy scaffold and is **not used**. All dark surfaces are intentional design choices using the brand dark palette (`#383838`, `#2a2a2a`). Do not add dark mode class toggling or `dark:` variants to new components.
