@@ -133,12 +133,26 @@ export default function Footer() {
                   size={16}
                   className="text-[#f58c23] mt-0.5 flex-shrink-0"
                 />
-                <a
-                  href="mailto:jexpresstouristtransport.jttsc@gmail.com"
-                  className="text-white/50 hover:text-[#f58c23] font-inter text-sm transition-colors break-all"
-                >
-                  jexpresstouristtransport.jttsc@gmail.com
-                </a>
+                <div className="flex flex-col gap-1.5">
+                  <div>
+                    <p className="text-white/30 font-inter text-xs uppercase tracking-wide mb-0.5">Bookings</p>
+                    <a
+                      href="mailto:booking@jexpresstransport.com"
+                      className="text-white/50 hover:text-[#f58c23] font-inter text-sm transition-colors"
+                    >
+                      booking@jexpresstransport.com
+                    </a>
+                  </div>
+                  <div>
+                    <p className="text-white/30 font-inter text-xs uppercase tracking-wide mb-0.5">General Inquiries</p>
+                    <a
+                      href="mailto:inquire@jexpresstransport.com"
+                      className="text-white/50 hover:text-[#f58c23] font-inter text-sm transition-colors"
+                    >
+                      inquire@jexpresstransport.com
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
