@@ -31,6 +31,7 @@ const infoItems = [
     icon: Clock,
     label: 'Office Hours',
     lines: ['Monday – Friday: 8:00 AM – 5:00 PM', 'Saturday: 8:00 AM – 12:00 PM'],
+    sublabels: ['Weekdays', 'Saturday'],
     type: 'text',
   },
 ]
