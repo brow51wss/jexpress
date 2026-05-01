@@ -1,25 +1,9 @@
-import Image from 'next/image'
-
 export default function BookHero() {
   return (
     <section
       className="relative min-h-[62vh] flex items-end pb-20 pt-40 overflow-hidden"
       style={{ background: '#383838' }}
     >
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/photos/Jexpress%20Tourist%20Transport%20Cooperative/1775101309772-472204893_122131383956396609_7606689391204038066_n.jpg"
-          alt="Jexpress transport fleet ready for booking"
-          fill
-          className="object-cover opacity-20"
-          priority
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(to bottom, #38383880 0%, #383838 100%)' }}
-        />
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <div className="max-w-2xl">
           <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
