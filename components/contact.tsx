@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   RiMapPinLine,
   RiPhoneLine,
@@ -25,6 +25,15 @@ export default function Contact() {
     passengers: '',
     message: '',
   })
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const service = (e as CustomEvent<string>).detail
+      setFormData((prev) => ({ ...prev, serviceType: service }))
+    }
+    window.addEventListener('selectService', handler)
+    return () => window.removeEventListener('selectService', handler)
+  }, [])
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -292,13 +301,11 @@ export default function Contact() {
                         className={inputClass}
                       >
                         <option value="">Select a service</option>
-                        <option value="Tourist Bus Charter">Tourist Bus Charter</option>
-                        <option value="Point-to-Point Transport">
-                          Point-to-Point Transport
-                        </option>
-                        <option value="Group Transport">Group Transport Services</option>
-                        <option value="Scheduled Transport">Scheduled Transport</option>
-                        <option value="Custom Request">Custom Request</option>
+                        <option value="Tourist Transport Services">Tourist Transport Services</option>
+                        <option value="Shuttle Services">Shuttle Services</option>
+                        <option value="Logistic Transport Services">Logistic Transport Services</option>
+                        <option value="Passenger Transport">Passenger Transport</option>
+                        <option value="Other Transport Requirements">Other Transport Requirements</option>
                       </select>
                     </div>
                     <div className="flex flex-col gap-1.5">

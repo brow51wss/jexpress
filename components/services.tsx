@@ -58,7 +58,7 @@ const services = [
 
 function bookService(serviceValue: string) {
   window.dispatchEvent(new CustomEvent('selectService', { detail: serviceValue }))
-  const form = document.getElementById('booking-form')
+  const form = document.getElementById('contact')
   if (form) form.scrollIntoView({ behavior: 'smooth' })
 }
 
