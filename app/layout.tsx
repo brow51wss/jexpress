@@ -3,6 +3,7 @@ import { Lato, Inter } from 'next/font/google'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import ScrollToTop from '@/components/scroll-to-top'
+import MessengerButton from '@/components/messenger-button'
 import './globals.css'
 
 const lato = Lato({
@@ -122,6 +123,7 @@ export default function RootLayout({
       <body className={`${lato.variable} ${inter.variable} font-sans antialiased`}>
         <ScrollToTop />
         {children}
+        <MessengerButton />
         <Analytics />
       </body>
     </html>
