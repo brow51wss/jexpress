@@ -49,15 +49,10 @@ export default function BookForm() {
     setErrorMessage('')
 
     try {
-      const response = await fetch('https://testing.varakit.com/api/email/contact-forms', {
+      const response = await fetch('/api/booking', {
         method: 'POST',
-        mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          adminEmail: 'brow5187+jexpress@gmail.com',
-          formData,
-          userId: '1e14de5f-fc3a-41a4-a9d5-7e2bef44a435',
-        }),
+        body: JSON.stringify(formData),
       })
 
       if (!response.ok) throw new Error('Submission failed. Please try again.')

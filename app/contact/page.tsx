@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     title: 'Contact Us | Jexpress Tourist Transport Cooperative',
     description:
       'Reach out to JTTC for dependable tourist transport, shuttle services, and logistics support. We are ready to assist with your transport requirements.',
-    url: 'https://jexpress.varakit.com/contact',
+    url: 'https://www.jexpresstransport.com/contact',
     siteName: 'Jexpress Tourist Transport Cooperative',
     images: [
       {
-        url: 'https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/logos/Jexpress%20Tourist%20Transport%20Cooperative/1775101248882-logo_no_bg.png',
+        url: 'https://www.jexpresstransport.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Jexpress Tourist Transport Cooperative',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       'Get in touch with JTTC for reliable tourist transport services and transport solutions.',
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://jexpress.varakit.com/contact' },
+  alternates: { canonical: 'https://www.jexpresstransport.com/contact' },
 }
 
 export default function ContactPage() {
