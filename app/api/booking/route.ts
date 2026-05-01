@@ -60,6 +60,7 @@ export async function POST(request: Request) {
                 <p style="margin:4px 0;font-size:14px;"><strong>Drop-off:</strong> ${dropoffLocation || '—'}</p>
                 <p style="margin:4px 0;font-size:14px;"><strong>Passengers:</strong> ${numberOfPassengers || '—'}</p>
                 <p style="margin:4px 0;font-size:14px;"><strong>Vehicle:</strong> ${preferredVehicle || '—'}</p>
+                <p style="margin:4px 0;font-size:14px;white-space:pre-wrap;"><strong>Additional Notes:</strong> ${additionalNotes || '—'}</p>
               </div>
               <p style="font-size:14px;line-height:1.6;">
                 For urgent inquiries, call us directly:<br/>
