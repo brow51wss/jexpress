@@ -15,9 +15,10 @@ const infoItems = [
     icon: Mail,
     label: 'Email Address',
     lines: [
-      'jexpresstouristtransport.jttsc@gmail.com',
-      'espasyostudyandofficehub@gmail.com',
+      'booking@jexpresstransport.com',
+      'inquire@jexpresstransport.com',
     ],
+    sublabels: ['Bookings', 'General Inquiries'],
     type: 'email',
   },
   {
@@ -72,24 +73,30 @@ export default function ContactInfo() {
                   <p className="font-sans font-bold text-[#383838] text-sm uppercase tracking-wide">
                     {item.label}
                   </p>
-                  <div className="flex flex-col gap-1">
-                    {item.lines.map((line) => {
+                  <div className="flex flex-col gap-2">
+                    {item.lines.map((line, i) => {
                       const link = href(item.type, line)
-                      return link ? (
-                        <a
-                          key={line}
-                          href={link}
-                          className="font-inter text-[#6b6b6b] text-sm leading-relaxed hover:text-[#f58c23] transition-colors break-all"
-                        >
-                          {line}
-                        </a>
-                      ) : (
-                        <span
-                          key={line}
-                          className="font-inter text-[#6b6b6b] text-sm leading-relaxed"
-                        >
-                          {line}
-                        </span>
+                      const sublabel = item.sublabels?.[i]
+                      return (
+                        <div key={line}>
+                          {sublabel && (
+                            <p className="font-inter text-[#f58c23]/70 text-xs uppercase tracking-wide mb-0.5">
+                              {sublabel}
+                            </p>
+                          )}
+                          {link ? (
+                            <a
+                              href={link}
+                              className="font-inter text-[#6b6b6b] text-sm leading-relaxed hover:text-[#f58c23] transition-colors break-all"
+                            >
+                              {line}
+                            </a>
+                          ) : (
+                            <span className="font-inter text-[#6b6b6b] text-sm leading-relaxed">
+                              {line}
+                            </span>
+                          )}
+                        </div>
                       )
                     })}
                   </div>
