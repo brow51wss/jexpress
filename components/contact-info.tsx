@@ -30,9 +30,12 @@ const infoItems = [
   {
     icon: Clock,
     label: 'Office Hours',
-    lines: ['Monday – Friday: 8:00 AM – 5:00 PM', 'Saturday: 8:00 AM – 12:00 PM'],
-    sublabels: ['Weekdays', 'Saturday'],
-    type: 'text',
+    lines: [],
+    type: 'hours',
+    hours: [
+      { sublabel: 'Weekdays', day: 'Monday – Friday', time: '8:00 AM – 5:00 PM' },
+      { sublabel: 'Saturday', day: 'Saturday', time: '8:00 AM – 12:00 PM' },
+    ],
   },
 ]
 
@@ -74,33 +77,47 @@ export default function ContactInfo() {
                   <p className="font-sans font-bold text-[#383838] text-sm uppercase tracking-wide">
                     {item.label}
                   </p>
-                  <div className="flex flex-col gap-4">
-                    {item.lines.map((line, i) => {
-                      const link = href(item.type, line)
-                      const sublabel = item.sublabels?.[i]
-                      return (
-                        <div key={line}>
-                          {sublabel && (
-                            <p className="font-inter text-[#f58c23]/70 text-xs uppercase tracking-wide mb-0.5">
-                              {sublabel}
-                            </p>
-                          )}
-                          {link ? (
-                            <a
-                              href={link}
-                              className="font-inter text-[#6b6b6b] text-sm leading-relaxed hover:text-[#f58c23] transition-colors break-all"
-                            >
-                              {line}
-                            </a>
-                          ) : (
-                            <span className="font-inter text-[#6b6b6b] text-sm leading-relaxed">
-                              {line}
-                            </span>
-                          )}
+                  {item.type === 'hours' ? (
+                    <div className="flex flex-col gap-4">
+                      {item.hours?.map((entry) => (
+                        <div key={entry.sublabel}>
+                          <p className="font-inter text-[#f58c23]/70 text-xs uppercase tracking-wide mb-0.5">
+                            {entry.sublabel}
+                          </p>
+                          <p className="font-inter text-[#6b6b6b] text-sm leading-relaxed">{entry.day}</p>
+                          <p className="font-inter text-[#6b6b6b] text-sm leading-relaxed">{entry.time}</p>
                         </div>
-                      )
-                    })}
-                  </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="flex flex-col gap-4">
+                      {item.lines.map((line, i) => {
+                        const link = href(item.type, line)
+                        const sublabel = item.sublabels?.[i]
+                        return (
+                          <div key={line}>
+                            {sublabel && (
+                              <p className="font-inter text-[#f58c23]/70 text-xs uppercase tracking-wide mb-0.5">
+                                {sublabel}
+                              </p>
+                            )}
+                            {link ? (
+                              <a
+                                href={link}
+                                className="font-inter text-[#6b6b6b] text-sm leading-relaxed hover:text-[#f58c23] transition-colors break-all"
+                              >
+                                {line}
+                              </a>
+                            ) : (
+                              <span className="font-inter text-[#6b6b6b] text-sm leading-relaxed">
+                                {line}
+                              </span>
+                            )}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )}
                 </div>
               </div>
             )
