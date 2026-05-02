@@ -17,9 +17,17 @@ export const metadata: Metadata = {
     title: 'Book Now | Jexpress Tourist Transport Cooperative',
     description:
       'Reserve dependable transport services with JTTC. Professional drivers, flexible vehicle options, and reliable service for tourism, logistics, hospitals, and organizations.',
-    url: 'https://jexpress.com/book',
+    url: 'https://www.jexpresstransport.com/book',
     siteName: 'Jexpress Tourist Transport Cooperative',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.jexpresstransport.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Jexpress Tourist Transport Cooperative',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -27,7 +35,7 @@ export const metadata: Metadata = {
     description:
       'Submit a booking request with JTTC for dependable transport services across the Philippines.',
   },
-  alternates: { canonical: 'https://jexpress.com/book' },
+  alternates: { canonical: 'https://www.jexpresstransport.com/book' },
   robots: 'index, follow',
 }
 

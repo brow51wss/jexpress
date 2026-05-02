@@ -13,19 +13,19 @@ export const metadata: Metadata = {
   description:
     'Explore the full range of transport and allied services offered by Jexpress Tourist Transport Cooperative — tourist transport, shuttle services, logistics, passenger solutions, and more.',
   alternates: {
-    canonical: 'https://jexpresstransport.com/services',
+    canonical: 'https://www.jexpresstransport.com/services',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://jexpresstransport.com/services',
+    url: 'https://www.jexpresstransport.com/services',
     siteName: 'Jexpress Tourist Transport Cooperative',
     title: 'Our Services | Jexpress Tourist Transport Cooperative',
     description:
       'Tourist transport, shuttle services, logistics, passenger solutions, and allied transport services by JTTC.',
     images: [
       {
-        url: 'https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/logos/Jexpress%20Tourist%20Transport%20Cooperative/1775101248882-logo_no_bg.png',
+        url: 'https://www.jexpresstransport.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Jexpress Tourist Transport Cooperative',

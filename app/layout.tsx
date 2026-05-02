@@ -34,14 +34,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Jexpress Tourist Transport Cooperative' }],
   creator: 'Jexpress Tourist Transport Cooperative',
-  metadataBase: new URL('https://jexpresstransport.com'),
+  metadataBase: new URL('https://www.jexpresstransport.com'),
   alternates: {
-    canonical: 'https://jexpresstransport.com',
+    canonical: 'https://www.jexpresstransport.com',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://jexpresstransport.com',
+    url: 'https://www.jexpresstransport.com',
     siteName: 'Jexpress Tourist Transport Cooperative',
     title: 'Jexpress Tourist Transport Cooperative | Safe & Reliable Transport Services',
     description:
@@ -83,19 +83,20 @@ const jsonLd = {
   '@type': 'LocalBusiness',
   name: 'Jexpress Tourist Transport Cooperative',
   description:
-    'Safe, comfortable, and reliable tourist transport services in Bloomingdale, DC.',
-  url: 'https://jexpresstransport.com',
-  telephone: '+6309190091985',
-  email: 'brow5187+jexpress@gmail.com',
+    'Safe, comfortable, and reliable tourist transport services in Marikina City, Philippines.',
+  url: 'https://www.jexpresstransport.com',
+  telephone: '+639166112928',
+  email: 'inquire@jexpresstransport.com',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Bloomingdale',
-    addressRegion: 'DC',
-    addressCountry: 'US',
+    streetAddress: '#6 Torres Bugallon Street, Marikina Heights',
+    addressLocality: 'Marikina City',
+    addressRegion: 'Metro Manila',
+    addressCountry: 'PH',
   },
   sameAs: ['https://www.facebook.com/jexpressjttc'],
   serviceType: 'Tourist Transport Services',
-  areaServed: 'Bloomingdale, DC, US',
+  areaServed: 'Marikina City, Philippines',
 }
 
 export default function RootLayout({
@@ -109,7 +110,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
         <meta name="theme-color" content="#f58c23" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://jexpresstransport.com" />
+        <link rel="canonical" href="https://www.jexpresstransport.com" />
         <link rel="icon" href="/favicon.png" />
         <title>Jexpress Tourist Transport Cooperative | Safe & Reliable Transport Services</title>
         <meta

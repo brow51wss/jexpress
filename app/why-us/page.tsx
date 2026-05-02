@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     title: 'Why Choose JTTC | Jexpress Tourist Transport Cooperative',
     description:
       'Professional drivers, safety-first operations, and integrity-driven transport service. Learn why JTTC is the right partner for your organization.',
-    url: 'https://jexpresstransport.com/why-us',
+    url: 'https://www.jexpresstransport.com/why-us',
     siteName: 'Jexpress Tourist Transport Cooperative',
     type: 'website',
     images: [
       {
-        url: 'https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/logos/Jexpress%20Tourist%20Transport%20Cooperative/1775101248882-logo_no_bg.png',
-        width: 800,
-        height: 600,
+        url: 'https://www.jexpresstransport.com/og-image.png',
+        width: 1200,
+        height: 630,
         alt: 'Jexpress Tourist Transport Cooperative',
       },
     ],
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       'Professional drivers, safety-first operations, and integrity-driven transport service.',
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://jexpresstransport.com/why-us' },
+  alternates: { canonical: 'https://www.jexpresstransport.com/why-us' },
 }
 
 export default function WhyUsPage() {

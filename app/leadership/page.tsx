@@ -16,19 +16,19 @@ export const metadata: Metadata = {
   description:
     'Meet the board of directors, key officers, committees, and operational team behind Jexpress Tourist Transport Cooperative (JTTC) — organized leadership for dependable transport services.',
   alternates: {
-    canonical: 'https://jexpresstransport.com/leadership',
+    canonical: 'https://www.jexpresstransport.com/leadership',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://jexpresstransport.com/leadership',
+    url: 'https://www.jexpresstransport.com/leadership',
     siteName: 'Jexpress Tourist Transport Cooperative',
     title: 'Leadership & Organizational Structure | Jexpress Tourist Transport Cooperative',
     description:
       'Board of directors, key officers, committees, and operational structure of JTTC.',
     images: [
       {
-        url: 'https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/logos/Jexpress%20Tourist%20Transport%20Cooperative/1775101248882-logo_no_bg.png',
+        url: 'https://www.jexpresstransport.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Jexpress Tourist Transport Cooperative',

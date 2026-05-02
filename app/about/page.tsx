@@ -12,19 +12,19 @@ export const metadata: Metadata = {
   description:
     'Learn about Jexpress Tourist Transport Cooperative — our story, mission, values, and the team behind safe, reliable, and professional transport services in Bloomingdale, DC.',
   alternates: {
-    canonical: 'https://jexpresstransport.com/about',
+    canonical: 'https://www.jexpresstransport.com/about',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://jexpresstransport.com/about',
+    url: 'https://www.jexpresstransport.com/about',
     siteName: 'Jexpress Tourist Transport Cooperative',
     title: 'About Us | Jexpress Tourist Transport Cooperative',
     description:
       'Our story, mission, values, and team behind safe and reliable tourist transport in Bloomingdale, DC.',
     images: [
       {
-        url: 'https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/logos/Jexpress%20Tourist%20Transport%20Cooperative/1775101248882-logo_no_bg.png',
+        url: 'https://www.jexpresstransport.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Jexpress Tourist Transport Cooperative',
