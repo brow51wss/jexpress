@@ -49,7 +49,7 @@ const reasons = [
     number: '06',
     title: 'Capable Fleet and Resources',
     description:
-      'Our equipment resources include Toyota GL Grandia units, Toyota Commuter units, Nissan Commuter NV350 units, and additional buses, SUVs, closed vans, and sedans upon request. This gives us the flexibility to support different trip sizes and transport requirements.',
+      'Our equipment resources include Toyota GL Grandia units, Toyota Commuter units, Nissan Commuter NV350 units, and additional buses, SUVs, Coasters, and sedans upon request. This gives us the flexibility to support different trip sizes and transport requirements.',
   },
   {
     icon: BadgeCheck,

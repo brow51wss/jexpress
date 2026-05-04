@@ -5,7 +5,7 @@ const vehicles = [
   { name: 'Toyota GL Grandia', qty: '5 Units', desc: 'Premium passenger van for small to medium groups' },
   { name: 'Toyota Commuter', qty: '10 Units', desc: 'Versatile commuter van for regular shuttle operations' },
   { name: 'Nissan Commuter NV350', qty: '13 Units', desc: 'High-capacity commuter van for larger group transport' },
-  { name: 'Buses, SUVs, Closed Vans & Sedans', qty: 'Upon Request', desc: 'Additional fleet options available based on client requirements' },
+  { name: 'Buses, SUVs, Coasters & Sedans', qty: 'Upon Request', desc: 'Additional fleet options available based on client requirements' },
 ]
 
 export default function ServicesFleet() {

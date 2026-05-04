@@ -6,7 +6,7 @@ const fleet = [
   { label: 'Toyota GL Grandia', count: '5 units' },
   { label: 'Toyota Commuter', count: '10 units' },
   { label: 'Nissan Commuter NV350', count: '13 units' },
-  { label: 'Buses, SUVs, Closed Vans & Sedans', count: 'Upon request' },
+  { label: 'Buses, SUVs, Coasters & Sedans', count: 'Upon request' },
 ]
 
 export default function AboutTeam() {

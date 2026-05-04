@@ -125,7 +125,7 @@ export default function WhyUs() {
                   '5 Toyota GL Grandia units',
                   '10 Toyota Commuter units',
                   '13 Nissan Commuter NV350 units',
-                  'Buses, SUVs, closed vans & sedans available',
+                  'Buses, SUVs, Coasters & sedans available',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#f58c23] flex-shrink-0" />

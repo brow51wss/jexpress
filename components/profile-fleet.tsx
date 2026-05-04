@@ -5,7 +5,7 @@ const vehicles = [
   { name: 'Toyota GL Grandia', qty: '5 Units' },
   { name: 'Toyota Commuter', qty: '10 Units' },
   { name: 'Nissan Commuter NV350', qty: '13 Units' },
-  { name: 'Buses, SUVs, Closed Vans & Sedans', qty: 'Upon Request' },
+  { name: 'Buses, SUVs, Coasters & Sedans', qty: 'Upon Request' },
 ]
 
 export default function ProfileFleet() {
