@@ -233,7 +233,7 @@ export default function PrivacyPolicyPage() {
                       <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
                       <ul>
                         <li><strong>Email:</strong> <a href="mailto:inquire@jexpresstransport.com" className="text-[#f58c23]">inquire@jexpresstransport.com</a></li>
-                        <li><strong>Phone:</strong> +63 916-611-2928</li>
+                        <li><strong>Phone:</strong> +63 916 611 2928 / +63 919 009 1985 / +63 2 8743 9021</li>
                         <li><strong>Address:</strong> Espasyo Learning and Recreation Hub, #6 Torres Bugallon Street, Marikina Heights, Marikina City, Philippines</li>
                       </ul>
                     </>

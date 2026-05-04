@@ -22,9 +22,10 @@ const contactDetails = [
     icon: Phone,
     label: 'Contact Numbers',
     items: [
-      { text: '+63 916-611-2928', href: 'tel:+639166112928' },
-      { text: '+632 8700-600 42', href: 'tel:+63287006042' },
-      { text: '+63 919-009-1985', href: 'tel:+639190091985' },
+      { text: '+63 916 611 2928', href: 'tel:+639166112928' },
+      { text: '+63 2 8700 6042', href: 'tel:+63287006042' },
+      { text: '+63 919 009 1985', href: 'tel:+639190091985' },
+      { text: '+63 2 8743 9021', href: 'tel:+63287439021' },
     ],
   },
 ]

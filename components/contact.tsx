@@ -118,13 +118,16 @@ export default function Contact() {
                   <p className="text-[#383838] font-bold text-sm">Phone</p>
                   <div className="flex flex-col gap-0.5">
                     <a href="tel:+639166112928" className="text-[#6b6b6b] text-sm font-inter hover:text-[#f58c23] transition-colors">
-                      +63 916-611-2928
+                      +63 916 611 2928
                     </a>
                     <a href="tel:+63287006042" className="text-[#6b6b6b] text-sm font-inter hover:text-[#f58c23] transition-colors">
-                      +632 8700-600 42
+                      +63 2 8700 6042
                     </a>
                     <a href="tel:+639190091985" className="text-[#6b6b6b] text-sm font-inter hover:text-[#f58c23] transition-colors">
-                      +63 919-009-1985
+                      +63 919 009 1985
+                    </a>
+                    <a href="tel:+63287439021" className="text-[#6b6b6b] text-sm font-inter hover:text-[#f58c23] transition-colors">
+                      +63 2 8743 9021
                     </a>
                   </div>
                 </div>

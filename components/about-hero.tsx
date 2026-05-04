@@ -1,7 +1,7 @@
 export default function AboutHero() {
   return (
     <section
-      className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24"
+      className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24 pb-32"
       style={{ background: '#383838' }}
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">

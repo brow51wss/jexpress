@@ -1,0 +1,211 @@
+'use client'
+
+import { useState } from 'react'
+import { Send, CheckCircle, XCircle, Loader2 } from 'lucide-react'
+
+type FormState = 'idle' | 'loading' | 'success' | 'error'
+
+const inputClass =
+  'w-full bg-white border border-[#e8e0d8] focus:border-[#f58c23] focus:ring-2 focus:ring-[#f58c23]/20 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
+
+const labelClass =
+  'text-[#383838] text-xs font-bold font-inter uppercase tracking-wide mb-1.5 block'
+
+export default function FranchiseForm() {
+  const [formState, setFormState] = useState<FormState>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [formData, setFormData] = useState({
+    fullName: '',
+    contactNumber: '',
+    email: '',
+    preferredLocation: '',
+    message: '',
+  })
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setFormState('loading')
+    setErrorMessage('')
+
+    try {
+      const response = await fetch('/api/franchise', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) throw new Error('Submission failed. Please try again.')
+
+      setFormState('success')
+      setFormData({
+        fullName: '',
+        contactNumber: '',
+        email: '',
+        preferredLocation: '',
+        message: '',
+      })
+    } catch (err: unknown) {
+      setFormState('error')
+      setErrorMessage(
+        err instanceof Error ? err.message : 'Something went wrong. Please try again.'
+      )
+    }
+  }
+
+  return (
+    <section id="franchise-form" className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-3xl mx-auto">
+
+          <div className="text-center mb-12">
+            <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+              Get In Touch
+            </span>
+            <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance mb-4">
+              Interested? <span className="text-[#f58c23]">Let&apos;s Talk.</span>
+            </h2>
+            <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
+              Fill out the form below and our team will contact you to discuss franchise opportunities and next steps.
+            </p>
+          </div>
+
+          <div className="bg-[#fff8f0] rounded-2xl border border-[#e8e0d8] p-8 lg:p-10">
+            {formState === 'success' ? (
+              <div className="flex flex-col items-center justify-center gap-5 py-16 text-center">
+                <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
+                  <CheckCircle size={40} className="text-green-600" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-sans font-black text-[#383838] text-2xl">
+                  Inquiry Sent!
+                </h3>
+                <p className="font-inter text-[#6b6b6b] text-base max-w-sm leading-relaxed">
+                  Thank you for your interest in becoming a J Express Transport franchise partner. Our team will be in touch with you shortly.
+                </p>
+                <button
+                  onClick={() => setFormState('idle')}
+                  className="mt-2 bg-[#f58c23] hover:bg-[#d97b1a] text-white font-bold text-sm px-8 py-3 rounded-full transition-colors"
+                >
+                  Submit Another Inquiry
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
+
+                {formState === 'error' && (
+                  <div className="flex items-center gap-3 bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 text-sm font-inter">
+                    <XCircle size={18} className="flex-shrink-0" strokeWidth={1.8} />
+                    {errorMessage}
+                  </div>
+                )}
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="fullName" className={labelClass}>
+                      Full Name <span className="text-[#f58c23]">*</span>
+                    </label>
+                    <input
+                      id="fullName"
+                      name="fullName"
+                      type="text"
+                      required
+                      placeholder="Your full name"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      className={inputClass}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contactNumber" className={labelClass}>
+                      Contact Number <span className="text-[#f58c23]">*</span>
+                    </label>
+                    <input
+                      id="contactNumber"
+                      name="contactNumber"
+                      type="tel"
+                      required
+                      placeholder="+63 000 000 0000"
+                      value={formData.contactNumber}
+                      onChange={handleChange}
+                      className={inputClass}
+                    />
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="email" className={labelClass}>
+                      Email Address <span className="text-[#f58c23]">*</span>
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="your@email.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className={inputClass}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="preferredLocation" className={labelClass}>
+                      Preferred Location
+                    </label>
+                    <input
+                      id="preferredLocation"
+                      name="preferredLocation"
+                      type="text"
+                      placeholder="e.g. Marikina, Metro Manila"
+                      value={formData.preferredLocation}
+                      onChange={handleChange}
+                      className={inputClass}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className={labelClass}>
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    placeholder="Tell us about your background, interest in the franchise, or any questions you may have..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    className={`${inputClass} resize-none`}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={formState === 'loading'}
+                  className="w-full flex items-center justify-center gap-2.5 bg-[#f58c23] hover:bg-[#d97b1a] disabled:bg-[#f58c23]/60 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-[#f58c23]/30 mt-1"
+                >
+                  {formState === 'loading' ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" strokeWidth={2} />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={17} strokeWidth={2} />
+                      Send Franchise Inquiry
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

@@ -105,7 +105,7 @@ export default function ContactForm() {
               </div>
               <p className="text-white/60 text-xs font-inter leading-relaxed">
                 We respond to all inquiries within 24 hours. For urgent matters, please
-                call us directly at +63 916-611-2928.
+                call us directly at +63 916 611 2928.
               </p>
             </div>
           </div>

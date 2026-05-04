@@ -32,7 +32,7 @@ export default function ContactCta() {
                   href="tel:+639166112928"
                   className="text-white font-black text-xl hover:text-[#f58c23] transition-colors"
                 >
-                  +63 916-611-2928
+                  +63 916 611 2928
                 </a>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl px-7 py-5 flex flex-col gap-1">
@@ -43,7 +43,18 @@ export default function ContactCta() {
                   href="tel:+63287006042"
                   className="text-white font-black text-xl hover:text-[#f58c23] transition-colors"
                 >
-                  +632 8700-600 42
+                  +63 2 8700 6042
+                </a>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-2xl px-7 py-5 flex flex-col gap-1">
+                <span className="text-white/50 font-inter text-xs uppercase tracking-widest">
+                  Office Line 2
+                </span>
+                <a
+                  href="tel:+63287439021"
+                  className="text-white font-black text-xl hover:text-[#f58c23] transition-colors"
+                >
+                  +63 2 8743 9021
                 </a>
               </div>
             </div>
