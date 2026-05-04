@@ -147,6 +147,17 @@ export default function AboutStory() {
                 As a cooperative, we value service that benefits both our clients and our community.
               </p>
             </div>
+
+            <div className="bg-[#383838] rounded-2xl p-8">
+              <p className="text-[#fed16c] font-inter text-xs font-semibold uppercase tracking-widest mb-4">
+                Regulatory Compliance
+              </p>
+              <p className="font-inter text-white/70 text-base leading-relaxed">
+                Our vans comply with LTFRB franchising requirements — meeting the same standards
+                required by government agencies such as DAR and OCD, as well as those followed
+                by large companies and professional shuttle service providers nationwide.
+              </p>
+            </div>
           </div>
         </div>
       </div>
