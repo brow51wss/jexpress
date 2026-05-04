@@ -16,7 +16,7 @@ import FranchiseForm from '@/components/franchise-form'
 const benefits = [
   'Established brand and business model',
   'Step-by-step training and onboarding',
-  'Operations and logistics support',
+  'Operations and fleet support',
   'Marketing and customer acquisition guidance',
   'Ongoing partnership and network support',
 ]
@@ -39,14 +39,14 @@ const services = [
   },
   {
     icon: RiGlobalLine,
-    title: 'Business & E-Commerce Logistics',
+    title: 'Business & E-Commerce Transport',
     description: 'Last-mile and fulfillment solutions built for online sellers and growing enterprises.',
   },
 ]
 
 const audience = [
   { icon: RiBriefcaseLine, label: 'Entrepreneurs and investors' },
-  { icon: RiTruckLine, label: 'Transport or logistics operators' },
+  { icon: RiTruckLine, label: 'Transport operators' },
   { icon: RiBuilding2Line, label: 'Business owners seeking expansion' },
   { icon: RiMapPinLine, label: 'Individuals with strong local market knowledge' },
 ]
@@ -90,9 +90,9 @@ export default function FranchiseContent() {
               Franchise Opportunity
             </span>
             <h1 className="font-sans font-black text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight text-balance mb-6">
-              Start Your Own{' '}
-              <span className="text-[#f58c23]">Logistics Business</span>{' '}
-              with J Express Transport
+              We are inviting{' '}
+              <span className="text-[#f58c23]">Driver-Vehicle Owners</span>{' '}
+              to Partner with Us.
             </h1>
             <p className="font-inter text-white/70 text-base sm:text-lg leading-relaxed max-w-2xl mb-10">
               Become a franchise partner and grow with a fast-rising transport and delivery network backed by years of operational experience.
@@ -129,7 +129,7 @@ export default function FranchiseContent() {
                 <span className="text-[#f58c23]">J Express Transport?</span>
               </h2>
               <p className="font-inter text-[#6b6b6b] text-base leading-relaxed mb-4">
-                The logistics industry continues to grow rapidly — and J Express Transport is positioned to meet that demand with reliable, efficient, and scalable solutions.
+                The transport industry continues to grow rapidly — and J Express Transport is positioned to meet that demand with reliable, efficient, and scalable solutions.
               </p>
               <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
                 As a franchise partner, you gain access to a proven system designed to help you launch and grow your own transport business with confidence, operational support, and a recognized brand behind you.
@@ -138,7 +138,7 @@ export default function FranchiseContent() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 ['Proven System', 'A business model built from years of real transport operations.'],
-                ['Growing Demand', 'Logistics and delivery are among the fastest-growing sectors nationwide.'],
+                ['Growing Demand', 'Transport and delivery are among the fastest-growing sectors nationwide.'],
                 ['Full Support', 'Training, onboarding, and ongoing operational assistance.'],
                 ['Scalable Model', 'Start at your own pace and grow as your market expands.'],
               ].map(([title, desc]) => (
@@ -316,7 +316,7 @@ export default function FranchiseContent() {
               <span className="text-[#f58c23]">Right Time</span>
             </h2>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed mb-4">
-              The demand for delivery and logistics services continues to rise with the growth of online businesses and regional trade. E-commerce, local distribution, and last-mile delivery are among the fastest-growing segments in the Philippine economy.
+              The demand for delivery and transport services continues to rise with the growth of online businesses and regional trade. E-commerce, local distribution, and last-mile delivery are among the fastest-growing segments in the Philippine economy.
             </p>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
               This is your opportunity to enter a high-demand industry with the backing of an established transport network — before the window of early entry closes.
@@ -338,7 +338,7 @@ export default function FranchiseContent() {
           </span>
           <h2 className="font-sans font-black text-white text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance mb-6 max-w-3xl mx-auto">
             Ready to Own Your{' '}
-            <span className="text-[#f58c23]">Logistics Business?</span>
+            <span className="text-[#f58c23]">Transport Business?</span>
           </h2>
           <p className="font-inter text-white/70 text-base leading-relaxed mb-10 max-w-xl mx-auto">
             Apply now and become a J Express Transport franchise partner today. Our team is ready to walk you through every step.
