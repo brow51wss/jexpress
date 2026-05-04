@@ -56,7 +56,7 @@ const reasons = [
     number: '07',
     title: 'Registered and Compliant Operations',
     description:
-      'JTTC maintains important registrations, licenses, certifications, and permits — including recognition from the Cooperative Development Authority, Office of Transportation Cooperative, BIR registration, municipal permit, and PhilGEPS.',
+      'JTTC maintains important registrations, licenses, certifications, and permits — including recognition from the Cooperative Development Authority, Office of Transportation Cooperative, BIR registration, municipal permit, and PhilGEPS. Our vans also carry LTFRB franchise authorization, meeting the same compliance standards required by government agencies such as DAR and OCD, and those followed by large companies and professional shuttle service providers.',
   },
 ]
 

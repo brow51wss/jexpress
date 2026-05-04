@@ -176,6 +176,7 @@ export default function WhyUs() {
               {[
                 'Cooperative Development Authority',
                 'Office of Transportation Cooperative',
+                'LTFRB Franchise Authorization',
                 'BIR Certificate of Registration',
                 'Municipal Business Permit',
                 'PhilGEPS Registration',
