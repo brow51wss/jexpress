@@ -42,7 +42,7 @@ const reasons = [
     number: '05',
     title: 'Flexible Transport Solutions',
     description:
-      'Our services support a wide range of needs, including tourist transport, shuttle services, logistics support, and additional transport requirements. With multiple vehicle types available, we are equipped to respond to different client requests.',
+      'Our services support a wide range of needs, including tourist transport, shuttle services, and additional transport requirements. With multiple vehicle types available, we are equipped to respond to different client requests.',
   },
   {
     icon: Bus,

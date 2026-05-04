@@ -13,7 +13,7 @@ export default function BookIntro() {
           <p className="font-inter text-[#6b6b6b] text-base sm:text-lg leading-relaxed mb-8">
             Looking for safe and dependable transport support for your trip, organization, or
             operational needs? JTTC is ready to assist with transport solutions designed for
-            tourism, companies, hospitals, logistics, and other client requirements. Send us your
+            tourism, companies, hospitals, and other client requirements. Send us your
             booking inquiry and our team will get in touch with you to discuss availability and
             service details.
           </p>

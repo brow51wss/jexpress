@@ -12,11 +12,11 @@ import BookCta from '@/components/book-cta'
 export const metadata: Metadata = {
   title: 'Book Now | Jexpress Tourist Transport Cooperative',
   description:
-    'Submit a booking request with Jexpress Tourist Transport Cooperative (JTTC) for tourist transport, shuttle services, logistics transport, and other transport requirements.',
+    'Submit a booking request with Jexpress Tourist Transport Cooperative (JTTC) for tourist transport, shuttle services, and other transport requirements.',
   openGraph: {
     title: 'Book Now | Jexpress Tourist Transport Cooperative',
     description:
-      'Reserve dependable transport services with JTTC. Professional drivers, flexible vehicle options, and reliable service for tourism, logistics, hospitals, and organizations.',
+      'Reserve dependable transport services with JTTC. Professional drivers, flexible vehicle options, and reliable service for tourism, hospitals, and organizations.',
     url: 'https://www.jexpresstransport.com/book',
     siteName: 'Jexpress Tourist Transport Cooperative',
     type: 'website',

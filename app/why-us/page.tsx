@@ -11,7 +11,7 @@ import WhyUsCta from '@/components/whyus-cta'
 export const metadata: Metadata = {
   title: 'Why Choose JTTC | Jexpress Tourist Transport Cooperative',
   description:
-    'Discover why Jexpress Tourist Transport Cooperative is the trusted transport partner for tourism, logistics, hospitals, and organizations. Professional drivers, safety-first operations, and integrity-driven service.',
+    'Discover why Jexpress Tourist Transport Cooperative is the trusted transport partner for tourism, hospitals, and organizations. Professional drivers, safety-first operations, and integrity-driven service.',
   openGraph: {
     title: 'Why Choose JTTC | Jexpress Tourist Transport Cooperative',
     description:

@@ -15,7 +15,7 @@ export default function BookHero() {
           </h1>
           <p className="font-inter text-white/60 text-base sm:text-lg leading-relaxed mx-auto">
             Reserve dependable transport services with Jexpress Tourist Transport Cooperative.
-            We assist clients with tourist transport, shuttle services, logistics transport,
+            We assist clients with tourist transport, shuttle services,
             and other transport requirements through reliable service, professional drivers,
             and flexible vehicle options.
           </p>

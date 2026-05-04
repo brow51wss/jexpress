@@ -6,7 +6,7 @@ const vehicles = [
   { name: 'Nissan Commuter NV350', capacity: 'Up to 14 passengers', tag: '13 units available' },
   { name: 'Bus', capacity: 'Large group transport', tag: 'Available upon request' },
   { name: 'SUV', capacity: 'Small group or executive', tag: 'Available upon request' },
-  { name: 'Closed Van / Sedan', capacity: 'Logistics or compact needs', tag: 'Available upon request' },
+  { name: 'Closed Van / Sedan', capacity: 'Compact transport needs', tag: 'Available upon request' },
 ]
 
 export default function BookFleet() {

@@ -57,7 +57,7 @@ export default function ContactInfo() {
             Our Contact <span className="text-[#f58c23]">Information</span>
           </h2>
           <p className="font-inter text-[#6b6b6b] text-base leading-relaxed max-w-2xl mx-auto">
-            Whether you need tourist transport services, shuttle support, logistics transport,
+            Whether you need tourist transport services, shuttle support,
             or additional vehicle arrangements, JTTC is here to help.
           </p>
         </div>

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Company Profile | Jexpress Tourist Transport Cooperative',
     description:
-      'JTTC provides dependable transport solutions for tourism, logistics, hospitals, companies, and the commuting public.',
+      'JTTC provides dependable transport solutions for tourism, hospitals, companies, and the commuting public.',
     url: 'https://www.jexpresstransport.com/company-profile',
     siteName: 'Jexpress Tourist Transport Cooperative',
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Company Profile | Jexpress Tourist Transport Cooperative',
     description:
-      'JTTC provides dependable transport solutions for tourism, logistics, hospitals, companies, and the commuting public.',
+      'JTTC provides dependable transport solutions for tourism, hospitals, companies, and the commuting public.',
   },
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://www.jexpresstransport.com/company-profile' },

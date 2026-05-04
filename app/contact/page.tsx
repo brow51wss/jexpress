@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Us | Jexpress Tourist Transport Cooperative',
     description:
-      'Reach out to JTTC for dependable tourist transport, shuttle services, and logistics support. We are ready to assist with your transport requirements.',
+      'Reach out to JTTC for dependable tourist transport and shuttle services. We are ready to assist with your transport requirements.',
     url: 'https://www.jexpresstransport.com/contact',
     siteName: 'Jexpress Tourist Transport Cooperative',
     images: [

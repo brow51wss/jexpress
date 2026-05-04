@@ -41,7 +41,7 @@ export default function Footer() {
               </p>
             </Link>
             <p className="text-white/50 text-sm font-inter leading-relaxed">
-              Dependable transport services for tourism, logistics, hospitals, companies,
+              Dependable transport services for tourism, hospitals, companies,
               and the commuting public. Committed to safety, integrity, and quality service.
             </p>
             <div className="flex items-center gap-3">

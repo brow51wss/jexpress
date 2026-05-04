@@ -14,7 +14,7 @@ export default function ServicesHero() {
           </h1>
           <p className="font-inter text-white/60 text-base sm:text-lg leading-relaxed mx-auto">
             Jexpress Tourist Transport Cooperative (JTTC) provides dependable transport and allied
-            support services for businesses, hospitals, logistics operations, tourism, and the
+            support services for businesses, hospitals, tourism, and the
             commuting public. We are committed to reliable service, safety, professionalism, and
             operational integrity in every engagement.
           </p>

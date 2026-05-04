@@ -31,7 +31,7 @@ export default function ProfileOverview() {
             </p>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
               JTTC has a clear focus on serving the growing needs of companies, industries,
-              hospitals, logistics operations, tourism-related clients, and other emerging markets
+              hospitals, tourism-related clients, and other emerging markets
               that require reliable transport shuttle services nationwide.
             </p>
           </div>

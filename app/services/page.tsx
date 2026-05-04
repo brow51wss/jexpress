@@ -11,7 +11,7 @@ import ServicesCta from '@/components/services-cta'
 export const metadata: Metadata = {
   title: 'Our Services | Jexpress Tourist Transport Cooperative',
   description:
-    'Explore the full range of transport and allied services offered by Jexpress Tourist Transport Cooperative — tourist transport, shuttle services, logistics, passenger solutions, and more.',
+    'Explore the full range of transport and allied services offered by Jexpress Tourist Transport Cooperative — tourist transport, shuttle services, passenger solutions, and more.',
   alternates: {
     canonical: 'https://www.jexpresstransport.com/services',
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: 'Jexpress Tourist Transport Cooperative',
     title: 'Our Services | Jexpress Tourist Transport Cooperative',
     description:
-      'Tourist transport, shuttle services, logistics, passenger solutions, and allied transport services by JTTC.',
+      'Tourist transport, shuttle services, passenger solutions, and allied transport services by JTTC.',
     images: [
       {
         url: 'https://www.jexpresstransport.com/og-image.png',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Our Services | Jexpress Tourist Transport Cooperative',
     description:
-      'Tourist transport, shuttle services, logistics, passenger solutions, and allied transport services by JTTC.',
+      'Tourist transport, shuttle services, passenger solutions, and allied transport services by JTTC.',
   },
 }
 

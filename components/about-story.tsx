@@ -81,10 +81,10 @@ export default function AboutStory() {
             </h2>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
               Jexpress Tourist Transport Cooperative is a service-driven organization with a
-              clear focus on the growing opportunities in transport, shuttle services, logistics,
+              clear focus on the growing opportunities in transport and shuttle services,
               and related support services. We aim to be a trusted source of transport solutions
-              nationwide for emerging market companies, industries, hospitals, logistics
-              operations, and tourism-related clients.
+              nationwide for emerging market companies, industries, hospitals,
+              and tourism-related clients.
             </p>
           </div>
         </div>

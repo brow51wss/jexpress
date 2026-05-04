@@ -8,7 +8,7 @@ export default function ServicesIntro() {
           </span>
           <p className="font-inter text-[#4a4a4a] text-lg sm:text-xl leading-relaxed">
             At JTTC, we offer transport solutions designed to meet a wide range of client needs.
-            From tourist and shuttle transport to logistics support and related transport services,
+            From tourist and shuttle transport to related transport services,
             our goal is to provide safe, efficient, and quality service backed by professional
             drivers and a capable fleet.
           </p>

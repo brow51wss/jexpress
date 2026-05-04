@@ -73,7 +73,7 @@ export default function About() {
               <p className="text-[#6b6b6b] text-base leading-relaxed font-inter mb-4">
                 Jexpress Tourist Transport Cooperative was organized to provide public tourist
                 transport services and allied transport-related solutions. JTTC also supports
-                logistics, transport services, and other client service needs.
+                transport services and other client service needs.
               </p>
               <p className="text-[#6b6b6b] text-base leading-relaxed font-inter">
                 We aim to improve the quality of life of our members through enterprise

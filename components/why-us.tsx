@@ -37,7 +37,7 @@ const features = [
     icon: RiMapPinUserLine,
     title: 'Flexible Transport Solutions',
     description:
-      'Whether for tourism, logistics, hospitals, or organizations — we tailor our transport solutions to fit the exact needs of each client.',
+      'Whether for tourism, hospitals, or organizations — we tailor our transport solutions to fit the exact needs of each client.',
   },
   {
     icon: RiTimeLine,
