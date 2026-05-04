@@ -21,7 +21,7 @@ const services = [
     icon: RiGroupLine,
     title: 'Shuttle Services',
     description:
-      'Reliable shuttle operations for companies, hospitals, schools, and government agencies. Consistent, punctual, and professionally managed.',
+      'Reliable shuttle operations for BPO companies, hospitals, schools, government agencies, and corporate groups. Consistent, punctual, and professionally managed — including night shift coverage.',
     serviceValue: 'Shuttle Services',
   },
   {

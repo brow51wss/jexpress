@@ -14,8 +14,8 @@ const services = [
     icon: Users,
     title: 'Shuttle Transport Services',
     description:
-      'JTTC offers shuttle transport solutions for organizations and groups that need reliable point-to-point transportation. We are focused on providing transport shuttle services nationwide for emerging market companies, industries, hospitals, and tourism-related operations.',
-    tags: ['Point-to-Point', 'Nationwide', 'Hospitals & Companies'],
+      'JTTC offers shuttle transport solutions for organizations and groups that need reliable point-to-point transportation. We serve BPO companies, hospitals, schools, government agencies, and corporate groups — with coverage that includes night shift and graveyard operations.',
+    tags: ['Point-to-Point', 'BPO & Night Shift', 'Hospitals & Companies'],
   },
   {
     number: '03',

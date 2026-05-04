@@ -2,9 +2,9 @@ import Image from 'next/image'
 
 const clients = [
   'Tourism Operations',
-  'Emerging Market Companies',
+  'BPO Companies',
   'Hospitals & Medical Institutions',
-  'Logistics Providers',
+  'Emerging Market Companies',
   'Government Organizations',
   'Corporate Groups',
 ]
@@ -64,8 +64,8 @@ export default function WhyUsTrust() {
                 <span className="text-[#f58c23]">Trusted Transport</span>
               </h2>
               <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
-                JTTC has a clear focus on providing transport shuttle services to emerging
-                market companies, industries, hospitals, logistics, and tourism-related
+                JTTC has a clear focus on providing transport shuttle services to BPO
+                companies, hospitals, emerging market companies, industries, and tourism-related
                 clients. We are committed to dependable operations, uncompromised service
                 quality, and building trust through responsible transport service.
               </p>
