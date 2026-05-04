@@ -4,10 +4,8 @@ import {
   RiBusLine,
   RiMapPinLine,
   RiGroupLine,
-  RiTruckLine,
   RiArrowRightLine,
   RiShipLine,
-  RiShoppingBasketLine,
 } from 'react-icons/ri'
 import Link from 'next/link'
 
@@ -27,25 +25,11 @@ const services = [
     serviceValue: 'Shuttle Services',
   },
   {
-    icon: RiTruckLine,
-    title: 'Logistic Transport Services',
-    description:
-      'End-to-end logistics transport covering cargo movement, supply chain support, and point-to-point delivery for businesses and institutions.',
-    serviceValue: 'Logistic Transport Services',
-  },
-  {
     icon: RiMapPinLine,
     title: 'Passenger Transport Solutions',
     description:
       'Tailored passenger transport packages for recurring government operations, corporate travel, and institutional use nationwide.',
     serviceValue: 'Passenger Transport',
-  },
-  {
-    icon: RiShoppingBasketLine,
-    title: 'Food Supply & Delivery Support',
-    description:
-      'Allied support services including food supply sourcing and delivery coordination for cooperatives, institutions, and community programs.',
-    serviceValue: 'Other Transport Requirements',
   },
   {
     icon: RiShipLine,

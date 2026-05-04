@@ -88,7 +88,6 @@ export default function ContactForm() {
               {[
                 'Tourist transport inquiries',
                 'Shuttle service requests',
-                'Logistics transport coordination',
                 'Vehicle availability inquiries',
                 'General service and partnership inquiries',
               ].map((item) => (
@@ -225,9 +224,7 @@ export default function ContactForm() {
                         <option value="">Select inquiry type</option>
                         <option value="Tourist Transport">Tourist Transport Services</option>
                         <option value="Shuttle Services">Shuttle Services</option>
-                        <option value="Logistics Transport">Logistics Transport</option>
                         <option value="Passenger Transport">Passenger Transport</option>
-                        <option value="Food Supply & Delivery">Food Supply &amp; Delivery</option>
                         <option value="Allied Services">Allied Transport Services</option>
                         <option value="General Inquiry">General Inquiry</option>
                         <option value="Partnership">Partnership Opportunity</option>

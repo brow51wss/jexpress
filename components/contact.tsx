@@ -289,7 +289,6 @@ export default function Contact() {
                         <option value="">Select a service</option>
                         <option value="Tourist Transport Services">Tourist Transport Services</option>
                         <option value="Shuttle Services">Shuttle Services</option>
-                        <option value="Logistic Transport Services">Logistic Transport Services</option>
                         <option value="Passenger Transport">Passenger Transport</option>
                         <option value="Other Transport Requirements">Other Transport Requirements</option>
                       </select>

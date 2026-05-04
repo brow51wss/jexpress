@@ -106,7 +106,6 @@ export default function BookForm() {
               {[
                 'Tourist Transport Services',
                 'Shuttle Services',
-                'Logistic Transport Services',
                 'Passenger Transport',
                 'Other Transport Requirements',
               ].map((item) => (
@@ -257,7 +256,6 @@ export default function BookForm() {
                         <option value="">Select a service</option>
                         <option value="Tourist Transport Services">Tourist Transport Services</option>
                         <option value="Shuttle Services">Shuttle Services</option>
-                        <option value="Logistic Transport Services">Logistic Transport Services</option>
                         <option value="Passenger Transport">Passenger Transport</option>
                         <option value="Other Transport Requirements">Other Transport Requirements</option>
                       </select>

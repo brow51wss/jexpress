@@ -4,11 +4,9 @@ import { CheckCircle } from 'lucide-react'
 const whatWeDo = [
   'Public tourist transport services',
   'Transport shuttle services',
-  'Logistic transport services',
   'Transportation service center operations',
   'Spare parts and supplies support',
   'Vehicle and driver insurance-related services',
-  'Food supply and delivery support',
 ]
 
 export default function AboutStory() {

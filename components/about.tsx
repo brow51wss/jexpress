@@ -8,7 +8,7 @@ const values = [
   'Strong commitment to safety and health',
   'Transparent and integrity-driven operations',
   'Flexible transport solutions for different client needs',
-  'Serving tourism, logistics, hospitals, and organizations',
+  'Serving tourism, hospitals, and organizations nationwide',
 ]
 
 export default function About() {

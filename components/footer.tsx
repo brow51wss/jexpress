@@ -15,9 +15,7 @@ const quickLinks = [
 const services = [
   'Tourist Transport Services',
   'Shuttle Services',
-  'Logistic Transport Services',
   'Passenger Transport Solutions',
-  'Food Supply & Delivery Support',
   'Allied Transport Services',
 ]
 

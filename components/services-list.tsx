@@ -1,4 +1,4 @@
-import { Bus, Users, Truck, MapPin, Wrench, ShoppingBasket } from 'lucide-react'
+import { Bus, Users, MapPin, Wrench } from 'lucide-react'
 
 const services = [
   {
@@ -14,19 +14,11 @@ const services = [
     icon: Users,
     title: 'Shuttle Transport Services',
     description:
-      'JTTC offers shuttle transport solutions for organizations and groups that need reliable point-to-point transportation. We are focused on providing transport shuttle services nationwide for emerging market companies, industries, hospitals, logistics, and tourism-related operations.',
+      'JTTC offers shuttle transport solutions for organizations and groups that need reliable point-to-point transportation. We are focused on providing transport shuttle services nationwide for emerging market companies, industries, hospitals, and tourism-related operations.',
     tags: ['Point-to-Point', 'Nationwide', 'Hospitals & Companies'],
   },
   {
     number: '03',
-    icon: Truck,
-    title: 'Logistic Transport Services',
-    description:
-      'We provide logistic transport services to support operational and delivery needs. This service is suited for businesses and institutions that require dependable transport coordination and movement of goods or operational support.',
-    tags: ['Cargo Movement', 'Supply Chain', 'Delivery Coordination'],
-  },
-  {
-    number: '04',
     icon: MapPin,
     title: 'Passenger Transport Solutions',
     description:
@@ -34,20 +26,12 @@ const services = [
     tags: ['Land Transport', 'Commuting Public', 'Members & Clients'],
   },
   {
-    number: '05',
+    number: '04',
     icon: Wrench,
     title: 'Transport Support & Allied Services',
     description:
       'In addition to transport operations, JTTC engages in allied transport-related services such as transportation service center operations, spare parts and supplies support, and vehicle and driver insurance-related services.',
     tags: ['Service Centers', 'Spare Parts', 'Insurance Support'],
-  },
-  {
-    number: '06',
-    icon: ShoppingBasket,
-    title: 'Food Supply & Delivery Support',
-    description:
-      'JTTC also provides supply and delivery support for food products to clients, helping meet operational and service requirements through dependable coordination and delivery.',
-    tags: ['Food Delivery', 'Supply Coordination', 'Operational Support'],
   },
 ]
 
