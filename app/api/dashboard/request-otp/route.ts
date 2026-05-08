@@ -33,14 +33,19 @@ export async function POST(request: Request) {
   const supabase = createAdminClient()
 
   // Check if this email is a registered dashboard user
-  const { data: user } = await supabase
+  const { data: user, error: userError } = await supabase
     .from('users')
     .select('id')
     .eq('email', email)
     .single()
 
+  if (userError) {
+    console.error('[request-otp] Supabase user lookup error:', userError.message, userError.code)
+  }
+
   // Always respond with success to avoid email enumeration
   if (!user) {
+    console.warn('[request-otp] No user found for email:', email)
     return NextResponse.json({ success: true })
   }
 
@@ -54,13 +59,19 @@ export async function POST(request: Request) {
   const otp = generateOtp()
   const expiresAt = new Date(Date.now() + 15 * 60 * 1000).toISOString()
 
-  await supabase.from('otp_tokens').insert({
+  const { error: insertError } = await supabase.from('otp_tokens').insert({
     user_id: user.id,
     token: otp,
     expires_at: expiresAt,
   })
 
-  await resend.emails.send({
+  if (insertError) {
+    console.error('[request-otp] OTP insert error:', insertError.message)
+  }
+
+  console.log('[request-otp] Sending OTP email to:', email)
+
+  const { error: emailError } = await resend.emails.send({
     from: 'J Express Transport <noreply@jexpresstransport.com>',
     to: [email],
     subject: `Your login code: ${otp}`,
@@ -81,6 +92,12 @@ export async function POST(request: Request) {
       </div>
     `,
   })
+
+  if (emailError) {
+    console.error('[request-otp] Resend error:', emailError.message)
+  } else {
+    console.log('[request-otp] OTP email sent successfully to:', email)
+  }
 
   return NextResponse.json({ success: true })
 }
