@@ -8,12 +8,16 @@ type FormState = 'idle' | 'loading' | 'success' | 'error'
 const inputClass =
   'w-full bg-white border border-[#e8e0d8] focus:border-[#f58c23] focus:ring-2 focus:ring-[#f58c23]/20 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
 
+const inputErrorClass =
+  'w-full bg-white border border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
+
 const labelClass =
   'text-[#383838] text-xs font-bold font-inter uppercase tracking-wide mb-1.5 block'
 
 export default function FranchiseForm() {
   const [formState, setFormState] = useState<FormState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [errors, setErrors] = useState<{ fullName?: string; contactNumber?: string; email?: string }>({})
   const [formData, setFormData] = useState({
     fullName: '',
     contactNumber: '',
@@ -25,11 +29,32 @@ export default function FranchiseForm() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+    if (errors[name as keyof typeof errors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }))
+    }
+  }
+
+  const validate = () => {
+    const newErrors: typeof errors = {}
+    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required.'
+    if (!formData.contactNumber.trim()) newErrors.contactNumber = 'Contact number is required.'
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email address is required.'
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address.'
+    }
+    return newErrors
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    const validationErrors = validate()
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors)
+      return
+    }
     setFormState('loading')
     setErrorMessage('')
 
@@ -113,12 +138,14 @@ export default function FranchiseForm() {
                       id="fullName"
                       name="fullName"
                       type="text"
-                      required
                       placeholder="Your full name"
                       value={formData.fullName}
                       onChange={handleChange}
-                      className={inputClass}
+                      className={errors.fullName ? inputErrorClass : inputClass}
                     />
+                    {errors.fullName && (
+                      <p className="text-red-500 text-xs font-inter mt-1.5">{errors.fullName}</p>
+                    )}
                   </div>
                   <div>
                     <label htmlFor="contactNumber" className={labelClass}>
@@ -128,12 +155,14 @@ export default function FranchiseForm() {
                       id="contactNumber"
                       name="contactNumber"
                       type="tel"
-                      required
                       placeholder="+63 000 000 0000"
                       value={formData.contactNumber}
                       onChange={handleChange}
-                      className={inputClass}
+                      className={errors.contactNumber ? inputErrorClass : inputClass}
                     />
+                    {errors.contactNumber && (
+                      <p className="text-red-500 text-xs font-inter mt-1.5">{errors.contactNumber}</p>
+                    )}
                   </div>
                 </div>
 
@@ -146,12 +175,14 @@ export default function FranchiseForm() {
                       id="email"
                       name="email"
                       type="email"
-                      required
                       placeholder="your@email.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className={inputClass}
+                      className={errors.email ? inputErrorClass : inputClass}
                     />
+                    {errors.email && (
+                      <p className="text-red-500 text-xs font-inter mt-1.5">{errors.email}</p>
+                    )}
                   </div>
                   <div>
                     <label htmlFor="preferredLocation" className={labelClass}>
