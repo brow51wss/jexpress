@@ -128,12 +128,7 @@ export default function ContactForm() {
             </div>
 
             <div className="flex flex-col gap-4">
-              {[
-                'Tourist transport inquiries',
-                'Shuttle service requests',
-                'Vehicle availability inquiries',
-                'General service and partnership inquiries',
-              ].map((item) => (
+              {serviceNames.map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <span className="w-2 h-2 rounded-full bg-[#f58c23] flex-shrink-0" />
                   <span className="font-inter text-[#6b6b6b] text-sm">{item}</span>
