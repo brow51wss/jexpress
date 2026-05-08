@@ -15,6 +15,7 @@ type FormState = 'idle' | 'loading' | 'success' | 'error'
 export default function Contact() {
   const [formState, setFormState] = useState<FormState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [serviceNames, setServiceNames] = useState<string[]>([])
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -33,6 +34,18 @@ export default function Contact() {
     }
     window.addEventListener('selectService', handler)
     return () => window.removeEventListener('selectService', handler)
+  }, [])
+
+  useEffect(() => {
+    fetch('/api/services')
+      .then((r) => r.json())
+      .then((d) => {
+        const names = (d.services ?? [])
+          .filter((s: { is_active: boolean }) => s.is_active)
+          .map((s: { name: string }) => s.name)
+        setServiceNames(names)
+      })
+      .catch(() => {})
   }, [])
 
   const handleChange = (
@@ -290,10 +303,9 @@ export default function Contact() {
                         className={inputClass}
                       >
                         <option value="">Select a service</option>
-                        <option value="Tourist Transport Services">Tourist Transport Services</option>
-                        <option value="Shuttle Services">Shuttle Services</option>
-                        <option value="Passenger Transport">Passenger Transport</option>
-                        <option value="Other Transport Requirements">Other Transport Requirements</option>
+                        {serviceNames.map((name) => (
+                          <option key={name} value={name}>{name}</option>
+                        ))}
                       </select>
                     </div>
                     <div className="flex flex-col gap-1.5">

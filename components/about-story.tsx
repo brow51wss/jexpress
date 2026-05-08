@@ -1,15 +1,24 @@
 import Image from 'next/image'
 import { CheckCircle } from 'lucide-react'
+import { createAdminClient } from '@/lib/supabase'
+import { unstable_cache } from 'next/cache'
 
-const whatWeDo = [
-  'Public tourist transport services',
-  'Transport shuttle services',
-  'Transportation service center operations',
-  'Spare parts and supplies support',
-  'Vehicle and driver insurance-related services',
-]
+const getServiceNames = unstable_cache(
+  async (): Promise<string[]> => {
+    const supabase = createAdminClient()
+    const { data } = await supabase
+      .from('services')
+      .select('name')
+      .eq('is_active', true)
+      .order('sort_order', { ascending: true })
+    return data?.map((s: { name: string }) => s.name) ?? []
+  },
+  ['service-names-about'],
+  { tags: ['services'], revalidate: false }
+)
 
-export default function AboutStory() {
+export default async function AboutStory() {
+  const whatWeDo = await getServiceNames()
   return (
     <section className="bg-white">
 

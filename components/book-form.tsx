@@ -6,6 +6,10 @@ import { Send, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 type FormErrors = Partial<Record<'fullName' | 'contactNumber' | 'email' | 'serviceNeeded', string>>
 
+interface ServiceItem {
+  name: string
+}
+
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
@@ -22,6 +26,7 @@ export default function BookForm() {
   const [formState, setFormState] = useState<FormState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
   const [errors, setErrors] = useState<FormErrors>({})
+  const [serviceNames, setServiceNames] = useState<string[]>([])
   const [formData, setFormData] = useState({
     fullName: '',
     companyName: '',
@@ -43,6 +48,18 @@ export default function BookForm() {
     }
     window.addEventListener('selectService', handler)
     return () => window.removeEventListener('selectService', handler)
+  }, [])
+
+  useEffect(() => {
+    fetch('/api/services')
+      .then((r) => r.json())
+      .then((d) => {
+        const names = (d.services ?? [])
+          .filter((s: ServiceItem & { is_active: boolean }) => s.is_active)
+          .map((s: ServiceItem) => s.name)
+        setServiceNames(names)
+      })
+      .catch(() => {})
   }, [])
 
   const handleChange = (
@@ -133,12 +150,7 @@ export default function BookForm() {
               <p className="font-sans font-bold text-[#383838] text-sm uppercase tracking-wide">
                 Services Available
               </p>
-              {[
-                'Tourist Transport Services',
-                'Shuttle Services',
-                'Passenger Transport',
-                'Other Transport Requirements',
-              ].map((item) => (
+              {serviceNames.map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <span className="w-2 h-2 rounded-full bg-[#f58c23] flex-shrink-0" />
                   <span className="font-inter text-[#6b6b6b] text-sm">{item}</span>
@@ -283,9 +295,9 @@ export default function BookForm() {
                         className={errors.serviceNeeded ? inputErrorClass : inputClass}
                       >
                         <option value="">Select a service</option>
-                        <option value="Tourist Transport Services">Tourist Transport Services</option>
-                        <option value="Shuttle Services">Shuttle Services</option>
-                        <option value="Passenger Transport">Passenger Transport</option>
+                        {serviceNames.map((name) => (
+                          <option key={name} value={name}>{name}</option>
+                        ))}
                         <option value="Other Transport Requirements">Other Transport Requirements</option>
                       </select>
                       {errors.serviceNeeded && <p className="text-red-500 text-xs font-inter mt-1.5">{errors.serviceNeeded}</p>}

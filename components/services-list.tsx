@@ -1,41 +1,51 @@
-import { Bus, Users, MapPin, Wrench } from 'lucide-react'
+import { Bus, Users, MapPin, Wrench, Truck, Shield, Clock, Package, Globe, Building, Star, Headphones } from 'lucide-react'
+import { createAdminClient } from '@/lib/supabase'
+import { unstable_cache } from 'next/cache'
 
-const services = [
-  {
-    number: '01',
-    icon: Bus,
-    title: 'Tourist Transport Services',
-    description:
-      'We provide public tourist transport services for clients who require safe, dependable, and organized passenger transportation. Our team is committed to delivering quality service while maintaining high standards of safety, transparency, and professionalism.',
-    tags: ['Organized Tours', 'Group Transport', 'Land & Sea'],
-  },
-  {
-    number: '02',
-    icon: Users,
-    title: 'Shuttle Transport Services',
-    description:
-      'JTTC offers shuttle transport solutions for organizations and groups that need reliable point-to-point transportation. We serve BPO companies, hospitals, schools, government agencies, and corporate groups — with coverage that includes night shift and graveyard operations.',
-    tags: ['Point-to-Point', 'BPO & Night Shift', 'Hospitals & Companies'],
-  },
-  {
-    number: '03',
-    icon: MapPin,
-    title: 'Passenger Transport Solutions',
-    description:
-      'Our cooperative serves both members and the commuting public through land transport services focused on safe conveyance, service quality, and client satisfaction. JTTC works to ensure every trip is handled with care, efficiency, and professionalism.',
-    tags: ['Land Transport', 'Commuting Public', 'Members & Clients'],
-  },
-  {
-    number: '04',
-    icon: Wrench,
-    title: 'Transport Support & Allied Services',
-    description:
-      'In addition to transport operations, JTTC engages in allied transport-related services such as transportation service center operations, spare parts and supplies support, and vehicle and driver insurance-related services.',
-    tags: ['Service Centers', 'Spare Parts', 'Insurance Support'],
-  },
-]
+const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
+  Bus, Users, MapPin, Wrench, Truck, Shield, Clock, Package, Globe, Building, Star, Headphones,
+}
 
-export default function ServicesList() {
+interface ServiceContent {
+  section_key: string
+  description: string
+  tags: string[]
+}
+
+interface Service {
+  id: string
+  slug: string
+  name: string
+  price: number | null
+  price_label: 'flat' | 'from'
+  icon: string
+  is_active: boolean
+  service_content: ServiceContent[]
+}
+
+const getActiveServices = unstable_cache(
+  async (): Promise<Service[]> => {
+    const supabase = createAdminClient()
+    const { data } = await supabase
+      .from('services')
+      .select('id, slug, name, price, price_label, icon, is_active, service_content(section_key, description, tags)')
+      .eq('is_active', true)
+      .order('sort_order', { ascending: true })
+    return (data as Service[]) ?? []
+  },
+  ['services-list'],
+  { tags: ['services'], revalidate: false }
+)
+
+function formatPrice(price: number | null, label: 'flat' | 'from'): string | null {
+  if (price === null) return null
+  const formatted = `₱${Number(price).toLocaleString()}`
+  return label === 'from' ? `From ${formatted}` : formatted
+}
+
+export default async function ServicesList() {
+  const services = await getActiveServices()
+
   return (
     <section className="py-24" style={{ background: '#fff' }} id="services-list">
       <div className="max-w-7xl mx-auto px-6">
@@ -50,46 +60,64 @@ export default function ServicesList() {
 
         <div className="flex flex-col gap-6">
           {services.map((service, index) => {
-            const Icon = service.icon
+            const Icon = ICON_MAP[service.icon] ?? Bus
             const isEven = index % 2 === 1
+            const content = service.service_content.find((c) => c.section_key === 'services_page')
+            const priceDisplay = formatPrice(service.price, service.price_label)
+            const tags: string[] = Array.isArray(content?.tags) ? content.tags : []
+            const number = String(index + 1).padStart(2, '0')
+
             return (
               <div
-                key={service.number}
+                key={service.id}
                 className={`grid lg:grid-cols-[1fr_auto_1fr] gap-0 rounded-2xl overflow-hidden border border-[#e8e0d8] ${isEven ? 'bg-[#fdf8f4]' : 'bg-white'}`}
               >
                 <div className="flex flex-col justify-center p-8 lg:p-10">
                   <div className="flex items-center gap-4 mb-5">
                     <span className="text-[#f58c23]/30 font-black text-5xl leading-none font-sans select-none">
-                      {service.number}
+                      {number}
                     </span>
                     <div className="w-12 h-12 rounded-xl bg-[#f58c23]/10 flex items-center justify-center flex-shrink-0">
                       <Icon size={22} className="text-[#f58c23]" strokeWidth={1.75} />
                     </div>
                   </div>
-                  <h3 className="font-sans font-black text-[#383838] text-xl sm:text-2xl leading-tight mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="font-inter text-[#6b6b6b] text-sm leading-relaxed">
-                    {service.description}
-                  </p>
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <h3 className="font-sans font-black text-[#383838] text-xl sm:text-2xl leading-tight">
+                      {service.name}
+                    </h3>
+                    {priceDisplay && (
+                      <span className="flex-shrink-0 text-[#f58c23] font-inter font-bold text-base whitespace-nowrap mt-1">
+                        {priceDisplay}
+                      </span>
+                    )}
+                  </div>
+                  {content?.description && (
+                    <p className="font-inter text-[#6b6b6b] text-sm leading-relaxed">
+                      {content.description}
+                    </p>
+                  )}
                 </div>
 
                 <div className="hidden lg:block w-px bg-[#e8e0d8] my-8" />
 
                 <div className="flex flex-col justify-center p-8 lg:p-10 border-t lg:border-t-0 border-[#e8e0d8]">
-                  <p className="font-inter text-[#383838] text-xs font-bold uppercase tracking-widest mb-5">
-                    Key Areas
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="inline-block bg-[#f58c23]/10 text-[#c97818] font-inter font-semibold text-xs px-4 py-2 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  {tags.length > 0 && (
+                    <>
+                      <p className="font-inter text-[#383838] text-xs font-bold uppercase tracking-widest mb-5">
+                        Key Areas
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-block bg-[#f58c23]/10 text-[#c97818] font-inter font-semibold text-xs px-4 py-2 rounded-full"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             )

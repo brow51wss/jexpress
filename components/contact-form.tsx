@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Send, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
@@ -14,6 +14,7 @@ export default function ContactForm() {
   const [formState, setFormState] = useState<FormState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
   const [errors, setErrors] = useState<FormErrors>({})
+  const [serviceNames, setServiceNames] = useState<string[]>([])
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -24,6 +25,18 @@ export default function ContactForm() {
     preferredDate: '',
     message: '',
   })
+
+  useEffect(() => {
+    fetch('/api/services')
+      .then((r) => r.json())
+      .then((d) => {
+        const names = (d.services ?? [])
+          .filter((s: { is_active: boolean }) => s.is_active)
+          .map((s: { name: string }) => s.name)
+        setServiceNames(names)
+      })
+      .catch(() => {})
+  }, [])
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -251,10 +264,9 @@ export default function ContactForm() {
                         className={errors.inquiryType ? inputErrorClass : inputClass}
                       >
                         <option value="">Select inquiry type</option>
-                        <option value="Tourist Transport">Tourist Transport Services</option>
-                        <option value="Shuttle Services">Shuttle Services</option>
-                        <option value="Passenger Transport">Passenger Transport</option>
-                        <option value="Allied Services">Allied Transport Services</option>
+                        {serviceNames.map((name) => (
+                          <option key={name} value={name}>{name}</option>
+                        ))}
                         <option value="General Inquiry">General Inquiry</option>
                         <option value="Partnership">Partnership Opportunity</option>
                       </select>

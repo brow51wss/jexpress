@@ -9,14 +9,16 @@ import {
   RiLogoutBoxLine,
   RiMenuLine,
   RiCloseLine,
+  RiPriceTag3Line,
 } from 'react-icons/ri'
 
 interface NavProps {
   isSuperAdmin: boolean
+  isMarketing: boolean
   email: string
 }
 
-export default function DashboardNav({ isSuperAdmin, email }: NavProps) {
+export default function DashboardNav({ isSuperAdmin, isMarketing, email }: NavProps) {
   const pathname = usePathname()
   const router = useRouter()
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -29,6 +31,9 @@ export default function DashboardNav({ isSuperAdmin, email }: NavProps) {
 
   const navItems = [
     { href: '/dashboard', label: 'Submissions', icon: RiFileListLine },
+    ...(isSuperAdmin || isMarketing
+      ? [{ href: '/dashboard/services', label: 'Services', icon: RiPriceTag3Line }]
+      : []),
     ...(isSuperAdmin
       ? [{ href: '/dashboard/users', label: 'Users & Groups', icon: RiTeamLine }]
       : []),

@@ -1,44 +1,50 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import {
-  RiBusLine,
-  RiMapPinLine,
-  RiGroupLine,
-  RiArrowRightLine,
-  RiShipLine,
+  RiBusLine, RiMapPinLine, RiGroupLine, RiShipLine,
+  RiArrowRightLine, RiTruckLine, RiShieldCheckLine, RiTimerLine,
+  RiCustomerServiceLine, RiGlobalLine, RiBuildingLine,
+  RiStarLine, RiArchiveLine,
 } from 'react-icons/ri'
 import Link from 'next/link'
 
-const services = [
-  {
-    icon: RiBusLine,
-    title: 'Tourist Transport Services',
-    description:
-      'Land and sea tourist transport for organized tours, delegations, and groups. Air-conditioned, spacious, and well-maintained vehicles for every journey.',
-    serviceValue: 'Tourist Transport Services',
-  },
-  {
-    icon: RiGroupLine,
-    title: 'Shuttle Services',
-    description:
-      'Reliable shuttle operations for BPO companies, hospitals, schools, government agencies, and corporate groups. Consistent, punctual, and professionally managed — including night shift coverage.',
-    serviceValue: 'Shuttle Services',
-  },
-  {
-    icon: RiMapPinLine,
-    title: 'Passenger Transport Solutions',
-    description:
-      'Tailored passenger transport packages for recurring government operations, corporate travel, and institutional use nationwide.',
-    serviceValue: 'Passenger Transport',
-  },
-  {
-    icon: RiShipLine,
-    title: 'Allied Transport Services',
-    description:
-      'Additional allied transport-related services including spare parts distribution, vehicle and driver insurance marketing, and transport coordination.',
-    serviceValue: 'Other Transport Requirements',
-  },
-]
+const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  Bus: RiBusLine,
+  Users: RiGroupLine,
+  MapPin: RiMapPinLine,
+  Wrench: RiShipLine,
+  Truck: RiTruckLine,
+  Shield: RiShieldCheckLine,
+  Clock: RiTimerLine,
+  Headphones: RiCustomerServiceLine,
+  Globe: RiGlobalLine,
+  Building: RiBuildingLine,
+  Star: RiStarLine,
+  Package: RiArchiveLine,
+}
+
+interface ServiceContent {
+  section_key: string
+  description: string
+}
+
+interface Service {
+  id: string
+  slug: string
+  name: string
+  price: number | null
+  price_label: 'flat' | 'from'
+  icon: string
+  is_active: boolean
+  service_content: ServiceContent[]
+}
+
+function formatPrice(price: number | null, label: 'flat' | 'from'): string | null {
+  if (price === null) return null
+  const formatted = `₱${Number(price).toLocaleString()}`
+  return label === 'from' ? `From ${formatted}` : formatted
+}
 
 function bookService(serviceValue: string) {
   window.dispatchEvent(new CustomEvent('selectService', { detail: serviceValue }))
@@ -47,6 +53,15 @@ function bookService(serviceValue: string) {
 }
 
 export default function Services() {
+  const [services, setServices] = useState<Service[]>([])
+
+  useEffect(() => {
+    fetch('/api/services')
+      .then((r) => r.json())
+      .then((d) => setServices((d.services ?? []).filter((s: Service) => s.is_active)))
+      .catch(() => {})
+  }, [])
+
   return (
     <section id="services" className="py-24 bg-[#fff8f0]">
       <div className="max-w-7xl mx-auto px-6">
@@ -68,36 +83,51 @@ export default function Services() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, idx) => (
-            <div
-              key={idx}
-              className="group bg-white rounded-2xl p-8 border border-[#e8e0d8] hover:border-[#f58c23] hover:shadow-xl hover:shadow-[#f58c23]/10 transition-all duration-300 flex flex-col gap-5 hover:-translate-y-1"
-            >
-              <div className="w-14 h-14 rounded-xl bg-[#f58c23]/10 flex items-center justify-center group-hover:bg-[#f58c23] transition-colors duration-300">
-                <service.icon
-                  size={26}
-                  className="text-[#f58c23] group-hover:text-white transition-colors duration-300"
-                />
+          {services.map((service) => {
+            const Icon = ICON_MAP[service.icon] ?? RiBusLine
+            const content = service.service_content.find((c) => c.section_key === 'homepage')
+            const priceDisplay = formatPrice(service.price, service.price_label)
+
+            return (
+              <div
+                key={service.id}
+                className="group bg-white rounded-2xl p-8 border border-[#e8e0d8] hover:border-[#f58c23] hover:shadow-xl hover:shadow-[#f58c23]/10 transition-all duration-300 flex flex-col gap-5 hover:-translate-y-1"
+              >
+                <div className="w-14 h-14 rounded-xl bg-[#f58c23]/10 flex items-center justify-center group-hover:bg-[#f58c23] transition-colors duration-300">
+                  <Icon
+                    size={26}
+                    className="text-[#f58c23] group-hover:text-white transition-colors duration-300"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="text-[#383838] font-bold text-lg leading-tight">
+                      {service.name}
+                    </h3>
+                    {priceDisplay && (
+                      <span className="flex-shrink-0 text-[#f58c23] font-inter font-bold text-sm whitespace-nowrap mt-0.5">
+                        {priceDisplay}
+                      </span>
+                    )}
+                  </div>
+                  {content?.description && (
+                    <p className="text-[#6b6b6b] text-sm leading-relaxed font-inter">
+                      {content.description}
+                    </p>
+                  )}
+                </div>
+                <div className="mt-auto">
+                  <button
+                    onClick={() => bookService(service.name)}
+                    className="inline-flex items-center gap-1.5 text-[#f58c23] font-semibold text-sm font-inter group-hover:gap-3 transition-all duration-200"
+                  >
+                    Book This Service
+                    <RiArrowRightLine size={16} />
+                  </button>
+                </div>
               </div>
-              <div className="flex flex-col gap-2">
-                <h3 className="text-[#383838] font-bold text-lg leading-tight">
-                  {service.title}
-                </h3>
-                <p className="text-[#6b6b6b] text-sm leading-relaxed font-inter">
-                  {service.description}
-                </p>
-              </div>
-              <div className="mt-auto">
-                <button
-                  onClick={() => bookService(service.serviceValue)}
-                  className="inline-flex items-center gap-1.5 text-[#f58c23] font-semibold text-sm font-inter group-hover:gap-3 transition-all duration-200"
-                >
-                  Book This Service
-                  <RiArrowRightLine size={16} />
-                </button>
-              </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         <div className="mt-16 bg-[#383838] rounded-2xl p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">

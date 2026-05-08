@@ -19,7 +19,7 @@ export async function GET() {
   const supabase = createAdminClient()
   const { data, error } = await supabase
     .from('groups')
-    .select('id, name, created_at')
+    .select('id, name, is_system, created_at')
     .order('name', { ascending: true })
 
   if (error) return NextResponse.json({ error: 'Failed to fetch groups.' }, { status: 500 })
@@ -70,6 +70,18 @@ export async function DELETE(request: Request) {
   if (!id) return NextResponse.json({ error: 'Group ID required.' }, { status: 400 })
 
   const supabase = createAdminClient()
+
+  // Block deletion of system groups
+  const { data: group } = await supabase
+    .from('groups')
+    .select('is_system')
+    .eq('id', id)
+    .single()
+
+  if (group?.is_system) {
+    return NextResponse.json({ error: 'System groups cannot be deleted.' }, { status: 403 })
+  }
+
   await supabase.from('groups').delete().eq('id', id)
   return NextResponse.json({ success: true })
 }

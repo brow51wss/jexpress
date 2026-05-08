@@ -1,11 +1,12 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { RiAddLine, RiDeleteBinLine, RiLoader4Line, RiUserLine, RiGroupLine } from 'react-icons/ri'
+import { RiAddLine, RiDeleteBinLine, RiLoader4Line, RiUserLine, RiGroupLine, RiLockLine } from 'react-icons/ri'
 
 interface Group {
   id: string
   name: string
+  is_system: boolean
 }
 
 interface User {
@@ -238,13 +239,22 @@ export default function UserManagement() {
                 key={group.id}
                 className="flex items-center justify-between px-5 py-3 border-b border-[#e8e0d8] last:border-0"
               >
-                <span className="font-inter font-semibold text-[#383838] text-sm">{group.name}</span>
-                <button
-                  onClick={() => handleDeleteGroup(group.id)}
-                  className="text-[#6b6b6b] hover:text-red-500 transition-colors"
-                >
-                  <RiDeleteBinLine size={15} />
-                </button>
+                <div className="flex items-center gap-2">
+                  <span className="font-inter font-semibold text-[#383838] text-sm">{group.name}</span>
+                  {group.is_system && (
+                    <span className="inline-flex items-center gap-1 text-[10px] font-inter font-semibold uppercase tracking-wider text-[#6b6b6b] bg-[#f9f4ef] border border-[#e8e0d8] px-2 py-0.5 rounded-full">
+                      <RiLockLine size={9} /> System
+                    </span>
+                  )}
+                </div>
+                {!group.is_system && (
+                  <button
+                    onClick={() => handleDeleteGroup(group.id)}
+                    className="text-[#6b6b6b] hover:text-red-500 transition-colors"
+                  >
+                    <RiDeleteBinLine size={15} />
+                  </button>
+                )}
               </div>
             ))
           )}
