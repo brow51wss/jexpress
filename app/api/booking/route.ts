@@ -20,20 +20,55 @@ export async function POST(request: Request) {
         replyTo: email,
         subject: `Booking Request — ${serviceNeeded || 'Transport'}`,
         html: `
-          <h2>New Booking Request from jexpresstransport.com</h2>
-          <table cellpadding="8" style="border-collapse:collapse;width:100%;font-family:sans-serif;font-size:14px;">
-            <tr><td><strong>Full Name</strong></td><td>${fullName}</td></tr>
-            <tr><td><strong>Company / Organization</strong></td><td>${companyName || '—'}</td></tr>
-            <tr><td><strong>Contact Number</strong></td><td>${contactNumber}</td></tr>
-            <tr><td><strong>Email</strong></td><td>${email}</td></tr>
-            <tr><td><strong>Service Needed</strong></td><td>${serviceNeeded || '—'}</td></tr>
-            <tr><td><strong>Trip Date</strong></td><td>${tripDate || '—'}</td></tr>
-            <tr><td><strong>Pickup Location</strong></td><td>${pickupLocation || '—'}</td></tr>
-            <tr><td><strong>Drop-off Location</strong></td><td>${dropoffLocation || '—'}</td></tr>
-            <tr><td><strong>Number of Passengers</strong></td><td>${numberOfPassengers || '—'}</td></tr>
-            <tr><td><strong>Preferred Vehicle</strong></td><td>${preferredVehicle || '—'}</td></tr>
-            <tr><td><strong>Additional Notes</strong></td><td style="white-space:pre-wrap">${additionalNotes || '—'}</td></tr>
-          </table>
+          <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#383838;">
+            <div style="background:#383838;padding:32px 40px;border-radius:12px 12px 0 0;">
+              <p style="margin:0 0 4px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#f58c23;">New Submission</p>
+              <h1 style="color:#ffffff;margin:0;font-size:22px;">Booking Request</h1>
+              <p style="color:rgba(255,255,255,0.6);margin:6px 0 0;font-size:13px;">From jexpresstransport.com</p>
+            </div>
+            <div style="background:#ffffff;padding:32px 40px;border:1px solid #e8e0d8;border-top:none;border-radius:0 0 12px 12px;">
+              <div style="background:#f9f4ef;border-left:4px solid #f58c23;padding:16px 20px;border-radius:4px;margin-bottom:24px;">
+                <p style="margin:0 0 6px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#f58c23;">Submitted By</p>
+                <p style="margin:4px 0;font-size:15px;font-weight:700;">${fullName}</p>
+                <p style="margin:4px 0;font-size:14px;"><a href="mailto:${email}" style="color:#f58c23;">${email}</a></p>
+                <p style="margin:4px 0;font-size:14px;">${contactNumber}</p>
+                ${companyName ? `<p style="margin:4px 0;font-size:14px;color:#6b6b6b;">${companyName}</p>` : ''}
+              </div>
+              <table style="width:100%;border-collapse:collapse;font-size:14px;">
+                <tr style="border-bottom:1px solid #e8e0d8;">
+                  <td style="padding:10px 4px;color:#6b6b6b;width:40%;font-weight:600;">Service Needed</td>
+                  <td style="padding:10px 4px;">${serviceNeeded || '—'}</td>
+                </tr>
+                <tr style="border-bottom:1px solid #e8e0d8;">
+                  <td style="padding:10px 4px;color:#6b6b6b;font-weight:600;">Trip Date</td>
+                  <td style="padding:10px 4px;">${tripDate || '—'}</td>
+                </tr>
+                <tr style="border-bottom:1px solid #e8e0d8;">
+                  <td style="padding:10px 4px;color:#6b6b6b;font-weight:600;">Pickup Location</td>
+                  <td style="padding:10px 4px;">${pickupLocation || '—'}</td>
+                </tr>
+                <tr style="border-bottom:1px solid #e8e0d8;">
+                  <td style="padding:10px 4px;color:#6b6b6b;font-weight:600;">Drop-off Location</td>
+                  <td style="padding:10px 4px;">${dropoffLocation || '—'}</td>
+                </tr>
+                <tr style="border-bottom:1px solid #e8e0d8;">
+                  <td style="padding:10px 4px;color:#6b6b6b;font-weight:600;">Passengers</td>
+                  <td style="padding:10px 4px;">${numberOfPassengers || '—'}</td>
+                </tr>
+                <tr style="border-bottom:1px solid #e8e0d8;">
+                  <td style="padding:10px 4px;color:#6b6b6b;font-weight:600;">Preferred Vehicle</td>
+                  <td style="padding:10px 4px;">${preferredVehicle || '—'}</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 4px;color:#6b6b6b;font-weight:600;vertical-align:top;">Additional Notes</td>
+                  <td style="padding:10px 4px;white-space:pre-wrap;">${additionalNotes || '—'}</td>
+                </tr>
+              </table>
+              <p style="font-size:13px;color:#6b6b6b;margin:24px 0 0;padding-top:16px;border-top:1px solid #e8e0d8;">
+                Reply directly to this email to contact <strong>${fullName}</strong>.
+              </p>
+            </div>
+          </div>
         `,
       }),
 
