@@ -4,10 +4,16 @@ import { useState } from 'react'
 import { Send, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
+type FormErrors = Partial<Record<'fullName' | 'email' | 'inquiryType' | 'message', string>>
+
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
 
 export default function ContactForm() {
   const [formState, setFormState] = useState<FormState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [errors, setErrors] = useState<FormErrors>({})
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -22,11 +28,33 @@ export default function ContactForm() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }))
+    }
+  }
+
+  function validate(): FormErrors {
+    const errs: FormErrors = {}
+    if (!formData.fullName.trim()) errs.fullName = 'Full name is required.'
+    if (!formData.email.trim()) {
+      errs.email = 'Email address is required.'
+    } else if (!isValidEmail(formData.email.trim())) {
+      errs.email = 'Please enter a valid email address.'
+    }
+    if (!formData.inquiryType) errs.inquiryType = 'Please select an inquiry type.'
+    if (!formData.message.trim()) errs.message = 'Message is required.'
+    return errs
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    const errs = validate()
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs)
+      return
+    }
     setFormState('loading')
     setErrorMessage('')
 
@@ -60,6 +88,8 @@ export default function ContactForm() {
 
   const inputClass =
     'w-full bg-white border border-[#e8e0d8] focus:border-[#f58c23] focus:ring-2 focus:ring-[#f58c23]/20 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
+  const inputErrorClass =
+    'w-full bg-white border border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-400/20 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
 
   const labelClass =
     'text-[#383838] text-xs font-bold font-inter uppercase tracking-wide mb-1.5 block'
@@ -153,12 +183,12 @@ export default function ContactForm() {
                         id="fullName"
                         name="fullName"
                         type="text"
-                        required
                         placeholder="Your full name"
                         value={formData.fullName}
                         onChange={handleChange}
-                        className={inputClass}
+                        className={errors.fullName ? inputErrorClass : inputClass}
                       />
+                      {errors.fullName && <p className="text-red-500 text-xs font-inter mt-1.5">{errors.fullName}</p>}
                     </div>
                     <div>
                       <label htmlFor="email" className={labelClass}>
@@ -168,12 +198,12 @@ export default function ContactForm() {
                         id="email"
                         name="email"
                         type="email"
-                        required
                         placeholder="your@email.com"
                         value={formData.email}
                         onChange={handleChange}
-                        className={inputClass}
+                        className={errors.email ? inputErrorClass : inputClass}
                       />
+                      {errors.email && <p className="text-red-500 text-xs font-inter mt-1.5">{errors.email}</p>}
                     </div>
                   </div>
 
@@ -216,10 +246,9 @@ export default function ContactForm() {
                       <select
                         id="inquiryType"
                         name="inquiryType"
-                        required
                         value={formData.inquiryType}
                         onChange={handleChange}
-                        className={inputClass}
+                        className={errors.inquiryType ? inputErrorClass : inputClass}
                       >
                         <option value="">Select inquiry type</option>
                         <option value="Tourist Transport">Tourist Transport Services</option>
@@ -229,6 +258,7 @@ export default function ContactForm() {
                         <option value="General Inquiry">General Inquiry</option>
                         <option value="Partnership">Partnership Opportunity</option>
                       </select>
+                      {errors.inquiryType && <p className="text-red-500 text-xs font-inter mt-1.5">{errors.inquiryType}</p>}
                     </div>
                     <div>
                       <label htmlFor="passengers" className={labelClass}>
@@ -268,13 +298,13 @@ export default function ContactForm() {
                     <textarea
                       id="message"
                       name="message"
-                      required
                       rows={5}
                       placeholder="Tell us about your transport requirements, destination, pickup point, or any other details..."
                       value={formData.message}
                       onChange={handleChange}
-                      className={`${inputClass} resize-none`}
+                      className={`${errors.message ? inputErrorClass : inputClass} resize-none`}
                     />
+                    {errors.message && <p className="text-red-500 text-xs font-inter mt-1.5">{errors.message}</p>}
                   </div>
 
                   <button

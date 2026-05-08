@@ -4,16 +4,24 @@ import { useState, useEffect } from 'react'
 import { Send, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
+type FormErrors = Partial<Record<'fullName' | 'contactNumber' | 'email' | 'serviceNeeded', string>>
+
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
 
 const inputClass =
   'w-full bg-white border border-[#e8e0d8] focus:border-[#f58c23] focus:ring-2 focus:ring-[#f58c23]/20 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
 
 const labelClass =
   'text-[#383838] text-xs font-bold font-inter uppercase tracking-wide mb-1.5 block'
+const inputErrorClass =
+  'w-full bg-white border border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-400/20 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
 
 export default function BookForm() {
   const [formState, setFormState] = useState<FormState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [errors, setErrors] = useState<FormErrors>({})
   const [formData, setFormData] = useState({
     fullName: '',
     companyName: '',
@@ -40,11 +48,33 @@ export default function BookForm() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }))
+    }
+  }
+
+  function validate(): FormErrors {
+    const errs: FormErrors = {}
+    if (!formData.fullName.trim()) errs.fullName = 'Full name is required.'
+    if (!formData.contactNumber.trim()) errs.contactNumber = 'Contact number is required.'
+    if (!formData.email.trim()) {
+      errs.email = 'Email address is required.'
+    } else if (!isValidEmail(formData.email.trim())) {
+      errs.email = 'Please enter a valid email address.'
+    }
+    if (!formData.serviceNeeded) errs.serviceNeeded = 'Please select a service.'
+    return errs
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    const errs = validate()
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs)
+      return
+    }
     setFormState('loading')
     setErrorMessage('')
 
@@ -184,12 +214,12 @@ export default function BookForm() {
                         id="fullName"
                         name="fullName"
                         type="text"
-                        required
                         placeholder="Your full name"
                         value={formData.fullName}
                         onChange={handleChange}
-                        className={inputClass}
+                        className={errors.fullName ? inputErrorClass : inputClass}
                       />
+                      {errors.fullName && <p className="text-red-500 text-xs font-inter mt-1.5">{errors.fullName}</p>}
                     </div>
                     <div>
                       <label htmlFor="companyName" className={labelClass}>
@@ -216,12 +246,12 @@ export default function BookForm() {
                         id="contactNumber"
                         name="contactNumber"
                         type="tel"
-                        required
                         placeholder="+63 000 000 0000"
                         value={formData.contactNumber}
                         onChange={handleChange}
-                        className={inputClass}
+                        className={errors.contactNumber ? inputErrorClass : inputClass}
                       />
+                      {errors.contactNumber && <p className="text-red-500 text-xs font-inter mt-1.5">{errors.contactNumber}</p>}
                     </div>
                     <div>
                       <label htmlFor="email" className={labelClass}>
@@ -231,12 +261,12 @@ export default function BookForm() {
                         id="email"
                         name="email"
                         type="email"
-                        required
                         placeholder="your@email.com"
                         value={formData.email}
                         onChange={handleChange}
-                        className={inputClass}
+                        className={errors.email ? inputErrorClass : inputClass}
                       />
+                      {errors.email && <p className="text-red-500 text-xs font-inter mt-1.5">{errors.email}</p>}
                     </div>
                   </div>
 
@@ -248,10 +278,9 @@ export default function BookForm() {
                       <select
                         id="serviceNeeded"
                         name="serviceNeeded"
-                        required
                         value={formData.serviceNeeded}
                         onChange={handleChange}
-                        className={inputClass}
+                        className={errors.serviceNeeded ? inputErrorClass : inputClass}
                       >
                         <option value="">Select a service</option>
                         <option value="Tourist Transport Services">Tourist Transport Services</option>
@@ -259,6 +288,7 @@ export default function BookForm() {
                         <option value="Passenger Transport">Passenger Transport</option>
                         <option value="Other Transport Requirements">Other Transport Requirements</option>
                       </select>
+                      {errors.serviceNeeded && <p className="text-red-500 text-xs font-inter mt-1.5">{errors.serviceNeeded}</p>}
                     </div>
                     <div>
                       <label htmlFor="tripDate" className={labelClass}>

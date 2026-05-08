@@ -1,24 +1,58 @@
 import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
+import { checkRateLimit, getClientIp } from '@/lib/rate-limit'
+import { cleanField, isValidEmail, display, LIMITS } from '@/lib/form-utils'
+import { createAdminClient } from '@/lib/supabase'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
-  try {
-    const body = await request.json()
-    const {
-      fullName, companyName, contactNumber, email,
-      serviceNeeded, tripDate, pickupLocation, dropoffLocation,
-      numberOfPassengers, preferredVehicle, additionalNotes,
-    } = body
+  const ip = getClientIp(request)
+  if (!checkRateLimit(ip).allowed) {
+    return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 })
+  }
 
+  let body: Record<string, unknown>
+  try {
+    body = await request.json()
+  } catch {
+    return NextResponse.json({ error: 'Invalid request.' }, { status: 400 })
+  }
+
+  const fullName           = cleanField(body.fullName,           LIMITS.name)
+  const companyName        = cleanField(body.companyName,        LIMITS.short)
+  const contactNumber      = cleanField(body.contactNumber,      LIMITS.phone)
+  const email              = cleanField(body.email,              LIMITS.email)
+  const serviceNeeded      = cleanField(body.serviceNeeded,      LIMITS.short)
+  const tripDate           = cleanField(body.tripDate,           LIMITS.short)
+  const pickupLocation     = cleanField(body.pickupLocation,     LIMITS.short)
+  const dropoffLocation    = cleanField(body.dropoffLocation,    LIMITS.short)
+  const numberOfPassengers = cleanField(body.numberOfPassengers, LIMITS.number)
+  const preferredVehicle   = cleanField(body.preferredVehicle,   LIMITS.short)
+  const additionalNotes    = cleanField(body.additionalNotes,    LIMITS.message)
+
+  if (!fullName) return NextResponse.json({ error: 'Full name is required.' }, { status: 400 })
+  if (!contactNumber) return NextResponse.json({ error: 'Contact number is required.' }, { status: 400 })
+  if (!email || !isValidEmail(email)) return NextResponse.json({ error: 'A valid email address is required.' }, { status: 400 })
+  if (!serviceNeeded) return NextResponse.json({ error: 'Service needed is required.' }, { status: 400 })
+
+  const supabase = createAdminClient()
+  await supabase.from('submissions').insert({
+    form_type: 'booking',
+    data: {
+      fullName, companyName, contactNumber, email, serviceNeeded,
+      tripDate, pickupLocation, dropoffLocation, numberOfPassengers,
+      preferredVehicle, additionalNotes,
+    },
+  })
+
+  try {
     await Promise.all([
-      // Notification to admin
       resend.emails.send({
         from: 'Jexpress Website <noreply@jexpresstransport.com>',
         to: ['booking@jexpresstransport.com'],
         replyTo: email,
-        subject: `Booking Request — ${serviceNeeded || 'Transport'}`,
+        subject: `Booking Request — ${display(serviceNeeded)}`,
         html: `
           <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#383838;">
             <div style="background:#383838;padding:32px 40px;border-radius:12px 12px 0 0;">
@@ -29,50 +63,48 @@ export async function POST(request: Request) {
             <div style="background:#ffffff;padding:32px 40px;border:1px solid #e8e0d8;border-top:none;border-radius:0 0 12px 12px;">
               <div style="background:#f9f4ef;border-left:4px solid #f58c23;padding:16px 20px;border-radius:4px;margin-bottom:24px;">
                 <p style="margin:0 0 6px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#f58c23;">Submitted By</p>
-                <p style="margin:4px 0;font-size:15px;font-weight:700;">${fullName}</p>
-                <p style="margin:4px 0;font-size:14px;"><a href="mailto:${email}" style="color:#f58c23;">${email}</a></p>
-                <p style="margin:4px 0;font-size:14px;">${contactNumber}</p>
-                ${companyName ? `<p style="margin:4px 0;font-size:14px;color:#6b6b6b;">${companyName}</p>` : ''}
+                <p style="margin:4px 0;font-size:15px;font-weight:700;">${display(fullName)}</p>
+                <p style="margin:4px 0;font-size:14px;"><a href="mailto:${display(email)}" style="color:#f58c23;">${display(email)}</a></p>
+                <p style="margin:4px 0;font-size:14px;">${display(contactNumber)}</p>
+                ${companyName ? `<p style="margin:4px 0;font-size:14px;color:#6b6b6b;">${display(companyName)}</p>` : ''}
               </div>
               <table style="width:100%;border-collapse:collapse;font-size:14px;">
                 <tr style="border-bottom:1px solid #e8e0d8;">
                   <td style="padding:10px 4px;color:#6b6b6b;width:40%;font-weight:600;">Service Needed</td>
-                  <td style="padding:10px 4px;">${serviceNeeded || '—'}</td>
+                  <td style="padding:10px 4px;">${display(serviceNeeded)}</td>
                 </tr>
                 <tr style="border-bottom:1px solid #e8e0d8;">
                   <td style="padding:10px 4px;color:#6b6b6b;font-weight:600;">Trip Date</td>
-                  <td style="padding:10px 4px;">${tripDate || '—'}</td>
+                  <td style="padding:10px 4px;">${display(tripDate)}</td>
                 </tr>
                 <tr style="border-bottom:1px solid #e8e0d8;">
                   <td style="padding:10px 4px;color:#6b6b6b;font-weight:600;">Pickup Location</td>
-                  <td style="padding:10px 4px;">${pickupLocation || '—'}</td>
+                  <td style="padding:10px 4px;">${display(pickupLocation)}</td>
                 </tr>
                 <tr style="border-bottom:1px solid #e8e0d8;">
                   <td style="padding:10px 4px;color:#6b6b6b;font-weight:600;">Drop-off Location</td>
-                  <td style="padding:10px 4px;">${dropoffLocation || '—'}</td>
+                  <td style="padding:10px 4px;">${display(dropoffLocation)}</td>
                 </tr>
                 <tr style="border-bottom:1px solid #e8e0d8;">
                   <td style="padding:10px 4px;color:#6b6b6b;font-weight:600;">Passengers</td>
-                  <td style="padding:10px 4px;">${numberOfPassengers || '—'}</td>
+                  <td style="padding:10px 4px;">${display(numberOfPassengers)}</td>
                 </tr>
                 <tr style="border-bottom:1px solid #e8e0d8;">
                   <td style="padding:10px 4px;color:#6b6b6b;font-weight:600;">Preferred Vehicle</td>
-                  <td style="padding:10px 4px;">${preferredVehicle || '—'}</td>
+                  <td style="padding:10px 4px;">${display(preferredVehicle)}</td>
                 </tr>
                 <tr>
                   <td style="padding:10px 4px;color:#6b6b6b;font-weight:600;vertical-align:top;">Additional Notes</td>
-                  <td style="padding:10px 4px;white-space:pre-wrap;">${additionalNotes || '—'}</td>
+                  <td style="padding:10px 4px;white-space:pre-wrap;">${display(additionalNotes)}</td>
                 </tr>
               </table>
               <p style="font-size:13px;color:#6b6b6b;margin:24px 0 0;padding-top:16px;border-top:1px solid #e8e0d8;">
-                Reply directly to this email to contact <strong>${fullName}</strong>.
+                Reply directly to this email to contact <strong>${display(fullName)}</strong>.
               </p>
             </div>
           </div>
         `,
       }),
-
-      // Thank-you confirmation to visitor
       resend.emails.send({
         from: 'Jexpress Tourist Transport <noreply@jexpresstransport.com>',
         to: [email],
@@ -80,7 +112,7 @@ export async function POST(request: Request) {
         html: `
           <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#383838;">
             <div style="background:#f58c23;padding:32px 40px;border-radius:12px 12px 0 0;">
-              <h1 style="color:#ffffff;margin:0;font-size:24px;">Thank You, ${fullName}!</h1>
+              <h1 style="color:#ffffff;margin:0;font-size:24px;">Thank You, ${display(fullName)}!</h1>
             </div>
             <div style="background:#ffffff;padding:32px 40px;border:1px solid #e8e0d8;border-top:none;border-radius:0 0 12px 12px;">
               <p style="font-size:15px;line-height:1.6;margin-top:0;">
@@ -89,13 +121,13 @@ export async function POST(request: Request) {
               </p>
               <div style="background:#f9f4ef;border-left:4px solid #f58c23;padding:16px 20px;border-radius:4px;margin:24px 0;">
                 <p style="margin:0 0 6px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#f58c23;">Your Request Summary</p>
-                <p style="margin:4px 0;font-size:14px;"><strong>Service:</strong> ${serviceNeeded || '—'}</p>
-                <p style="margin:4px 0;font-size:14px;"><strong>Trip Date:</strong> ${tripDate || '—'}</p>
-                <p style="margin:4px 0;font-size:14px;"><strong>Pickup:</strong> ${pickupLocation || '—'}</p>
-                <p style="margin:4px 0;font-size:14px;"><strong>Drop-off:</strong> ${dropoffLocation || '—'}</p>
-                <p style="margin:4px 0;font-size:14px;"><strong>Passengers:</strong> ${numberOfPassengers || '—'}</p>
-                <p style="margin:4px 0;font-size:14px;"><strong>Vehicle:</strong> ${preferredVehicle || '—'}</p>
-                <p style="margin:4px 0;font-size:14px;white-space:pre-wrap;"><strong>Additional Notes:</strong> ${additionalNotes || '—'}</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Service:</strong> ${display(serviceNeeded)}</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Trip Date:</strong> ${display(tripDate)}</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Pickup:</strong> ${display(pickupLocation)}</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Drop-off:</strong> ${display(dropoffLocation)}</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Passengers:</strong> ${display(numberOfPassengers)}</p>
+                <p style="margin:4px 0;font-size:14px;"><strong>Vehicle:</strong> ${display(preferredVehicle)}</p>
+                <p style="margin:4px 0;font-size:14px;white-space:pre-wrap;"><strong>Additional Notes:</strong> ${display(additionalNotes)}</p>
               </div>
               <p style="font-size:14px;line-height:1.6;">
                 For urgent inquiries, call us directly:<br/>
@@ -110,7 +142,6 @@ export async function POST(request: Request) {
         `,
       }),
     ])
-
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error('[/api/booking]', error)
