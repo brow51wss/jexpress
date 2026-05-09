@@ -1,13 +1,11 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { useRouter } from 'next/navigation'
 import { RiMailLine, RiArrowRightLine, RiLoader4Line, RiShieldCheckLine } from 'react-icons/ri'
 
 type Step = 'email' | 'otp'
 
 export default function DashboardLoginForm() {
-  const router = useRouter()
   const [step, setStep] = useState<Step>('email')
   const [email, setEmail] = useState('')
   const [otp, setOtp] = useState('')
@@ -68,8 +66,7 @@ export default function DashboardLoginForm() {
         setError(data.error ?? 'Invalid code. Please try again.')
         return
       }
-      router.push('/dashboard')
-      router.refresh()
+      window.location.href = '/dashboard'
     } catch {
       setError('Something went wrong. Please try again.')
     } finally {
