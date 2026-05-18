@@ -42,25 +42,32 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#383838]/95 backdrop-blur-md shadow-lg py-3'
+          ? 'bg-[#fafafa] shadow-lg py-3'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative h-10 w-40 flex-shrink-0">
+          <Image
+            src="/branding/JExpress-Icon.webp"
+            alt="JExpress Icon"
+            width={100}
+            height={100}
+            className={`h-7 w-auto lg:h-9 transition-all duration-300 ${
+              scrolled ? '' : 'brightness-0 invert'
+            }`}
+            priority
+          />
+          <div className="relative h-10 w-28 sm:w-44 flex-shrink-0">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/api-attachments/x9MbHBI5X4YWvsyZwm77e-qoL4yUphEjQNGVYcsOcxtf4gQ938pf.png"
-              alt="Jexpress Tourist Transport Cooperative Logo"
+              src="/branding/JExpress-Wordmark.webp"
+              alt="JExpress Tourist Transport Cooperative"
               fill
-              className="object-contain object-left"
+              className={`object-contain object-left transition-all duration-300 ${
+                scrolled ? '' : 'brightness-0 invert'
+              }`}
               priority
             />
-          </div>
-          <div className="flex items-center">
-            <p className="text-white/70 text-xs leading-none tracking-wider font-medium">
-              Tourist Transport Coop
-            </p>
           </div>
         </Link>
 
@@ -74,7 +81,9 @@ export default function Header() {
                   <Link
                     href={link.href}
                     className={`inline-flex items-center gap-1 font-inter text-sm tracking-wide font-medium transition-colors duration-200 relative ${
-                      isAboutActive ? 'text-[#fed16c]' : 'text-white/80 group-hover:text-[#fed16c]'
+                      scrolled
+                        ? isAboutActive ? 'text-[#383838]' : 'text-[#383838]/70 group-hover:text-[#383838]'
+                        : isAboutActive ? 'text-[#fed16c]' : 'text-white/80 group-hover:text-[#fed16c]'
                     }`}
                   >
                     {link.label}
@@ -118,7 +127,9 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={`font-inter text-sm tracking-wide font-medium relative group transition-colors duration-200 ${
-                  isActive ? 'text-[#fed16c]' : 'text-white/80 hover:text-[#fed16c]'
+                  scrolled
+                    ? isActive ? 'text-[#383838]' : 'text-[#383838]/70 hover:text-[#383838]'
+                    : isActive ? 'text-[#fed16c]' : 'text-white/80 hover:text-[#fed16c]'
                 }`}
               >
                 {link.label}
@@ -141,7 +152,9 @@ export default function Header() {
           </Link>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+            className={`lg:hidden p-2 rounded-lg transition-colors ${
+              scrolled ? 'text-[#383838] hover:bg-black/10' : 'text-white hover:bg-white/10'
+            }`}
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
           >

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { RiMapPinLine, RiPhoneLine, RiMailLine, RiFacebookCircleLine } from 'react-icons/ri'
 import { createAdminClient } from '@/lib/supabase'
@@ -37,18 +36,15 @@ export default async function Footer() {
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div className="lg:col-span-1 flex flex-col gap-5">
-            <Link href="#home" className="flex flex-col gap-1 w-fit">
-              <div className="relative h-10 w-44 flex-shrink-0">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/api-attachments/x9MbHBI5X4YWvsyZwm77e-qoL4yUphEjQNGVYcsOcxtf4gQ938pf.png"
-                  alt="Jexpress Tourist Transport Cooperative"
-                  fill
-                  className="object-contain object-left"
-                />
-              </div>
-              <p className="text-white/50 text-xs font-inter tracking-wider">
-                Tourist Transport Coop
-              </p>
+            <Link href="#home" className="flex w-fit">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/branding/JExpress-Wordmark.webp"
+                alt="JExpress Tourist Transport Cooperative"
+                width={176}
+                height={40}
+                style={{ filter: 'brightness(0) invert(1)' }}
+              />
             </Link>
             <p className="text-white/50 text-sm font-inter leading-relaxed">
               Dependable transport services for tourism, hospitals, companies,

@@ -71,9 +71,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    icon: '/branding/JExpress-Icon.webp',
+    shortcut: '/branding/JExpress-Icon.webp',
+    apple: '/branding/JExpress-Icon.webp',
   },
     generator: 'v0.app'
 }
@@ -111,7 +111,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#f58c23" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.jexpresstransport.com" />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/branding/JExpress-Icon.webp" />
         <title>Jexpress Tourist Transport Cooperative | Safe & Reliable Transport Services</title>
         <meta
           name="description"
@@ -124,32 +124,50 @@ export default function RootLayout({
       </head>
       <body className={`${lato.variable} ${inter.variable} font-sans antialiased`}>
         {/* GA Consent Mode — must run before GA loads */}
-        <Script id="ga-consent-defaults" strategy="beforeInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('consent', 'default', {
-            analytics_storage: 'denied',
-            ad_storage: 'denied',
-            wait_for_update: 500
-          });
-        `}</Script>
+        <Script
+          id="ga-consent-defaults"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                analytics_storage: 'denied',
+                ad_storage: 'denied',
+                wait_for_update: 500
+              });
+            `,
+          }}
+        />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-WKG78J4XKM"
           strategy="afterInteractive"
         />
-        <Script id="ga-init" strategy="afterInteractive">{`
-          gtag('js', new Date());
-          gtag('config', 'G-WKG78J4XKM');
-        `}</Script>
+        <Script
+          id="ga-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              gtag('js', new Date());
+              gtag('config', 'G-WKG78J4XKM');
+            `,
+          }}
+        />
         {/* Microsoft Clarity */}
-        <Script id="ms-clarity" strategy="afterInteractive">{`
-          (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "wkao0tzyb6");
-        `}</Script>
+        <Script
+          id="ms-clarity"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "wkao0tzyb6");
+            `,
+          }}
+        />
         <ScrollToTop />
         {children}
         <MessengerButton />
