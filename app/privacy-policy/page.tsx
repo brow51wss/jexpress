@@ -23,11 +23,11 @@ export default function PrivacyPolicyPage() {
         >
           <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
             <div className="max-w-3xl mx-auto text-center">
-              <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+              <span className="eyebrow-dash text-[#00193c] mb-4">
                 Legal
               </span>
-              <h1 className="font-sans font-black text-white text-4xl sm:text-5xl leading-tight text-balance mb-4">
-                Privacy <span className="text-[#f58c23]">Policy</span>
+              <h1 className="font-heading text-white text-4xl sm:text-5xl leading-tight text-balance mb-4">
+                Privacy <span className="text-[#d4a53a]">Policy</span>
               </h1>
               <p className="font-inter text-white/60 text-sm">
                 Effective Date: {EFFECTIVE_DATE}
@@ -36,18 +36,18 @@ export default function PrivacyPolicyPage() {
           </div>
           <div
             className="absolute bottom-0 left-0 right-0 h-px"
-            style={{ background: 'linear-gradient(to right, transparent, #f58c23, transparent)' }}
+            style={{ background: 'linear-gradient(to right, transparent, #d4a53a, transparent)' }}
           />
         </section>
 
         {/* Content */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-[#f5f5f5]">
           <div className="max-w-3xl mx-auto px-6">
             <div className="prose prose-sm max-w-none font-inter text-[#383838]" style={{ lineHeight: '1.8' }}>
 
               <p className="text-[#6b6b6b] text-base leading-relaxed mb-10">
                 Jexpress Tourist Transport Cooperative (<strong>"JTTC"</strong>, <strong>"we"</strong>, <strong>"us"</strong>, or <strong>"our"</strong>) operates the website{' '}
-                <a href="https://www.jexpresstransport.com" className="text-[#f58c23]">www.jexpresstransport.com</a>{' '}
+                <a href="https://www.jexpresstransport.com" className="text-[#d4a53a]">www.jexpresstransport.com</a>{' '}
                 (the <strong>"Site"</strong>). This Privacy Policy explains what information we collect, how we use it, and your rights regarding that information.
                 By using our Site, you agree to the practices described in this policy.
               </p>
@@ -102,29 +102,29 @@ export default function PrivacyPolicyPage() {
                         <li>
                           <strong>Resend</strong> — Email delivery service used to send and receive form submission emails.
                           Your submitted form data is transmitted through Resend's infrastructure.
-                          See <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-[#f58c23]">Resend's Privacy Policy</a>.
+                          See <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-[#d4a53a]">Resend's Privacy Policy</a>.
                         </li>
                         <li>
                           <strong>Google Analytics (GA4)</strong> — We use Google Analytics to track website traffic and usage patterns.
                           Google Analytics uses cookies to collect anonymized data.
-                          See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#f58c23]">Google's Privacy Policy</a>.
+                          See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#d4a53a]">Google's Privacy Policy</a>.
                         </li>
                         <li>
                           <strong>Microsoft Clarity</strong> — We use Microsoft Clarity for session recordings and behavioral analytics to improve our website.
                           Clarity may record mouse movements, clicks, and scrolling.
-                          See <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer" className="text-[#f58c23]">Microsoft's Privacy Statement</a>.
+                          See <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer" className="text-[#d4a53a]">Microsoft's Privacy Statement</a>.
                         </li>
                         <li>
                           <strong>Vercel Analytics</strong> — Our hosting provider, Vercel, provides privacy-focused analytics on web performance and traffic.
-                          See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-[#f58c23]">Vercel's Privacy Policy</a>.
+                          See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-[#d4a53a]">Vercel's Privacy Policy</a>.
                         </li>
                         <li>
                           <strong>Google Maps</strong> — Our Contact page embeds a Google Maps iframe to display our office location.
-                          See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#f58c23]">Google's Privacy Policy</a>.
+                          See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#d4a53a]">Google's Privacy Policy</a>.
                         </li>
                         <li>
                           <strong>Facebook / Meta</strong> — We have a floating Messenger chat button that links to our Facebook page.
-                          Clicking it redirects you to Facebook's platform, which is governed by <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer" className="text-[#f58c23]">Meta's Privacy Policy</a>.
+                          Clicking it redirects you to Facebook's platform, which is governed by <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer" className="text-[#d4a53a]">Meta's Privacy Policy</a>.
                         </li>
                       </ul>
                     </>
@@ -137,11 +137,11 @@ export default function PrivacyPolicyPage() {
                       <p>Our Site uses cookies — small text files stored on your device — to enhance your experience and enable analytics. The cookies we use include:</p>
                       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', marginBottom: '12px' }}>
                         <thead>
-                          <tr style={{ background: '#f9f4ef' }}>
-                            <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #e8e0d8' }}>Cookie</th>
-                            <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #e8e0d8' }}>Provider</th>
-                            <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #e8e0d8' }}>Purpose</th>
-                            <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #e8e0d8' }}>Duration</th>
+                          <tr style={{ background: '#f5f5f5' }}>
+                            <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #f5f5f5' }}>Cookie</th>
+                            <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #f5f5f5' }}>Provider</th>
+                            <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #f5f5f5' }}>Purpose</th>
+                            <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #f5f5f5' }}>Duration</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -153,7 +153,7 @@ export default function PrivacyPolicyPage() {
                             ['_clsk', 'Microsoft Clarity', 'Connects multiple page views', '1 day'],
                             ['cookie_consent', 'jexpresstransport.com', 'Stores your cookie preference', '1 year'],
                           ].map(([name, provider, purpose, duration]) => (
-                            <tr key={name} style={{ borderBottom: '1px solid #e8e0d8' }}>
+                            <tr key={name} style={{ borderBottom: '1px solid #f5f5f5' }}>
                               <td style={{ padding: '10px', fontFamily: 'monospace', fontSize: '12px' }}>{name}</td>
                               <td style={{ padding: '10px' }}>{provider}</td>
                               <td style={{ padding: '10px' }}>{purpose}</td>
@@ -193,7 +193,7 @@ export default function PrivacyPolicyPage() {
                       </ul>
                       <p>
                         To exercise any of these rights, please contact us at{' '}
-                        <a href="mailto:inquire@jexpresstransport.com" className="text-[#f58c23]">inquire@jexpresstransport.com</a>.
+                        <a href="mailto:inquire@jexpresstransport.com" className="text-[#d4a53a]">inquire@jexpresstransport.com</a>.
                       </p>
                     </>
                   ),
@@ -232,7 +232,7 @@ export default function PrivacyPolicyPage() {
                     <>
                       <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
                       <ul>
-                        <li><strong>Email:</strong> <a href="mailto:inquire@jexpresstransport.com" className="text-[#f58c23]">inquire@jexpresstransport.com</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:inquire@jexpresstransport.com" className="text-[#d4a53a]">inquire@jexpresstransport.com</a></li>
                         <li><strong>Phone:</strong> +63 916 611 2928 / +63 919 009 1985 / +63 2 8743 9021</li>
                         <li><strong>Address:</strong> Espasyo Learning and Recreation Hub, #6 Torres Bugallon Street, Marikina Heights, Marikina City, Philippines</li>
                       </ul>
@@ -241,10 +241,10 @@ export default function PrivacyPolicyPage() {
                 },
               ].map((section) => (
                 <div key={section.title} className="mb-10">
-                  <h2 className="font-sans font-black text-[#383838] text-xl mb-4 pb-2 border-b border-[#e8e0d8]">
+                  <h2 className="font-heading text-[#383838] text-xl mb-4 pb-2 border-b border-[#f5f5f5]">
                     {section.title}
                   </h2>
-                  <div className="text-[#6b6b6b] text-sm leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-1.5 [&_p]:mb-3 [&_a]:text-[#f58c23] [&_strong]:text-[#383838]">
+                  <div className="text-[#6b6b6b] text-sm leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-1.5 [&_p]:mb-3 [&_a]:text-[#d4a53a] [&_strong]:text-[#383838]">
                     {section.content}
                   </div>
                 </div>

@@ -7,10 +7,7 @@ import {
   RiCloseLine, RiPriceTag3Line,
 } from 'react-icons/ri'
 
-const ICON_OPTIONS = [
-  'Bus', 'Users', 'MapPin', 'Wrench', 'Truck', 'Shield',
-  'Clock', 'Package', 'Globe', 'Building', 'Star', 'Headphones',
-]
+import ServiceIconPicker from '@/components/dashboard/service-icon-picker'
 
 interface ServiceContent {
   id?: string
@@ -32,7 +29,7 @@ interface Service {
 }
 
 const inputClass =
-  'w-full bg-white border border-[#e8e0d8] focus:border-[#f58c23] focus:ring-2 focus:ring-[#f58c23]/20 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200'
+  'w-full bg-[#f5f5f5] border border-[#f5f5f5] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#f5f5f5] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200'
 
 const labelClass = 'text-[#383838] text-xs font-bold font-inter uppercase tracking-wide mb-1.5 block'
 
@@ -133,24 +130,24 @@ function ServiceEditor({
   ] as const
 
   return (
-    <div className="bg-white border border-[#e8e0d8] rounded-2xl overflow-hidden">
+    <div className="bg-[#f5f5f5] border border-[#f5f5f5] rounded-2xl overflow-hidden">
       {/* Editor header */}
-      <div className="flex items-center justify-between px-6 py-4 bg-[#f9f4ef] border-b border-[#e8e0d8]">
-        <h3 className="font-sans font-bold text-[#383838] text-sm">Editing: {service.name}</h3>
+      <div className="flex items-center justify-between px-6 py-4 bg-[#f5f5f5] border-b border-[#f5f5f5]">
+        <h3 className="font-heading text-[#383838]">Editing: {service.name}</h3>
         <button onClick={onClose} className="text-[#6b6b6b] hover:text-[#383838] transition-colors">
           <RiCloseLine size={20} />
         </button>
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-[#e8e0d8]">
+      <div className="flex border-b border-[#f5f5f5]">
         {tabs.map((tab) => (
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
             className={`px-5 py-3 text-xs font-inter font-semibold uppercase tracking-wide transition-colors border-b-2 -mb-px ${
               activeTab === tab.key
-                ? 'text-[#f58c23] border-[#f58c23]'
+                ? 'text-[#d4a53a] border-[#d4a53a]'
                 : 'text-[#6b6b6b] border-transparent hover:text-[#383838]'
             }`}
           >
@@ -175,22 +172,10 @@ function ServiceEditor({
 
             <div>
               <label className={labelClass}>Icon</label>
-              <div className="flex flex-wrap gap-2">
-                {ICON_OPTIONS.map((ico) => (
-                  <button
-                    key={ico}
-                    type="button"
-                    onClick={() => setIcon(ico)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-inter font-semibold border transition-all duration-200 ${
-                      icon === ico
-                        ? 'bg-[#f58c23] border-[#f58c23] text-white'
-                        : 'bg-white border-[#e8e0d8] text-[#6b6b6b] hover:border-[#f58c23]'
-                    }`}
-                  >
-                    {ico}
-                  </button>
-                ))}
-              </div>
+              <ServiceIconPicker
+                value={icon}
+                onChange={(next) => setIcon(next)}
+              />
             </div>
 
             <div className={`grid gap-4 ${price !== '' && !isNaN(parseFloat(price)) && parseFloat(price) > 0 ? 'grid-cols-2' : 'grid-cols-1'}`}>
@@ -230,7 +215,7 @@ function ServiceEditor({
             <button
               type="submit"
               disabled={savingDetails}
-              className="flex items-center justify-center gap-2 bg-[#f58c23] hover:bg-[#d97b1a] disabled:opacity-60 text-white font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200"
+              className="flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:opacity-60 text-white font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200"
             >
               {savingDetails
                 ? <RiLoader4Line size={14} className="animate-spin" />
@@ -262,7 +247,7 @@ function ServiceEditor({
             <button
               onClick={() => saveContent('homepage')}
               disabled={savingContent}
-              className="flex items-center justify-center gap-2 bg-[#f58c23] hover:bg-[#d97b1a] disabled:opacity-60 text-white font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200"
+              className="flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:opacity-60 text-white font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200"
             >
               {savingContent
                 ? <RiLoader4Line size={14} className="animate-spin" />
@@ -307,7 +292,7 @@ function ServiceEditor({
             <button
               onClick={() => saveContent('services_page')}
               disabled={savingContent}
-              className="flex items-center justify-center gap-2 bg-[#f58c23] hover:bg-[#d97b1a] disabled:opacity-60 text-white font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200"
+              className="flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:opacity-60 text-white font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200"
             >
               {savingContent
                 ? <RiLoader4Line size={14} className="animate-spin" />
@@ -425,7 +410,7 @@ export default function ServicesManager() {
         </div>
         <button
           onClick={() => { setShowAdd(true); setEditingId(null) }}
-          className="inline-flex items-center gap-2 bg-[#f58c23] hover:bg-[#d97b1a] text-white font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-200"
+          className="inline-flex items-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] text-white font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-200"
         >
           <RiAddLine size={16} /> Add Service
         </button>
@@ -433,9 +418,9 @@ export default function ServicesManager() {
 
       {/* Add service form */}
       {showAdd && (
-        <div className="bg-white border border-[#f58c23]/40 rounded-2xl p-6">
-          <h3 className="font-sans font-bold text-[#383838] text-sm mb-4 flex items-center gap-2">
-            <RiAddLine size={16} className="text-[#f58c23]" /> New Service
+        <div className="bg-[#f5f5f5] border border-[#d4a53a]/40 rounded-2xl p-6">
+          <h3 className="font-heading text-[#383838] mb-4 flex items-center gap-2">
+            <RiAddLine size={16} className="text-[#d4a53a]" /> New Service
           </h3>
           <form onSubmit={handleAdd} className="flex flex-col gap-4">
             <div>
@@ -450,29 +435,17 @@ export default function ServicesManager() {
             </div>
             <div>
               <label className={labelClass}>Icon</label>
-              <div className="flex flex-wrap gap-2">
-                {ICON_OPTIONS.map((ico) => (
-                  <button
-                    key={ico}
-                    type="button"
-                    onClick={() => setNewIcon(ico)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-inter font-semibold border transition-all duration-200 ${
-                      newIcon === ico
-                        ? 'bg-[#f58c23] border-[#f58c23] text-white'
-                        : 'bg-white border-[#e8e0d8] text-[#6b6b6b] hover:border-[#f58c23]'
-                    }`}
-                  >
-                    {ico}
-                  </button>
-                ))}
-              </div>
+              <ServiceIconPicker
+                value={newIcon}
+                onChange={(next) => setNewIcon(next)}
+              />
             </div>
             {addError && <p className="text-red-500 text-xs font-inter">{addError}</p>}
             <div className="flex gap-3">
               <button
                 type="submit"
                 disabled={adding}
-                className="flex items-center gap-2 bg-[#f58c23] hover:bg-[#d97b1a] disabled:opacity-60 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all duration-200"
+                className="flex items-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:opacity-60 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all duration-200"
               >
                 {adding ? <RiLoader4Line size={14} className="animate-spin" /> : <><RiAddLine size={14} /> Add Service</>}
               </button>
@@ -489,10 +462,10 @@ export default function ServicesManager() {
       )}
 
       {/* Services list */}
-      <div className="bg-white border border-[#e8e0d8] rounded-2xl overflow-hidden">
-        <div className="px-5 py-4 bg-[#f9f4ef] border-b border-[#e8e0d8] flex items-center gap-2">
-          <RiPriceTag3Line size={16} className="text-[#f58c23]" />
-          <h2 className="font-sans font-bold text-[#383838] text-sm">All Services</h2>
+      <div className="bg-[#f5f5f5] border border-[#f5f5f5] rounded-2xl overflow-hidden">
+        <div className="px-5 py-4 bg-[#f5f5f5] border-b border-[#f5f5f5] flex items-center gap-2">
+          <RiPriceTag3Line size={16} className="text-[#d4a53a]" />
+          <h2 className="font-heading text-[#383838] text-sm">All Services</h2>
         </div>
 
         {services.length === 0 ? (
@@ -501,7 +474,7 @@ export default function ServicesManager() {
           services.map((service, idx) => (
             <div
               key={service.id}
-              className={`border-b border-[#e8e0d8] last:border-0 ${!service.is_active ? 'opacity-50' : ''}`}
+              className={`border-b border-[#f5f5f5] last:border-0 ${!service.is_active ? 'opacity-50' : ''}`}
             >
               <div className="flex items-center gap-3 px-5 py-3.5">
                 {/* Reorder */}
@@ -509,14 +482,14 @@ export default function ServicesManager() {
                   <button
                     onClick={() => moveOrder(service, 'up')}
                     disabled={idx === 0}
-                    className="text-[#bbb] hover:text-[#383838] disabled:opacity-30 transition-colors"
+                    className="text-[#f5f5f5] hover:text-[#383838] disabled:opacity-30 transition-colors"
                   >
                     <RiArrowUpLine size={13} />
                   </button>
                   <button
                     onClick={() => moveOrder(service, 'down')}
                     disabled={idx === services.length - 1}
-                    className="text-[#bbb] hover:text-[#383838] disabled:opacity-30 transition-colors"
+                    className="text-[#f5f5f5] hover:text-[#383838] disabled:opacity-30 transition-colors"
                   >
                     <RiArrowDownLine size={13} />
                   </button>
@@ -526,12 +499,12 @@ export default function ServicesManager() {
                 <div className="flex-1 min-w-0">
                   <p className="font-inter font-semibold text-[#383838] text-sm truncate">{service.name}</p>
                   <p className="font-inter text-[#6b6b6b] text-xs mt-0.5 flex items-center gap-2">
-                    <span className="bg-[#f9f4ef] px-2 py-0.5 rounded-full border border-[#e8e0d8]">{service.icon}</span>
+                    <span className="bg-[#f5f5f5] px-2 py-0.5 rounded-full border border-[#f5f5f5]">{service.icon}</span>
                     {service.price !== null
-                      ? <span className="text-[#f58c23] font-semibold">
+                      ? <span className="text-[#d4a53a] font-semibold">
                           {service.price_label === 'from' ? 'From ' : ''}₱{Number(service.price).toLocaleString()}
                         </span>
-                      : <span className="text-[#bbb]">No price set</span>
+                      : <span className="text-[#f5f5f5]">No price set</span>
                     }
                   </p>
                 </div>
@@ -541,14 +514,14 @@ export default function ServicesManager() {
                   <button
                     onClick={() => toggleActive(service)}
                     title={service.is_active ? 'Hide from site' : 'Show on site'}
-                    className="p-1.5 text-[#6b6b6b] hover:text-[#f58c23] transition-colors"
+                    className="p-1.5 text-[#6b6b6b] hover:text-[#d4a53a] transition-colors"
                   >
                     {service.is_active ? <RiEyeLine size={16} /> : <RiEyeOffLine size={16} />}
                   </button>
                   <button
                     onClick={() => setEditingId(editingId === service.id ? null : service.id)}
                     title="Edit"
-                    className={`p-1.5 transition-colors ${editingId === service.id ? 'text-[#f58c23]' : 'text-[#6b6b6b] hover:text-[#f58c23]'}`}
+                    className={`p-1.5 transition-colors ${editingId === service.id ? 'text-[#d4a53a]' : 'text-[#6b6b6b] hover:text-[#d4a53a]'}`}
                   >
                     <RiEditLine size={16} />
                   </button>

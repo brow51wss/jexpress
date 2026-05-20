@@ -13,7 +13,7 @@ export default async function UsersPage() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="font-sans font-black text-[#383838] text-2xl lg:text-3xl">
+        <h1 className="font-heading text-[#383838] text-2xl lg:text-3xl">
           User Management
         </h1>
         <p className="font-inter text-[#6b6b6b] text-sm mt-1">

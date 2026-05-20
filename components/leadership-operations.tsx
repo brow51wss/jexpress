@@ -25,14 +25,14 @@ const roles = [
 
 export default function LeadershipOperations() {
   return (
-    <section className="py-24" style={{ background: '#f9f7f4' }}>
+    <section className="py-24" style={{ background: '#f5f5f5' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
-          <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+          <span className="eyebrow-dash text-[#00193c] mb-4">
             Operational Support
           </span>
-          <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-4">
-            Administrative &amp; <span className="text-[#f58c23]">Operations Team</span>
+          <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-4">
+            Administrative &amp; <span className="text-[#d4a53a]">Operations Team</span>
           </h2>
           <p className="font-inter text-[#6b6b6b] text-base leading-relaxed max-w-xl mx-auto">
             In addition to leadership and board oversight, JTTC&apos;s structure includes support
@@ -46,12 +46,12 @@ export default function LeadershipOperations() {
             return (
               <div
                 key={item.role}
-                className="bg-white rounded-2xl p-6 border border-[#e8e3dc] shadow-sm hover:border-[#f58c23]/40 hover:shadow-md transition-all duration-200 hover:-translate-y-1"
+                className="bg-[#f5f5f5] rounded-2xl p-6 border border-[#f5f5f5] shadow-sm hover:border-[#d4a53a]/40 hover:shadow-md transition-all duration-200 hover:-translate-y-1"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#383838] flex items-center justify-center mb-5">
-                  <Icon size={20} className="text-[#f58c23]" strokeWidth={1.8} />
+                  <Icon size={20} className="text-[#d4a53a]" strokeWidth={1.8} />
                 </div>
-                <h3 className="font-sans font-black text-[#383838] text-sm mb-3">{item.role}</h3>
+                <h3 className="font-heading text-[#383838] mb-3">{item.role}</h3>
                 <p className="font-inter text-[#6b6b6b] text-sm leading-relaxed">
                   {item.description}
                 </p>

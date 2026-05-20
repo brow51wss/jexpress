@@ -23,11 +23,11 @@ export default function TermsPage() {
         >
           <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
             <div className="max-w-3xl mx-auto text-center">
-              <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+              <span className="eyebrow-dash text-[#00193c] mb-4">
                 Legal
               </span>
-              <h1 className="font-sans font-black text-white text-4xl sm:text-5xl leading-tight text-balance mb-4">
-                Terms of <span className="text-[#f58c23]">Use</span>
+              <h1 className="font-heading text-white text-4xl sm:text-5xl leading-tight text-balance mb-4">
+                Terms of <span className="text-[#d4a53a]">Use</span>
               </h1>
               <p className="font-inter text-white/60 text-sm">
                 Effective Date: {EFFECTIVE_DATE}
@@ -36,18 +36,18 @@ export default function TermsPage() {
           </div>
           <div
             className="absolute bottom-0 left-0 right-0 h-px"
-            style={{ background: 'linear-gradient(to right, transparent, #f58c23, transparent)' }}
+            style={{ background: 'linear-gradient(to right, transparent, #d4a53a, transparent)' }}
           />
         </section>
 
         {/* Content */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-[#f5f5f5]">
           <div className="max-w-3xl mx-auto px-6">
             <div className="font-inter text-[#383838]" style={{ lineHeight: '1.8' }}>
 
               <p className="text-[#6b6b6b] text-base leading-relaxed mb-10">
                 These Terms of Use (<strong>"Terms"</strong>) govern your access to and use of the website{' '}
-                <a href="https://www.jexpresstransport.com" className="text-[#f58c23]">www.jexpresstransport.com</a>{' '}
+                <a href="https://www.jexpresstransport.com" className="text-[#d4a53a]">www.jexpresstransport.com</a>{' '}
                 (the <strong>"Site"</strong>) operated by Jexpress Tourist Transport Cooperative (<strong>"JTTC"</strong>, <strong>"we"</strong>, <strong>"us"</strong>, or <strong>"our"</strong>).
                 By accessing or using our Site, you agree to be bound by these Terms. If you do not agree, please do not use the Site.
               </p>
@@ -148,7 +148,7 @@ export default function TermsPage() {
                   content: (
                     <p>
                       Your use of the Site is also governed by our{' '}
-                      <a href="/privacy-policy" className="text-[#f58c23]">Privacy Policy</a>,
+                      <a href="/privacy-policy" className="text-[#d4a53a]">Privacy Policy</a>,
                       which is incorporated into these Terms by reference. Please review our Privacy Policy to understand our practices regarding the collection and use of your information.
                     </p>
                   ),
@@ -178,7 +178,7 @@ export default function TermsPage() {
                     <>
                       <p>If you have any questions about these Terms, please contact us:</p>
                       <ul>
-                        <li><strong>Email:</strong> <a href="mailto:inquire@jexpresstransport.com" className="text-[#f58c23]">inquire@jexpresstransport.com</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:inquire@jexpresstransport.com" className="text-[#d4a53a]">inquire@jexpresstransport.com</a></li>
                         <li><strong>Phone:</strong> +63 916 611 2928 / +63 919 009 1985 / +63 2 8743 9021</li>
                         <li><strong>Address:</strong> Espasyo Learning and Recreation Hub, #6 Torres Bugallon Street, Marikina Heights, Marikina City, Philippines</li>
                       </ul>
@@ -187,10 +187,10 @@ export default function TermsPage() {
                 },
               ].map((section) => (
                 <div key={section.title} className="mb-10">
-                  <h2 className="font-sans font-black text-[#383838] text-xl mb-4 pb-2 border-b border-[#e8e0d8]">
+                  <h2 className="font-heading text-[#383838] text-xl mb-4 pb-2 border-b border-[#f5f5f5]">
                     {section.title}
                   </h2>
-                  <div className="text-[#6b6b6b] text-sm leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-1.5 [&_p]:mb-3 [&_a]:text-[#f58c23] [&_strong]:text-[#383838]">
+                  <div className="text-[#6b6b6b] text-sm leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-1.5 [&_p]:mb-3 [&_a]:text-[#d4a53a] [&_strong]:text-[#383838]">
                     {section.content}
                   </div>
                 </div>

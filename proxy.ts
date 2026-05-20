@@ -19,9 +19,7 @@ async function computeFranchiseToken(secret: string): Promise<string> {
     .join('')
 }
 
-// --- Middleware ---
-
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Franchise portal — redirect to /franchise/login if no valid session

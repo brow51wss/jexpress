@@ -33,7 +33,7 @@ export default function UserManagement() {
   const [groupError, setGroupError] = useState('')
 
   const inputClass =
-    'w-full bg-white border border-[#e8e0d8] focus:border-[#f58c23] focus:ring-2 focus:ring-[#f58c23]/20 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200'
+    'w-full bg-[#f5f5f5] border border-[#f5f5f5] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#f5f5f5] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200'
 
   const fetchData = useCallback(async () => {
     setLoading(true)
@@ -131,10 +131,10 @@ export default function UserManagement() {
 
       {/* Users panel */}
       <div className="lg:col-span-2 flex flex-col gap-4">
-        <div className="bg-white border border-[#e8e0d8] rounded-2xl overflow-hidden">
-          <div className="px-5 py-4 bg-[#f9f4ef] border-b border-[#e8e0d8] flex items-center gap-2">
-            <RiUserLine size={16} className="text-[#f58c23]" />
-            <h2 className="font-sans font-bold text-[#383838] text-sm">
+        <div className="bg-[#f5f5f5] border border-[#f5f5f5] rounded-2xl overflow-hidden">
+          <div className="px-5 py-4 bg-[#f5f5f5] border-b border-[#f5f5f5] flex items-center gap-2">
+            <RiUserLine size={16} className="text-[#d4a53a]" />
+            <h2 className="font-heading text-[#383838] text-sm">
               Dashboard Users <span className="text-[#6b6b6b] font-normal">({users.length})</span>
             </h2>
           </div>
@@ -145,14 +145,14 @@ export default function UserManagement() {
             users.map((user) => (
               <div
                 key={user.id}
-                className="flex items-center gap-3 px-5 py-3.5 border-b border-[#e8e0d8] last:border-0"
+                className="flex items-center gap-3 px-5 py-3.5 border-b border-[#f5f5f5] last:border-0"
               >
                 <div className="flex-1 min-w-0">
                   <p className="font-inter font-semibold text-[#383838] text-sm truncate">
                     {user.email}
                   </p>
                   {user.is_super_admin && (
-                    <span className="inline-block text-[10px] font-inter font-semibold uppercase tracking-wider text-[#f58c23] bg-[#f58c23]/10 px-2 py-0.5 rounded-full mt-0.5">
+                    <span className="inline-block text-[10px] font-inter font-semibold uppercase tracking-wider text-[#d4a53a] bg-[#d4a53a]/10 px-2 py-0.5 rounded-full mt-0.5">
                       Super Admin
                     </span>
                   )}
@@ -163,7 +163,7 @@ export default function UserManagement() {
                     <select
                       value={user.group_id ?? ''}
                       onChange={(e) => handleChangeGroup(user.id, e.target.value)}
-                      className="text-xs font-inter border border-[#e8e0d8] rounded-lg px-2 py-1.5 text-[#383838] bg-white outline-none focus:border-[#f58c23] transition-colors"
+                      className="text-xs font-inter border border-[#f5f5f5] rounded-lg px-2 py-1.5 text-[#383838] bg-[#f5f5f5] outline-none focus:border-[#d4a53a] transition-colors"
                     >
                       <option value="">No group</option>
                       {groups.map((g) => (
@@ -184,9 +184,9 @@ export default function UserManagement() {
         </div>
 
         {/* Add user form */}
-        <div className="bg-white border border-[#e8e0d8] rounded-2xl p-5">
-          <h3 className="font-sans font-bold text-[#383838] text-sm mb-3 flex items-center gap-2">
-            <RiAddLine size={16} className="text-[#f58c23]" /> Add User
+        <div className="bg-[#f5f5f5] border border-[#f5f5f5] rounded-2xl p-5">
+          <h3 className="font-heading text-[#383838] mb-3 flex items-center gap-2">
+            <RiAddLine size={16} className="text-[#d4a53a]" /> Add User
           </h3>
           <form onSubmit={handleAddUser} className="flex flex-col gap-3">
             <input
@@ -210,7 +210,7 @@ export default function UserManagement() {
             <button
               type="submit"
               disabled={addingUser}
-              className="flex items-center justify-center gap-2 bg-[#f58c23] hover:bg-[#d97b1a] disabled:opacity-60 text-white font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200"
+              className="flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:opacity-60 text-white font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200"
             >
               {addingUser
                 ? <RiLoader4Line size={14} className="animate-spin" />
@@ -223,10 +223,10 @@ export default function UserManagement() {
 
       {/* Groups panel */}
       <div className="flex flex-col gap-4">
-        <div className="bg-white border border-[#e8e0d8] rounded-2xl overflow-hidden">
-          <div className="px-5 py-4 bg-[#f9f4ef] border-b border-[#e8e0d8] flex items-center gap-2">
-            <RiGroupLine size={16} className="text-[#f58c23]" />
-            <h2 className="font-sans font-bold text-[#383838] text-sm">
+        <div className="bg-[#f5f5f5] border border-[#f5f5f5] rounded-2xl overflow-hidden">
+          <div className="px-5 py-4 bg-[#f5f5f5] border-b border-[#f5f5f5] flex items-center gap-2">
+            <RiGroupLine size={16} className="text-[#d4a53a]" />
+            <h2 className="font-heading text-[#383838] text-sm">
               Groups <span className="text-[#6b6b6b] font-normal">({groups.length})</span>
             </h2>
           </div>
@@ -237,12 +237,12 @@ export default function UserManagement() {
             groups.map((group) => (
               <div
                 key={group.id}
-                className="flex items-center justify-between px-5 py-3 border-b border-[#e8e0d8] last:border-0"
+                className="flex items-center justify-between px-5 py-3 border-b border-[#f5f5f5] last:border-0"
               >
                 <div className="flex items-center gap-2">
                   <span className="font-inter font-semibold text-[#383838] text-sm">{group.name}</span>
                   {group.is_system && (
-                    <span className="inline-flex items-center gap-1 text-[10px] font-inter font-semibold uppercase tracking-wider text-[#6b6b6b] bg-[#f9f4ef] border border-[#e8e0d8] px-2 py-0.5 rounded-full">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-inter font-semibold uppercase tracking-wider text-[#6b6b6b] bg-[#f5f5f5] border border-[#f5f5f5] px-2 py-0.5 rounded-full">
                       <RiLockLine size={9} /> System
                     </span>
                   )}
@@ -261,9 +261,9 @@ export default function UserManagement() {
         </div>
 
         {/* Add group form */}
-        <div className="bg-white border border-[#e8e0d8] rounded-2xl p-5">
-          <h3 className="font-sans font-bold text-[#383838] text-sm mb-3 flex items-center gap-2">
-            <RiAddLine size={16} className="text-[#f58c23]" /> Create Group
+        <div className="bg-[#f5f5f5] border border-[#f5f5f5] rounded-2xl p-5">
+          <h3 className="font-heading text-[#383838] mb-3 flex items-center gap-2">
+            <RiAddLine size={16} className="text-[#d4a53a]" /> Create Group
           </h3>
           <form onSubmit={handleAddGroup} className="flex flex-col gap-3">
             <input

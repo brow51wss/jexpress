@@ -16,12 +16,12 @@ export default function ServicesFleet() {
 
           <div className="flex flex-col gap-7">
             <div>
-              <span className="inline-block text-[#fed16c] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+              <span className="eyebrow-dash text-[#00193c] mb-4">
                 Our Fleet
               </span>
-              <h2 className="font-sans font-black text-white text-3xl sm:text-4xl leading-tight text-balance mb-5">
+              <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance mb-5">
                 Vehicles Ready to Support{' '}
-                <span className="text-[#f58c23]">Your Requirements</span>
+                <span className="text-[#d4a53a]">Your Requirements</span>
               </h2>
               <p className="font-inter text-white/60 text-base leading-relaxed">
                 JTTC maintains a capable fleet to accommodate a variety of transport needs depending
@@ -34,15 +34,15 @@ export default function ServicesFleet() {
               {vehicles.map((vehicle) => (
                 <div
                   key={vehicle.name}
-                  className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-xl p-5"
+                  className="flex items-start gap-4 bg-[#f5f5f5]/5 border border-white/10 rounded-xl p-5"
                 >
-                  <CheckCircle size={20} className="text-[#f58c23] flex-shrink-0 mt-0.5" strokeWidth={2} />
+                  <CheckCircle size={20} className="text-[#d4a53a] flex-shrink-0 mt-0.5" strokeWidth={2} />
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <span className="font-sans font-bold text-white text-sm">
+                      <span className="font-heading text-white text-sm">
                         {vehicle.name}
                       </span>
-                      <span className="inline-block bg-[#f58c23]/20 text-[#fed16c] font-inter font-semibold text-[11px] px-2.5 py-0.5 rounded-full">
+                      <span className="inline-block bg-[#d4a53a]/20 text-[#d4a53a] font-inter font-semibold text-[11px] px-2.5 py-0.5 rounded-full">
                         {vehicle.qty}
                       </span>
                     </div>
@@ -54,7 +54,7 @@ export default function ServicesFleet() {
               ))}
             </div>
 
-            <p className="font-inter text-white/40 text-sm leading-relaxed border-l-2 border-[#f58c23]/50 pl-4">
+            <p className="font-inter text-white/40 text-sm leading-relaxed border-l-2 border-[#d4a53a]/50 pl-4">
               This allows us to support a variety of transport needs depending on client
               requirements and group size.
             </p>

@@ -33,11 +33,11 @@ export default function BookWhy() {
     <section className="py-20 bg-[#383838]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
-          <span className="inline-block text-[#fed16c] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+          <span className="eyebrow-dash text-[#d4a53a] mb-4">
             Our Commitment
           </span>
-          <h2 className="font-sans font-black text-white text-3xl sm:text-4xl leading-tight text-balance mb-4">
-            Why Book <span className="text-[#f58c23]">With JTTC</span>
+          <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance mb-4">
+            Why Book <span className="text-[#d4a53a]">With JTTC</span>
           </h2>
           <p className="font-inter text-white/50 text-base leading-relaxed max-w-2xl mx-auto">
             When you book with JTTC, you are partnering with a cooperative that values safety,
@@ -53,7 +53,7 @@ export default function BookWhy() {
             return (
               <div
                 key={r.title}
-                className={`bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col gap-5 hover:bg-white/10 hover:border-[#f58c23]/40 transition-all duration-200 ${
+                className={`bg-[#f5f5f5]/5 border border-white/10 rounded-2xl p-7 flex flex-col gap-5 hover:bg-[#f5f5f5]/10 hover:border-[#d4a53a]/40 transition-all duration-200 ${
                   isLast && reasons.length % 3 !== 0
                     ? 'sm:col-span-2 lg:col-span-1'
                     : ''
@@ -63,11 +63,11 @@ export default function BookWhy() {
                     : ''
                 }`}
               >
-                <div className="w-12 h-12 rounded-xl bg-[#f58c23] flex items-center justify-center shadow-lg shadow-[#f58c23]/30 flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-[#d4a53a] flex items-center justify-center shadow-lg shadow-[#d4a53a]/30 flex-shrink-0">
                   <Icon size={22} className="text-white" strokeWidth={1.8} />
                 </div>
                 <div>
-                  <h3 className="font-sans font-black text-white text-base mb-2">
+                  <h3 className="font-heading text-white mb-2">
                     {r.title}
                   </h3>
                   <p className="font-inter text-white/50 text-sm leading-relaxed">

@@ -34,7 +34,7 @@ export default async function DashboardLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#f9f4ef] flex">
+    <div className="min-h-screen bg-[#f5f5f5] flex">
       <DashboardNav
         isSuperAdmin={session.isSuperAdmin}
         isMarketing={isMarketing}

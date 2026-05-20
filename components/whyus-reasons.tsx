@@ -62,15 +62,15 @@ const reasons = [
 
 export default function WhyUsReasons() {
   return (
-    <section className="py-24" style={{ background: '#f7f4f0' }}>
+    <section className="py-24" style={{ background: '#f5f5f5' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+          <span className="eyebrow-dash text-[#00193c] mb-4">
             Our Strengths
           </span>
-          <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance">
+          <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance">
             What Sets JTTC{' '}
-            <span className="text-[#f58c23]">Apart</span>
+            <span className="text-[#d4a53a]">Apart</span>
           </h2>
         </div>
 
@@ -80,22 +80,22 @@ export default function WhyUsReasons() {
             return (
               <div
                 key={reason.number}
-                className="group flex flex-col gap-5 bg-white border border-[#ede8e0] hover:border-[#f58c23]/40 rounded-2xl p-7 shadow-sm hover:shadow-md transition-all duration-200"
+                className="group flex flex-col gap-5 bg-[#f5f5f5] border border-[#f5f5f5] hover:border-[#d4a53a]/40 rounded-2xl p-7 shadow-sm hover:shadow-md transition-all duration-200"
               >
                 <div className="flex items-start justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-[#f58c23]/10 group-hover:bg-[#f58c23] flex items-center justify-center flex-shrink-0 transition-colors duration-200">
+                  <div className="w-12 h-12 rounded-xl bg-[#d4a53a]/10 group-hover:bg-[#d4a53a] flex items-center justify-center flex-shrink-0 transition-colors duration-200">
                     <Icon
                       size={22}
-                      className="text-[#f58c23] group-hover:text-white transition-colors duration-200"
+                      className="text-[#d4a53a] group-hover:text-white transition-colors duration-200"
                       strokeWidth={1.75}
                     />
                   </div>
-                  <span className="font-black text-[#f58c23]/20 text-3xl font-sans leading-none">
+                  <span className="font-stat text-[#d4a53a]/20 text-3xl leading-none">
                     {reason.number}
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-sans font-bold text-[#383838] text-base leading-snug mb-3">
+                  <h3 className="font-heading text-[#383838] leading-snug mb-3">
                     {reason.title}
                   </h3>
                   <p className="font-inter text-[#6b6b6b] text-sm leading-relaxed">
@@ -113,21 +113,21 @@ export default function WhyUsReasons() {
             return (
               <div
                 key={reason.number}
-                className="group flex flex-col sm:flex-row items-start gap-5 bg-white border border-[#ede8e0] hover:border-[#f58c23]/40 rounded-2xl p-7 shadow-sm hover:shadow-md transition-all duration-200"
+                className="group flex flex-col sm:flex-row items-start gap-5 bg-[#f5f5f5] border border-[#f5f5f5] hover:border-[#d4a53a]/40 rounded-2xl p-7 shadow-sm hover:shadow-md transition-all duration-200"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#f58c23]/10 group-hover:bg-[#f58c23] flex items-center justify-center flex-shrink-0 transition-colors duration-200">
+                <div className="w-12 h-12 rounded-xl bg-[#d4a53a]/10 group-hover:bg-[#d4a53a] flex items-center justify-center flex-shrink-0 transition-colors duration-200">
                   <Icon
                     size={22}
-                    className="text-[#f58c23] group-hover:text-white transition-colors duration-200"
+                    className="text-[#d4a53a] group-hover:text-white transition-colors duration-200"
                     strokeWidth={1.75}
                   />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="font-black text-[#f58c23]/30 text-sm font-sans">
+                    <span className="font-stat text-[#d4a53a]/30 text-sm">
                       {reason.number}
                     </span>
-                    <h3 className="font-sans font-bold text-[#383838] text-base leading-snug">
+                    <h3 className="font-heading text-[#383838] leading-snug">
                       {reason.title}
                     </h3>
                   </div>

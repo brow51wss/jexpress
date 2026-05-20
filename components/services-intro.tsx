@@ -1,9 +1,9 @@
 export default function ServicesIntro() {
   return (
-    <section className="py-20" style={{ background: '#f5f0eb' }}>
+    <section className="py-20" style={{ background: '#f5f5f5' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+          <span className="eyebrow-dash text-[#00193c] mb-4">
             Our Approach
           </span>
           <p className="font-inter text-[#4a4a4a] text-lg sm:text-xl leading-relaxed">

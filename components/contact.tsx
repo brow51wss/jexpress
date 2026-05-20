@@ -9,6 +9,8 @@ import {
   RiCheckLine,
   RiCloseLine,
 } from 'react-icons/ri'
+import FormField from '@/components/form-field'
+import { extensionSafeFormProps, extensionSafeInputProps } from '@/lib/form-extension-guard'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
@@ -88,19 +90,19 @@ export default function Contact() {
   }
 
   const inputClass =
-    'w-full bg-white border border-[#e8e0d8] focus:border-[#f58c23] focus:ring-2 focus:ring-[#f58c23]/20 text-[#383838] placeholder:text-[#aaa] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200'
+    'w-full bg-[#f5f5f5] border border-[#f5f5f5] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#aaa] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200'
 
   return (
-    <section id="contact" className="py-24 bg-[#fff8f0]">
+    <section id="contact" className="py-24 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
           <div className="lg:col-span-2 flex flex-col gap-8">
             <div>
-              <span className="inline-block text-[#f58c23] text-xs font-inter font-bold uppercase tracking-widest mb-4 border-l-4 border-[#f58c23] pl-3">
+              <span className="inline-block text-[#d4a53a] text-xs font-inter font-bold uppercase tracking-widest mb-4 border-l-4 border-[#d4a53a] pl-3">
                 Get In Touch
               </span>
-              <h2 className="text-4xl lg:text-5xl font-black text-[#383838] leading-tight mb-5 text-balance">
-                Book a Trip or <span className="text-[#f58c23]">Request a Quote</span>
+              <h2 className="font-heading text-4xl lg:text-5xl text-[#383838] leading-tight mb-5 text-balance">
+                Book a Trip or <span className="text-[#d4a53a]">Request a Quote</span>
               </h2>
               <p className="text-[#6b6b6b] text-base leading-relaxed font-inter">
                 Ready to experience safe, reliable transport? Fill in the form and our team
@@ -110,7 +112,7 @@ export default function Contact() {
 
             <div className="flex flex-col gap-5">
               <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-[#f58c23] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#f58c23]/30">
+                <div className="w-11 h-11 rounded-xl bg-[#d4a53a] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#d4a53a]/30">
                   <RiMapPinLine size={20} className="text-white" />
                 </div>
                 <div>
@@ -124,22 +126,22 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-[#f58c23] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#f58c23]/30">
+                <div className="w-11 h-11 rounded-xl bg-[#d4a53a] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#d4a53a]/30">
                   <RiPhoneLine size={20} className="text-white" />
                 </div>
                 <div>
                   <p className="text-[#383838] font-bold text-sm">Phone</p>
                   <div className="flex flex-col gap-0.5">
-                    <a href="tel:+639166112928" className="text-[#6b6b6b] text-sm font-inter hover:text-[#f58c23] transition-colors">
+                    <a href="tel:+639166112928" className="font-phone text-[#6b6b6b] text-lg hover:text-[#d4a53a] transition-colors">
                       +63 916 611 2928
                     </a>
-                    <a href="tel:+63287006042" className="text-[#6b6b6b] text-sm font-inter hover:text-[#f58c23] transition-colors">
+                    <a href="tel:+63287006042" className="font-phone text-[#6b6b6b] text-lg hover:text-[#d4a53a] transition-colors">
                       +63 2 8700 6042
                     </a>
-                    <a href="tel:+639190091985" className="text-[#6b6b6b] text-sm font-inter hover:text-[#f58c23] transition-colors">
+                    <a href="tel:+639190091985" className="font-phone text-[#6b6b6b] text-lg hover:text-[#d4a53a] transition-colors">
                       +63 919 009 1985
                     </a>
-                    <a href="tel:+63287439021" className="text-[#6b6b6b] text-sm font-inter hover:text-[#f58c23] transition-colors">
+                    <a href="tel:+63287439021" className="font-phone text-[#6b6b6b] text-lg hover:text-[#d4a53a] transition-colors">
                       +63 2 8743 9021
                     </a>
                   </div>
@@ -147,14 +149,14 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-[#f58c23] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#f58c23]/30">
+                <div className="w-11 h-11 rounded-xl bg-[#d4a53a] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#d4a53a]/30">
                   <RiMailLine size={20} className="text-white" />
                 </div>
                 <div>
                   <p className="text-[#383838] font-bold text-sm">Email</p>
                   <a
                     href="mailto:jexpresstouristtransport.jttsc@gmail.com"
-                    className="text-[#6b6b6b] text-sm font-inter hover:text-[#f58c23] transition-colors break-all"
+                    className="text-[#6b6b6b] text-sm font-inter hover:text-[#d4a53a] transition-colors break-all"
                   >
                     jexpresstouristtransport.jttsc@gmail.com
                   </a>
@@ -177,13 +179,13 @@ export default function Contact() {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="bg-white rounded-2xl shadow-xl shadow-[#383838]/5 border border-[#e8e0d8] p-8 lg:p-10">
+            <div className="bg-[#f5f5f5] rounded-2xl shadow-xl shadow-[#383838]/5 border border-[#f5f5f5] p-8 lg:p-10">
               {formState === 'success' ? (
                 <div className="flex flex-col items-center justify-center gap-5 py-16 text-center">
                   <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
                     <RiCheckLine size={40} className="text-green-600" />
                   </div>
-                  <h3 className="text-[#383838] text-2xl font-black">
+                  <h3 className="font-heading text-[#383838] text-2xl">
                     Booking Request Sent!
                   </h3>
                   <p className="text-[#6b6b6b] text-base font-inter max-w-sm leading-relaxed">
@@ -192,14 +194,19 @@ export default function Contact() {
                   </p>
                   <button
                     onClick={() => setFormState('idle')}
-                    className="mt-2 bg-[#f58c23] hover:bg-[#d97b1a] text-white font-bold text-sm px-7 py-3 rounded-full transition-colors"
+                    className="mt-2 bg-[#d4a53a] hover:bg-[#d4a53a] text-white font-bold text-sm px-7 py-3 rounded-full transition-colors"
                   >
                     Send Another Request
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
-                  <h3 className="text-[#383838] text-xl font-black mb-1">
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col gap-5"
+                  noValidate
+                  {...extensionSafeFormProps}
+                >
+                  <h3 className="font-heading text-[#383838] text-xl mb-1">
                     Transport Booking Form
                   </h3>
 
@@ -210,13 +217,13 @@ export default function Contact() {
                     </div>
                   )}
 
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="flex flex-col gap-1.5">
+                  <div className="grid sm:grid-cols-2 gap-4" suppressHydrationWarning>
+                    <FormField>
                       <label
                         htmlFor="fullName"
                         className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
                       >
-                        Full Name <span className="text-[#f58c23]">*</span>
+                        Full Name <span className="text-[#d4a53a]">*</span>
                       </label>
                       <input
                         id="fullName"
@@ -227,14 +234,15 @@ export default function Contact() {
                         value={formData.fullName}
                         onChange={handleChange}
                         className={inputClass}
+                        {...extensionSafeInputProps}
                       />
-                    </div>
-                    <div className="flex flex-col gap-1.5">
+                    </FormField>
+                    <FormField>
                       <label
                         htmlFor="email"
                         className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
                       >
-                        Email Address <span className="text-[#f58c23]">*</span>
+                        Email Address <span className="text-[#d4a53a]">*</span>
                       </label>
                       <input
                         id="email"
@@ -245,12 +253,13 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         className={inputClass}
+                        {...extensionSafeInputProps}
                       />
-                    </div>
+                    </FormField>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="flex flex-col gap-1.5">
+                  <div className="grid sm:grid-cols-2 gap-4" suppressHydrationWarning>
+                    <FormField>
                       <label
                         htmlFor="phone"
                         className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
@@ -265,9 +274,10 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         className={inputClass}
+                        {...extensionSafeInputProps}
                       />
-                    </div>
-                    <div className="flex flex-col gap-1.5">
+                    </FormField>
+                    <FormField>
                       <label
                         htmlFor="agency"
                         className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
@@ -282,17 +292,18 @@ export default function Contact() {
                         value={formData.agency}
                         onChange={handleChange}
                         className={inputClass}
+                        {...extensionSafeInputProps}
                       />
-                    </div>
+                    </FormField>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="flex flex-col gap-1.5">
+                  <div className="grid sm:grid-cols-2 gap-4" suppressHydrationWarning>
+                    <FormField>
                       <label
                         htmlFor="serviceType"
                         className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
                       >
-                        Service Type <span className="text-[#f58c23]">*</span>
+                        Service Type <span className="text-[#d4a53a]">*</span>
                       </label>
                       <select
                         id="serviceType"
@@ -301,14 +312,15 @@ export default function Contact() {
                         value={formData.serviceType}
                         onChange={handleChange}
                         className={inputClass}
+                        {...extensionSafeInputProps}
                       >
                         <option value="">Select a service</option>
                         {serviceNames.map((name) => (
                           <option key={name} value={name}>{name}</option>
                         ))}
                       </select>
-                    </div>
-                    <div className="flex flex-col gap-1.5">
+                    </FormField>
+                    <FormField>
                       <label
                         htmlFor="passengers"
                         className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
@@ -324,11 +336,12 @@ export default function Contact() {
                         value={formData.passengers}
                         onChange={handleChange}
                         className={inputClass}
+                        {...extensionSafeInputProps}
                       />
-                    </div>
+                    </FormField>
                   </div>
 
-                  <div className="flex flex-col gap-1.5">
+                  <FormField>
                     <label
                       htmlFor="travelDate"
                       className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
@@ -342,10 +355,11 @@ export default function Contact() {
                       value={formData.travelDate}
                       onChange={handleChange}
                       className={inputClass}
+                      {...extensionSafeInputProps}
                     />
-                  </div>
+                  </FormField>
 
-                  <div className="flex flex-col gap-1.5">
+                  <FormField>
                     <label
                       htmlFor="message"
                       className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
@@ -360,13 +374,14 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       className={`${inputClass} resize-none`}
+                      {...extensionSafeInputProps}
                     />
-                  </div>
+                  </FormField>
 
                   <button
                     type="submit"
                     disabled={formState === 'loading'}
-                    className="w-full flex items-center justify-center gap-2 bg-[#f58c23] hover:bg-[#d97b1a] disabled:bg-[#f58c23]/60 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-[#f58c23]/30 mt-2"
+                    className="w-full flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:bg-[#d4a53a]/60 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-[#d4a53a]/30 mt-2"
                   >
                     {formState === 'loading' ? (
                       <>

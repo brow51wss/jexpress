@@ -35,15 +35,15 @@ const certifications = [
 
 export default function ProfileCompliance() {
   return (
-    <section className="py-24" style={{ background: '#f9f7f4' }}>
+    <section className="py-24" style={{ background: '#f5f5f5' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
-          <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+          <span className="eyebrow-dash text-[#00193c] mb-4">
             Registrations &amp; Certifications
           </span>
-          <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-4">
+          <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-4">
             Registered, Licensed &amp;{' '}
-            <span className="text-[#f58c23]">Compliant</span>
+            <span className="text-[#d4a53a]">Compliant</span>
           </h2>
           <p className="font-inter text-[#6b6b6b] text-base leading-relaxed max-w-2xl mx-auto">
             JTTC maintains the necessary registrations, licenses, certifications, and permits to
@@ -57,13 +57,13 @@ export default function ProfileCompliance() {
             return (
               <div
                 key={cert.title}
-                className="bg-white rounded-2xl p-7 border border-[#e8e0d8] shadow-sm hover:shadow-md hover:border-[#f58c23]/40 transition-all duration-200 flex gap-5"
+                className="bg-[#f5f5f5] rounded-2xl p-7 border border-[#f5f5f5] shadow-sm hover:shadow-md hover:border-[#d4a53a]/40 transition-all duration-200 flex gap-5"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#f58c23] flex items-center justify-center flex-shrink-0 shadow-md shadow-[#f58c23]/30">
+                <div className="w-12 h-12 rounded-xl bg-[#d4a53a] flex items-center justify-center flex-shrink-0 shadow-md shadow-[#d4a53a]/30">
                   <Icon size={22} className="text-white" strokeWidth={1.8} />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <p className="font-sans font-bold text-[#383838] text-sm leading-snug">
+                  <p className="font-heading text-[#383838] text-sm leading-snug">
                     {cert.title}
                   </p>
                   <p className="font-inter text-[#6b6b6b] text-xs leading-relaxed">

@@ -20,18 +20,18 @@ const getServiceNames = unstable_cache(
 export default async function AboutStory() {
   const whatWeDo = await getServiceNames()
   return (
-    <section className="bg-white">
+    <section className="bg-[#f5f5f5]">
 
       {/* Intro */}
-      <div className="max-w-7xl mx-auto px-6 py-20 border-b border-[#e8e0d8]">
+      <div className="max-w-7xl mx-auto px-6 py-20 border-b border-[#f5f5f5]">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <div>
-            <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+            <span className="eyebrow-dash text-[#00193c] mb-4">
               Introduction
             </span>
-            <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
+            <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
               A Cooperative Committed to{' '}
-              <span className="text-[#f58c23]">Reliable, Quality Service</span>
+              <span className="text-[#d4a53a]">Reliable, Quality Service</span>
             </h2>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
               JTTC was organized to provide public tourist transport services primarily to members
@@ -40,7 +40,7 @@ export default async function AboutStory() {
               standards of safety and health for drivers, clients, and passengers.
             </p>
           </div>
-          <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-[#e8e0d8]">
+          <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-[#f5f5f5]">
             <Image
               src="https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/photos/Jexpress%20Tourist%20Transport%20Cooperative/1775101309772-472204893_122131383956396609_7606689391204038066_n.jpg"
               alt="Jexpress fleet on duty"
@@ -52,10 +52,10 @@ export default async function AboutStory() {
       </div>
 
       {/* Who We Are */}
-      <div className="max-w-7xl mx-auto px-6 py-20 border-b border-[#e8e0d8]">
+      <div className="max-w-7xl mx-auto px-6 py-20 border-b border-[#f5f5f5]">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <div className="order-2 lg:order-1 grid grid-cols-2 gap-3">
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-[#e8e0d8] col-span-2">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-[#f5f5f5] col-span-2">
               <Image
                 src="https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/photos/Jexpress%20Tourist%20Transport%20Cooperative/1775101309773-472257212_122131383326396609_1045635834548108228_n.jpg"
                 alt="Jexpress transport vehicle"
@@ -63,7 +63,7 @@ export default async function AboutStory() {
                 className="object-cover"
               />
             </div>
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-[#e8e0d8]">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-[#f5f5f5]">
               <Image
                 src="https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/photos/Jexpress%20Tourist%20Transport%20Cooperative/1775101309773-472318464_122131383872396609_3251099583690664541_n.jpg"
                 alt="Jexpress commuter transport"
@@ -71,7 +71,7 @@ export default async function AboutStory() {
                 className="object-cover"
               />
             </div>
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-[#e8e0d8]">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-[#f5f5f5]">
               <Image
                 src="https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/photos/Jexpress%20Tourist%20Transport%20Cooperative/1775101309773-472336187_122131206134396609_331734107237458708_n.jpg"
                 alt="Jexpress passenger service"
@@ -81,12 +81,12 @@ export default async function AboutStory() {
             </div>
           </div>
           <div className="order-1 lg:order-2">
-            <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+            <span className="eyebrow-dash text-[#00193c] mb-4">
               Who We Are
             </span>
-            <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
+            <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
               A Service-Driven Organization with a{' '}
-              <span className="text-[#f58c23]">Nationwide Focus</span>
+              <span className="text-[#d4a53a]">Nationwide Focus</span>
             </h2>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
               Jexpress Tourist Transport Cooperative is a service-driven organization with a
@@ -104,12 +104,12 @@ export default async function AboutStory() {
         <div className="grid lg:grid-cols-2 gap-14">
 
           <div>
-            <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+            <span className="eyebrow-dash text-[#00193c] mb-4">
               What We Do
             </span>
-            <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-6">
+            <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-6">
               Transport &amp; Allied{' '}
-              <span className="text-[#f58c23]">Services</span>
+              <span className="text-[#d4a53a]">Services</span>
             </h2>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed mb-8">
               JTTC engages in transport and allied services to meet a wide range of client
@@ -120,7 +120,7 @@ export default async function AboutStory() {
                 <li key={item} className="flex items-start gap-3">
                   <CheckCircle
                     size={18}
-                    className="text-[#f58c23] flex-shrink-0 mt-0.5"
+                    className="text-[#d4a53a] flex-shrink-0 mt-0.5"
                     strokeWidth={2}
                   />
                   <span className="font-inter text-[#6b6b6b] text-sm leading-relaxed">{item}</span>
@@ -131,12 +131,12 @@ export default async function AboutStory() {
 
           <div className="flex flex-col gap-8">
             <div>
-              <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+              <span className="eyebrow-dash text-[#00193c] mb-4">
                 Our Commitment
               </span>
-              <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
+              <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
                 Bound to Achieve{' '}
-                <span className="text-[#f58c23]">High Standards</span>
+                <span className="text-[#d4a53a]">High Standards</span>
               </h2>
               <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
                 We are bound to achieve high standards through total quality service and
@@ -146,8 +146,8 @@ export default async function AboutStory() {
               </p>
             </div>
 
-            <div className="bg-[#f9f4ef] border border-[#e8e0d8] rounded-2xl p-8">
-              <p className="text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-widest mb-4">
+            <div className="bg-[#f5f5f5] border border-[#f5f5f5] rounded-2xl p-8">
+              <p className="text-[#d4a53a] font-inter text-xs font-semibold uppercase tracking-widest mb-4">
                 Our Broader Purpose
               </p>
               <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
@@ -158,7 +158,7 @@ export default async function AboutStory() {
             </div>
 
             <div className="bg-[#383838] rounded-2xl p-8">
-              <p className="text-[#fed16c] font-inter text-xs font-semibold uppercase tracking-widest mb-4">
+              <p className="text-[#d4a53a] font-inter text-xs font-semibold uppercase tracking-widest mb-4">
                 Regulatory Compliance
               </p>
               <p className="font-inter text-white/70 text-base leading-relaxed">

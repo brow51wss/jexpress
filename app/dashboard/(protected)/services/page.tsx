@@ -28,7 +28,7 @@ export default async function ServicesPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="font-sans font-black text-[#383838] text-2xl lg:text-3xl mb-1">Services</h1>
+        <h1 className="font-heading text-[#383838] text-2xl lg:text-3xl mb-1">Services</h1>
         <p className="font-inter text-[#6b6b6b] text-sm">
           Manage service listings, prices, and content across the entire site.
         </p>

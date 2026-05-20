@@ -6,10 +6,10 @@ import { Send, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
 const inputClass =
-  'w-full bg-white border border-[#e8e0d8] focus:border-[#f58c23] focus:ring-2 focus:ring-[#f58c23]/20 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
+  'w-full bg-[#f5f5f5] border border-[#f5f5f5] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#f5f5f5] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
 
 const inputErrorClass =
-  'w-full bg-white border border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
+  'w-full bg-[#f5f5f5] border border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200 text-[#383838] placeholder:text-[#f5f5f5] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
 
 const labelClass =
   'text-[#383838] text-xs font-bold font-inter uppercase tracking-wide mb-1.5 block'
@@ -84,29 +84,29 @@ export default function FranchiseForm() {
   }
 
   return (
-    <section id="franchise-form" className="py-24 bg-white">
+    <section id="franchise-form" className="py-24 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto">
 
           <div className="text-center mb-12">
-            <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+            <span className="eyebrow-dash text-[#00193c] mb-4">
               Get In Touch
             </span>
-            <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance mb-4">
-              Interested? <span className="text-[#f58c23]">Let&apos;s Talk.</span>
+            <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance mb-4">
+              Interested? <span className="text-[#d4a53a]">Let&apos;s Talk.</span>
             </h2>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
               Fill out the form below and our team will contact you to discuss franchise opportunities and next steps.
             </p>
           </div>
 
-          <div className="bg-[#fff8f0] rounded-2xl border border-[#e8e0d8] p-8 lg:p-10">
+          <div className="bg-[#f5f5f5] rounded-2xl border border-[#f5f5f5] p-8 lg:p-10">
             {formState === 'success' ? (
               <div className="flex flex-col items-center justify-center gap-5 py-16 text-center">
                 <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
                   <CheckCircle size={40} className="text-green-600" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-sans font-black text-[#383838] text-2xl">
+                <h3 className="font-heading text-[#383838] text-2xl">
                   Inquiry Sent!
                 </h3>
                 <p className="font-inter text-[#6b6b6b] text-base max-w-sm leading-relaxed">
@@ -114,7 +114,7 @@ export default function FranchiseForm() {
                 </p>
                 <button
                   onClick={() => setFormState('idle')}
-                  className="mt-2 bg-[#f58c23] hover:bg-[#d97b1a] text-white font-bold text-sm px-8 py-3 rounded-full transition-colors"
+                  className="mt-2 bg-[#d4a53a] hover:bg-[#d4a53a] text-white font-bold text-sm px-8 py-3 rounded-full transition-colors"
                 >
                   Submit Another Inquiry
                 </button>
@@ -132,7 +132,7 @@ export default function FranchiseForm() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="fullName" className={labelClass}>
-                      Full Name <span className="text-[#f58c23]">*</span>
+                      Full Name <span className="text-[#d4a53a]">*</span>
                     </label>
                     <input
                       id="fullName"
@@ -149,7 +149,7 @@ export default function FranchiseForm() {
                   </div>
                   <div>
                     <label htmlFor="contactNumber" className={labelClass}>
-                      Contact Number <span className="text-[#f58c23]">*</span>
+                      Contact Number <span className="text-[#d4a53a]">*</span>
                     </label>
                     <input
                       id="contactNumber"
@@ -169,7 +169,7 @@ export default function FranchiseForm() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="email" className={labelClass}>
-                      Email Address <span className="text-[#f58c23]">*</span>
+                      Email Address <span className="text-[#d4a53a]">*</span>
                     </label>
                     <input
                       id="email"
@@ -218,7 +218,7 @@ export default function FranchiseForm() {
                 <button
                   type="submit"
                   disabled={formState === 'loading'}
-                  className="w-full flex items-center justify-center gap-2.5 bg-[#f58c23] hover:bg-[#d97b1a] disabled:bg-[#f58c23]/60 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-[#f58c23]/30 mt-1"
+                  className="w-full flex items-center justify-center gap-2.5 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:bg-[#d4a53a]/60 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-[#d4a53a]/30 mt-1"
                 >
                   {formState === 'loading' ? (
                     <>

@@ -1,14 +1,14 @@
 export default function BookIntro() {
   return (
-    <section className="py-16 bg-[#fff8f0]">
+    <section className="py-16 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+          <span className="eyebrow-dash text-[#00193c] mb-4">
             How It Works
           </span>
-          <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
+          <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
             Safe and Dependable{' '}
-            <span className="text-[#f58c23]">Transport Support</span>
+            <span className="text-[#d4a53a]">Transport Support</span>
           </h2>
           <p className="font-inter text-[#6b6b6b] text-base sm:text-lg leading-relaxed mb-8">
             Looking for safe and dependable transport support for your trip, organization, or
@@ -25,13 +25,13 @@ export default function BookIntro() {
             ].map((item) => (
               <div
                 key={item.step}
-                className="bg-white rounded-2xl p-7 border border-[#e8e0d8] flex flex-col gap-4 text-left shadow-sm"
+                className="bg-[#f5f5f5] rounded-2xl p-7 border border-[#f5f5f5] flex flex-col gap-4 text-left shadow-sm"
               >
-                <span className="text-[#f58c23] font-black font-sans text-4xl leading-none opacity-80">
+                <span className="font-stat text-[#d4a53a] text-4xl leading-none opacity-80">
                   {item.step}
                 </span>
                 <div>
-                  <h3 className="font-sans font-black text-[#383838] text-base mb-2">
+                  <h3 className="font-heading text-[#383838] mb-2">
                     {item.title}
                   </h3>
                   <p className="font-inter text-[#6b6b6b] text-sm leading-relaxed">

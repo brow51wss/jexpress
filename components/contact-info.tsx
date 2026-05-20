@@ -47,14 +47,14 @@ function href(type: string, value: string) {
 
 export default function ContactInfo() {
   return (
-    <section className="py-20 bg-[#fff8f0]">
+    <section className="py-20 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
-          <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+          <span className="eyebrow-dash text-[#00193c] mb-4">
             Get In Touch
           </span>
-          <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-4">
-            Our Contact <span className="text-[#f58c23]">Information</span>
+          <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-4">
+            Our Contact <span className="text-[#d4a53a]">Information</span>
           </h2>
           <p className="font-inter text-[#6b6b6b] text-base leading-relaxed max-w-2xl mx-auto">
             Whether you need tourist transport services, shuttle support,
@@ -68,20 +68,20 @@ export default function ContactInfo() {
             return (
               <div
                 key={item.label}
-                className="bg-white rounded-2xl p-7 border border-[#e8e0d8] shadow-sm hover:shadow-md hover:border-[#f58c23]/30 transition-all duration-200 flex flex-col gap-5"
+                className="bg-[#f5f5f5] rounded-2xl p-7 border border-[#f5f5f5] shadow-sm hover:shadow-md hover:border-[#d4a53a]/30 transition-all duration-200 flex flex-col gap-5"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#f58c23] flex items-center justify-center shadow-lg shadow-[#f58c23]/30 flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-[#d4a53a] flex items-center justify-center shadow-lg shadow-[#d4a53a]/30 flex-shrink-0">
                   <Icon size={22} className="text-white" strokeWidth={1.8} />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <p className="font-sans font-bold text-[#383838] text-sm uppercase tracking-wide">
+                  <p className="font-heading text-[#383838] text-sm uppercase tracking-wide">
                     {item.label}
                   </p>
                   {item.type === 'hours' ? (
                     <div className="flex flex-col gap-4">
                       {item.hours?.map((entry) => (
                         <div key={entry.sublabel}>
-                          <p className="font-inter text-[#f58c23]/70 text-xs uppercase tracking-wide mb-0.5">
+                          <p className="font-inter text-[#d4a53a]/70 text-xs uppercase tracking-wide mb-0.5">
                             {entry.sublabel}
                           </p>
                           <p className="font-inter text-[#6b6b6b] text-sm leading-relaxed">{entry.day}</p>
@@ -97,14 +97,14 @@ export default function ContactInfo() {
                         return (
                           <div key={line}>
                             {sublabel && (
-                              <p className="font-inter text-[#f58c23]/70 text-xs uppercase tracking-wide mb-0.5">
+                              <p className="font-inter text-[#d4a53a]/70 text-xs uppercase tracking-wide mb-0.5">
                                 {sublabel}
                               </p>
                             )}
                             {link ? (
                               <a
                                 href={link}
-                                className="font-inter text-[#6b6b6b] text-sm leading-relaxed hover:text-[#f58c23] transition-colors break-all"
+                                className={`${item.type === 'phone' ? 'font-phone text-lg' : 'font-inter text-sm'} text-[#6b6b6b] leading-relaxed hover:text-[#d4a53a] transition-colors break-all`}
                               >
                                 {line}
                               </a>

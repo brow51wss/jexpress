@@ -3,7 +3,7 @@ import Hero from '@/components/hero'
 import Services from '@/components/services'
 import About from '@/components/about'
 import WhyUs from '@/components/why-us'
-import Contact from '@/components/contact'
+import ContactClient from '@/components/contact-client'
 import Footer from '@/components/footer'
 
 export default function HomePage() {
@@ -14,7 +14,7 @@ export default function HomePage() {
       <Services />
       <About />
       <WhyUs />
-      <Contact />
+      <ContactClient />
       <Footer />
     </main>
   )

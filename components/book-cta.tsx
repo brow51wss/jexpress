@@ -5,13 +5,13 @@ export default function BookCta() {
   return (
     <section
       className="py-20 relative overflow-hidden"
-      style={{ background: '#f58c23' }}
+      style={{ background: '#d4a53a' }}
     >
       <div
         className="absolute inset-0 opacity-10"
         style={{
           backgroundImage:
-            'repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)',
+            'repeating-linear-gradient(45deg, #f5f5f5 0, #f5f5f5 1px, transparent 0, transparent 50%)',
           backgroundSize: '20px 20px',
         }}
         aria-hidden="true"
@@ -22,7 +22,7 @@ export default function BookCta() {
             <span className="inline-block text-white/70 font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
               Ready to Arrange Transport?
             </span>
-            <h2 className="font-sans font-black text-white text-3xl sm:text-4xl leading-tight text-balance mb-5">
+            <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance mb-5">
               Submit Your Booking Request{' '}
               <span className="text-[#383838]">Today</span>
             </h2>
@@ -41,7 +41,7 @@ export default function BookCta() {
             </Link>
             <a
               href="tel:+639166112928"
-              className="inline-flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 text-white border border-white/40 font-bold text-sm px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
+              className="inline-flex items-center justify-center gap-2 bg-[#f5f5f5]/20 hover:bg-[#f5f5f5]/30 text-white border border-white/40 font-bold text-sm px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
             >
               <Phone size={16} strokeWidth={2} />
               Call Us Now

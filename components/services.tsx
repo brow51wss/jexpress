@@ -1,28 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import {
-  RiBusLine, RiMapPinLine, RiGroupLine, RiShipLine,
-  RiArrowRightLine, RiTruckLine, RiShieldCheckLine, RiTimerLine,
-  RiCustomerServiceLine, RiGlobalLine, RiBuildingLine,
-  RiStarLine, RiArchiveLine,
-} from 'react-icons/ri'
+import { RiArrowRightLine } from 'react-icons/ri'
 import Link from 'next/link'
-
-const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  Bus: RiBusLine,
-  Users: RiGroupLine,
-  MapPin: RiMapPinLine,
-  Wrench: RiShipLine,
-  Truck: RiTruckLine,
-  Shield: RiShieldCheckLine,
-  Clock: RiTimerLine,
-  Headphones: RiCustomerServiceLine,
-  Globe: RiGlobalLine,
-  Building: RiBuildingLine,
-  Star: RiStarLine,
-  Package: RiArchiveLine,
-}
+import { ServiceIcon } from '@/lib/service-icons'
 
 interface ServiceContent {
   section_key: string
@@ -63,20 +44,55 @@ export default function Services() {
   }, [])
 
   return (
-    <section id="services" className="py-24 bg-[#fff8f0]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="services" className="relative bg-brand-blue">
+      {/* Top wave divider — thick on left (~20 px), tapers to thin on right (~4 px) */}
+      <svg
+        viewBox="0 0 1440 56"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full block"
+        style={{ height: 56 }}
+        aria-hidden="true"
+      >
+        {/* Fill above the wave with the hero background */}
+        <path
+          d="M0,0 L1440,0 L1440,22 C720,24 720,24 0,28 Z"
+          fill="#fefefe"
+        />
+        {/* Gold wave band */}
+        <path
+          d="M0,28 C720,24 720,24 1440,22 L1440,26 C720,44 720,44 0,48 Z"
+          fill="#d4a53a"
+        />
+      </svg>
+
+      <div className="relative z-10 w-full overflow-hidden py-6">
+        <h3 className="text-center uppercase tracking-widest mb-4 text-[#d4a53a]">
+          Trusted By Government Agencies
+        </h3>
+        <div className="flex items-center justify-center flex-wrap gap-x-12 gap-y-3 px-8">
+          {['Department of Agrarian Reform', 'Office of Civil Defense', 'Gov. Accredited Cooperative', 'Bloomingdale DC Transport', 'Professional & Courteous'].map(
+            (item) => (
+              <span key={item} className="text-[#fefefe] text-sm font-inter whitespace-nowrap tracking-wide border border-white/20 rounded-full px-4 py-1">
+                {item}
+              </span>
+            )
+          )}
+        </div>
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
           <div>
-            <span className="inline-block text-[#f58c23] text-xs font-inter font-bold uppercase tracking-widest mb-4 border-l-4 border-[#f58c23] pl-3">
+            <span className="inline-block text-[#d4a53a] text-xs font-inter font-bold uppercase tracking-widest mb-4 border-l-4 border-[#d4a53a] pl-3">
               What We Offer
             </span>
-            <h2 className="text-4xl lg:text-5xl font-black text-[#383838] leading-tight text-balance">
+            <h2 className="font-heading text-4xl lg:text-5xl text-[#fefefe] leading-tight text-balance">
               Transport Services
               <br />
-              <span className="text-[#f58c23]">Built for You</span>
+              <span className="text-[#d4a53a]">Built for You</span>
             </h2>
           </div>
-          <p className="text-[#6b6b6b] text-base leading-relaxed max-w-md lg:text-right font-inter">
+          <p className="text-[#fefefe] text-base leading-relaxed max-w-md lg:text-right font-inter">
             We specialize in government and institutional transport, ensuring every journey
             meets the highest standards of safety and professionalism.
           </p>
@@ -84,28 +100,29 @@ export default function Services() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => {
-            const Icon = ICON_MAP[service.icon] ?? RiBusLine
             const content = service.service_content.find((c) => c.section_key === 'homepage')
             const priceDisplay = formatPrice(service.price, service.price_label)
 
             return (
               <div
                 key={service.id}
-                className="group bg-white rounded-2xl p-8 border border-[#e8e0d8] hover:border-[#f58c23] hover:shadow-xl hover:shadow-[#f58c23]/10 transition-all duration-300 flex flex-col gap-5 hover:-translate-y-1"
+                className="group bg-white rounded-2xl p-8 border border-[#e8e8e8] hover:border-[#d4a53a] hover:shadow-xl hover:shadow-[#d4a53a]/10 transition-all duration-300 flex flex-col gap-5 hover:-translate-y-1"
               >
-                <div className="w-14 h-14 rounded-xl bg-[#f58c23]/10 flex items-center justify-center group-hover:bg-[#f58c23] transition-colors duration-300">
-                  <Icon
+                <div className="w-14 h-14 rounded-xl bg-[#d4a53a]/10 flex items-center justify-center group-hover:bg-[#d4a53a] transition-colors duration-300">
+                  <ServiceIcon
+                    name={service.icon}
                     size={26}
-                    className="text-[#f58c23] group-hover:text-white transition-colors duration-300"
+                    strokeWidth={1.75}
+                    className="text-[#d4a53a] group-hover:text-white transition-colors duration-300"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="text-[#383838] font-bold text-lg leading-tight">
+                    <h3 className="font-heading text-[#383838] leading-tight">
                       {service.name}
                     </h3>
                     {priceDisplay && (
-                      <span className="flex-shrink-0 text-[#f58c23] font-inter font-bold text-sm whitespace-nowrap mt-0.5">
+                      <span className="flex-shrink-0 text-[#d4a53a] font-inter font-bold text-sm whitespace-nowrap mt-0.5">
                         {priceDisplay}
                       </span>
                     )}
@@ -119,7 +136,7 @@ export default function Services() {
                 <div className="mt-auto">
                   <button
                     onClick={() => bookService(service.name)}
-                    className="inline-flex items-center gap-1.5 text-[#f58c23] font-semibold text-sm font-inter group-hover:gap-3 transition-all duration-200"
+                    className="inline-flex items-center gap-1.5 text-[#d4a53a] font-semibold text-sm font-inter group-hover:gap-3 transition-all duration-200"
                   >
                     Book This Service
                     <RiArrowRightLine size={16} />
@@ -130,24 +147,55 @@ export default function Services() {
           })}
         </div>
 
-        <div className="mt-16 bg-[#383838] rounded-2xl p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="mt-16 bg-[#d4a53a] rounded-2xl p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="flex flex-col gap-2 text-center lg:text-left">
-            <h3 className="text-white text-2xl lg:text-3xl font-black">
+            <h3 className="font-heading text-white text-2xl lg:text-3xl">
               Need a Custom Transport Solution?
             </h3>
-            <p className="text-white/60 font-inter text-base">
+            <p className="text-white font-inter text-base">
               Contact us today and we will tailor a transport plan for your agency or
               organization.
             </p>
           </div>
           <Link
             href="#contact"
-            className="flex-shrink-0 inline-flex items-center gap-2 bg-[#f58c23] hover:bg-[#d97b1a] text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-[#f58c23]/30"
+            className="flex-shrink-0 inline-flex items-center gap-2 bg-brand-blue text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-[#d4a53a]/30"
           >
             Get a Quote
             <RiArrowRightLine size={18} />
           </Link>
         </div>
+      </div>
+
+      {/* Bottom wave divider — thin on left (~4 px), tapers to thick on right (~20 px) */}
+      <svg
+        viewBox="0 0 1440 56"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full block"
+        style={{ height: 56 }}
+        aria-hidden="true"
+      >
+        {/* Gold wave band */}
+        <path
+          d="M0,22 C720,24 720,24 1440,28 L1440,48 C720,44 720,44 0,26 Z"
+          fill="#d4a53a"
+        />
+        {/* Fill below the wave with the about-section background */}
+        <path
+          d="M0,26 C720,44 720,44 1440,48 L1440,56 L0,56 Z"
+          fill="#f5f5f5"
+        />
+      </svg>
+
+      {/* Road image — sticky to viewport bottom until section scrolls away */}
+      <div className="lg:sticky lg:bottom-0 h-0 w-full z-0 pointer-events-none" aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/branding/roadBG.webp"
+          alt=""
+          className="absolute top-[250px] lg:bottom-[30px] right-0 w-auto h-[320px] object-contain select-none opacity-25"
+        />
       </div>
     </section>
   )

@@ -1,22 +1,22 @@
 import type { Metadata } from 'next'
-import { Lato, Inter } from 'next/font/google'
-import Script from 'next/script'
+import { Bebas_Neue, Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import ScrollToTop from '@/components/scroll-to-top'
 import MessengerButton from '@/components/messenger-button'
 import CookieConsent from '@/components/cookie-consent'
+import AnalyticsScripts from '@/components/analytics-scripts'
 import './globals.css'
 
-const lato = Lato({
+const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
-  weight: ['300', '400', '700', '900'],
-  variable: '--font-lato',
+  weight: '400',
+  variable: '--font-bebas',
 })
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-montserrat',
 })
 
 export const metadata: Metadata = {
@@ -105,10 +105,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${bebasNeue.variable} ${montserrat.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
-        <meta name="theme-color" content="#f58c23" />
+        <meta name="theme-color" content="#d4a53a" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.jexpresstransport.com" />
         <link rel="icon" href="/branding/JExpress-Icon.webp" />
@@ -122,52 +122,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${lato.variable} ${inter.variable} font-sans antialiased`}>
-        {/* GA Consent Mode — must run before GA loads */}
-        <Script
-          id="ga-consent-defaults"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('consent', 'default', {
-                analytics_storage: 'denied',
-                ad_storage: 'denied',
-                wait_for_update: 500
-              });
-            `,
-          }}
-        />
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-WKG78J4XKM"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="ga-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              gtag('js', new Date());
-              gtag('config', 'G-WKG78J4XKM');
-            `,
-          }}
-        />
-        {/* Microsoft Clarity */}
-        <Script
-          id="ms-clarity"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "wkao0tzyb6");
-            `,
-          }}
-        />
+      <body className="font-sans antialiased" suppressHydrationWarning>
+        <AnalyticsScripts />
         <ScrollToTop />
         {children}
         <MessengerButton />

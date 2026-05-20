@@ -84,12 +84,12 @@ export default function CookieConsent() {
               {/* Cookie icon */}
               <div
                 className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-lg"
-                style={{ background: '#f58c23' }}
+                style={{ background: '#d4a53a' }}
                 aria-hidden="true"
               >
                 🍪
               </div>
-              <h2 className="font-sans font-black text-white text-sm sm:text-base leading-snug">
+              <h2 className="font-heading text-white text-sm sm:text-base leading-snug">
                 We use cookies
               </h2>
             </div>
@@ -106,7 +106,7 @@ export default function CookieConsent() {
             We use cookies and similar tracking technologies (Google Analytics and Microsoft Clarity) to analyze website traffic,
             understand visitor behavior, and improve our site experience. No personal data from your form submissions is used for advertising.
             You can accept or decline non-essential cookies at any time.{' '}
-            <Link href="/privacy-policy" className="text-[#f58c23] hover:underline">
+            <Link href="/privacy-policy" className="text-[#d4a53a] hover:underline">
               Learn more
             </Link>
           </p>
@@ -115,13 +115,13 @@ export default function CookieConsent() {
             <button
               onClick={handleAccept}
               className="flex-1 sm:flex-none px-5 py-2.5 rounded-lg font-inter font-semibold text-sm text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
-              style={{ background: '#f58c23' }}
+              style={{ background: '#d4a53a' }}
             >
               Accept All Cookies
             </button>
             <button
               onClick={handleDecline}
-              className="flex-1 sm:flex-none px-5 py-2.5 rounded-lg font-inter font-semibold text-sm text-white/70 border border-white/20 hover:bg-white/10 transition-all duration-200 active:scale-[0.98]"
+              className="flex-1 sm:flex-none px-5 py-2.5 rounded-lg font-inter font-semibold text-sm text-white/70 border border-white/20 hover:bg-[#f5f5f5]/10 transition-all duration-200 active:scale-[0.98]"
             >
               Decline Non-Essential
             </button>

@@ -11,16 +11,16 @@ const vehicles = [
 
 export default function BookFleet() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <div>
-            <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4 border-l-4 border-[#f58c23] pl-3">
+            <span className="eyebrow-dash text-[#00193c] mb-4 border-l-4 border-[#d4a53a] pl-3">
               Our Fleet
             </span>
-            <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
+            <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
               Vehicles Ready to Support{' '}
-              <span className="text-[#f58c23]">Your Requirements</span>
+              <span className="text-[#d4a53a]">Your Requirements</span>
             </h2>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed mb-8">
               JTTC maintains equipment resources that include Toyota GL Grandia units, Toyota
@@ -32,13 +32,13 @@ export default function BookFleet() {
               {vehicles.map((v) => (
                 <div
                   key={v.name}
-                  className="flex items-start gap-4 p-4 rounded-xl border border-[#e8e0d8] bg-[#fff8f0] hover:border-[#f58c23]/40 hover:shadow-sm transition-all duration-200"
+                  className="flex items-start gap-4 p-4 rounded-xl border border-[#f5f5f5] bg-[#f5f5f5] hover:border-[#d4a53a]/40 hover:shadow-sm transition-all duration-200"
                 >
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#f58c23] flex-shrink-0 mt-1.5" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#d4a53a] flex-shrink-0 mt-1.5" />
                   <div>
-                    <p className="font-sans font-bold text-[#383838] text-sm">{v.name}</p>
+                    <p className="font-heading text-[#383838] text-sm">{v.name}</p>
                     <p className="font-inter text-[#6b6b6b] text-xs mt-0.5">{v.capacity}</p>
-                    <span className="inline-block mt-1.5 text-[10px] font-bold font-inter uppercase tracking-wide text-[#f58c23] bg-[#f58c23]/10 px-2.5 py-0.5 rounded-full">
+                    <span className="inline-block mt-1.5 text-[10px] font-bold font-inter uppercase tracking-wide text-[#d4a53a] bg-[#d4a53a]/10 px-2.5 py-0.5 rounded-full">
                       {v.tag}
                     </span>
                   </div>

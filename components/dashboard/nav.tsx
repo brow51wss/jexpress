@@ -42,10 +42,10 @@ export default function DashboardNav({ isSuperAdmin, isMarketing, email }: NavPr
   const NavContent = () => (
     <>
       <div className="px-6 pt-6 pb-4 border-b border-white/10">
-        <p className="text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-widest mb-1">
+        <p className="text-[#d4a53a] font-inter text-xs font-semibold uppercase tracking-widest mb-1">
           JTTC Dashboard
         </p>
-        <p className="text-white font-sans font-bold text-base truncate">J Express Transport</p>
+        <p className="text-white font-heading text-base truncate">J Express Transport</p>
       </div>
 
       <nav className="flex-1 px-3 py-4 flex flex-col gap-1">
@@ -58,8 +58,8 @@ export default function DashboardNav({ isSuperAdmin, isMarketing, email }: NavPr
               onClick={() => setMobileOpen(false)}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-inter font-medium transition-all duration-200 ${
                 active
-                  ? 'bg-[#f58c23]/15 text-[#f58c23]'
-                  : 'text-white/60 hover:text-white hover:bg-white/5'
+                  ? 'bg-[#d4a53a]/15 text-[#d4a53a]'
+                  : 'text-white/60 hover:text-white hover:bg-[#f5f5f5]/5'
               }`}
             >
               <Icon size={18} />
@@ -73,7 +73,7 @@ export default function DashboardNav({ isSuperAdmin, isMarketing, email }: NavPr
         <div className="px-3 py-2 mb-2">
           <p className="text-white/40 text-xs font-inter truncate">{email}</p>
           {isSuperAdmin && (
-            <span className="inline-block mt-1 text-[10px] font-inter font-semibold uppercase tracking-wider text-[#f58c23] bg-[#f58c23]/10 px-2 py-0.5 rounded-full">
+            <span className="inline-block mt-1 text-[10px] font-inter font-semibold uppercase tracking-wider text-[#d4a53a] bg-[#d4a53a]/10 px-2 py-0.5 rounded-full">
               Super Admin
             </span>
           )}
@@ -98,7 +98,7 @@ export default function DashboardNav({ isSuperAdmin, isMarketing, email }: NavPr
 
       {/* Mobile top bar */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#2a2a2a] border-b border-white/10 px-4 py-3 flex items-center justify-between">
-        <p className="text-white font-sans font-bold text-sm">JTTC Dashboard</p>
+        <p className="text-white font-heading text-sm">JTTC Dashboard</p>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="text-white/60 hover:text-white transition-colors"

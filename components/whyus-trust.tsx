@@ -11,7 +11,7 @@ const clients = [
 
 export default function WhyUsTrust() {
   return (
-    <section className="py-24" style={{ background: '#ffffff' }}>
+    <section className="py-24" style={{ background: '#f5f5f5' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -28,8 +28,8 @@ export default function WhyUsTrust() {
                   className="absolute inset-0"
                   style={{ background: 'linear-gradient(to top, #383838 0%, transparent 60%)' }}
                 />
-                <div className="absolute bottom-5 left-5 flex flex-col gap-0.5 bg-[#f58c23] text-white rounded-xl px-5 py-3 shadow-lg shadow-[#f58c23]/40">
-                  <span className="text-xl font-black leading-none">JTTC</span>
+                <div className="absolute bottom-5 left-5 flex flex-col gap-0.5 bg-[#d4a53a] text-white rounded-xl px-5 py-3 shadow-lg shadow-[#d4a53a]/40">
+                  <span className="font-wordmark text-xl leading-none">JTTC</span>
                   <span className="text-white/80 text-[10px] font-inter uppercase tracking-widest">
                     Trusted Transport Partner
                   </span>
@@ -56,12 +56,12 @@ export default function WhyUsTrust() {
 
           <div className="flex flex-col gap-7">
             <div>
-              <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+              <span className="eyebrow-dash text-[#00193c] mb-4">
                 A Partner You Can Depend On
               </span>
-              <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
+              <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
                 Built for Organizations That Need{' '}
-                <span className="text-[#f58c23]">Trusted Transport</span>
+                <span className="text-[#d4a53a]">Trusted Transport</span>
               </h2>
               <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
                 JTTC has a clear focus on providing transport shuttle services to BPO
@@ -80,7 +80,7 @@ export default function WhyUsTrust() {
                   <li key={client} className="flex items-center gap-3">
                     <span
                       className="w-2 h-2 rounded-full flex-shrink-0"
-                      style={{ background: '#f58c23' }}
+                      style={{ background: '#d4a53a' }}
                     />
                     <span className="font-inter text-[#6b6b6b] text-sm">{client}</span>
                   </li>
@@ -88,8 +88,8 @@ export default function WhyUsTrust() {
               </ul>
             </div>
 
-            <blockquote className="border-l-4 border-[#f58c23] pl-5 mt-2">
-              <p className="font-sans text-[#383838] text-base sm:text-lg font-bold leading-snug text-balance">
+            <blockquote className="border-l-4 border-[#d4a53a] pl-5 mt-2">
+              <p className="font-heading text-[#383838] text-base sm:text-lg leading-snug text-balance">
                 &ldquo;To transport passengers safely and comfortably to their destinations
                 with reliable, professional, and courteous service.&rdquo;
               </p>

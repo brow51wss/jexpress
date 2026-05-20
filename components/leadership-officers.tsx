@@ -44,11 +44,11 @@ export default function LeadershipOfficers() {
     <section className="py-24" style={{ background: '#383838' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
-          <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+          <span className="eyebrow-dash text-[#00193c] mb-4">
             Key Personnel
           </span>
-          <h2 className="font-sans font-black text-white text-3xl sm:text-4xl leading-tight text-balance mb-4">
-            Key Cooperative <span className="text-[#fed16c]">Officers</span>
+          <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance mb-4">
+            Key Cooperative <span className="text-[#d4a53a]">Officers</span>
           </h2>
           <p className="font-inter text-white/60 text-base leading-relaxed max-w-xl mx-auto">
             The cooperative is supported by officers and personnel who oversee administration,
@@ -64,30 +64,30 @@ export default function LeadershipOfficers() {
                 key={`${officer.role}-${officer.name}`}
                 className={`relative rounded-2xl p-7 border transition-all duration-200 hover:-translate-y-1 ${
                   officer.highlight
-                    ? 'bg-[#f58c23] border-[#f58c23] shadow-xl shadow-[#f58c23]/25'
-                    : 'bg-white/5 border-white/10 hover:border-[#f58c23]/40'
+                    ? 'bg-[#d4a53a] border-[#d4a53a] shadow-xl shadow-[#d4a53a]/25'
+                    : 'bg-[#f5f5f5]/5 border-white/10 hover:border-[#d4a53a]/40'
                 }`}
               >
                 <div
                   className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
-                    officer.highlight ? 'bg-white/20' : 'bg-[#f58c23]/15'
+                    officer.highlight ? 'bg-[#f5f5f5]/20' : 'bg-[#d4a53a]/15'
                   }`}
                 >
                   <Icon
                     size={22}
-                    className={officer.highlight ? 'text-white' : 'text-[#f58c23]'}
+                    className={officer.highlight ? 'text-white' : 'text-[#d4a53a]'}
                     strokeWidth={1.8}
                   />
                 </div>
                 <p
                   className={`font-inter text-xs font-semibold uppercase tracking-widest mb-2 ${
-                    officer.highlight ? 'text-white/70' : 'text-[#f58c23]'
+                    officer.highlight ? 'text-white/70' : 'text-[#d4a53a]'
                   }`}
                 >
                   {officer.role}
                 </p>
                 <p
-                  className={`font-sans font-black text-lg leading-tight ${
+                  className={`font-heading text-lg leading-tight ${
                     officer.highlight ? 'text-white' : 'text-white'
                   }`}
                 >

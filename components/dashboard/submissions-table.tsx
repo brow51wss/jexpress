@@ -21,7 +21,7 @@ const FORM_TYPE_COLORS: Record<string, string> = {
   contact:   'bg-blue-100 text-blue-700',
   booking:   'bg-green-100 text-green-700',
   inquiry:   'bg-purple-100 text-purple-700',
-  franchise: 'bg-orange-100 text-[#d97b1a]',
+  franchise: 'bg-orange-100 text-[#d4a53a]',
 }
 
 function formatDate(iso: string) {
@@ -44,7 +44,7 @@ function SubmissionDetail({ data }: { data: Record<string, string> }) {
   const entries = Object.entries(data).filter(([k, v]) => !skip.has(k) && v)
   if (entries.length === 0) return null
   return (
-    <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2 mt-3 pt-3 border-t border-[#e8e0d8]">
+    <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2 mt-3 pt-3 border-t border-[#f5f5f5]">
       {entries.map(([key, value]) => (
         <div key={key}>
           <span className="text-[#6b6b6b] text-xs font-inter font-semibold uppercase tracking-wide">
@@ -104,7 +104,7 @@ export default function SubmissionsTable({ isSuperAdmin }: { isSuperAdmin: boole
     <div>
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-3 mb-4">
-        <div className="flex gap-1 bg-white border border-[#e8e0d8] rounded-xl p-1 flex-wrap">
+        <div className="flex gap-1 bg-[#f5f5f5] border border-[#f5f5f5] rounded-xl p-1 flex-wrap">
           {tabs.map((t) => (
             <button
               key={t}
@@ -127,13 +127,13 @@ export default function SubmissionsTable({ isSuperAdmin }: { isSuperAdmin: boole
             placeholder="Search name or email…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-8 pr-3 py-2 bg-white border border-[#e8e0d8] rounded-xl text-sm font-inter text-[#383838] placeholder:text-[#bbb] outline-none focus:border-[#f58c23] transition-colors"
+            className="w-full pl-8 pr-3 py-2 bg-[#f5f5f5] border border-[#f5f5f5] rounded-xl text-sm font-inter text-[#383838] placeholder:text-[#f5f5f5] outline-none focus:border-[#d4a53a] transition-colors"
           />
         </div>
 
         <button
           onClick={fetchSubmissions}
-          className="flex items-center gap-1.5 px-3 py-2 bg-white border border-[#e8e0d8] rounded-xl text-xs font-inter text-[#6b6b6b] hover:text-[#383838] transition-colors ml-auto sm:ml-0"
+          className="flex items-center gap-1.5 px-3 py-2 bg-[#f5f5f5] border border-[#f5f5f5] rounded-xl text-xs font-inter text-[#6b6b6b] hover:text-[#383838] transition-colors ml-auto sm:ml-0"
         >
           <RiRefreshLine size={14} className={loading ? 'animate-spin' : ''} />
           Refresh
@@ -141,14 +141,14 @@ export default function SubmissionsTable({ isSuperAdmin }: { isSuperAdmin: boole
       </div>
 
       {/* Table */}
-      <div className="bg-white border border-[#e8e0d8] rounded-2xl overflow-hidden">
+      <div className="bg-[#f5f5f5] border border-[#f5f5f5] rounded-2xl overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-20 text-[#6b6b6b] text-sm font-inter">
             Loading submissions…
           </div>
         ) : filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 gap-2">
-            <p className="text-[#383838] font-sans font-bold text-lg">No submissions found</p>
+            <p className="text-[#383838] font-heading text-lg">No submissions found</p>
             <p className="text-[#6b6b6b] font-inter text-sm">
               {search ? 'Try a different search term.' : 'Submissions will appear here once forms are submitted.'}
             </p>
@@ -156,7 +156,7 @@ export default function SubmissionsTable({ isSuperAdmin }: { isSuperAdmin: boole
         ) : (
           <div>
             {/* Header */}
-            <div className="grid grid-cols-[1fr_1fr_auto_auto] gap-4 px-5 py-3 bg-[#f9f4ef] border-b border-[#e8e0d8]">
+            <div className="grid grid-cols-[1fr_1fr_auto_auto] gap-4 px-5 py-3 bg-[#f5f5f5] border-b border-[#f5f5f5]">
               <span className="text-xs font-inter font-semibold uppercase tracking-wide text-[#6b6b6b]">Name</span>
               <span className="text-xs font-inter font-semibold uppercase tracking-wide text-[#6b6b6b]">Email</span>
               <span className="text-xs font-inter font-semibold uppercase tracking-wide text-[#6b6b6b]">Type</span>
@@ -164,10 +164,10 @@ export default function SubmissionsTable({ isSuperAdmin }: { isSuperAdmin: boole
             </div>
 
             {filtered.map((sub) => (
-              <div key={sub.id} className="border-b border-[#e8e0d8] last:border-0">
+              <div key={sub.id} className="border-b border-[#f5f5f5] last:border-0">
                 <button
                   onClick={() => setExpanded(expanded === sub.id ? null : sub.id)}
-                  className="w-full grid grid-cols-[1fr_1fr_auto_auto] gap-4 px-5 py-3.5 hover:bg-[#f9f4ef] transition-colors text-left items-center"
+                  className="w-full grid grid-cols-[1fr_1fr_auto_auto] gap-4 px-5 py-3.5 hover:bg-[#f5f5f5] transition-colors text-left items-center"
                 >
                   <span className="font-inter font-semibold text-[#383838] text-sm truncate">
                     {getSubmitterName(sub.data)}
@@ -190,7 +190,7 @@ export default function SubmissionsTable({ isSuperAdmin }: { isSuperAdmin: boole
                 </button>
 
                 {expanded === sub.id && (
-                  <div className="px-5 pb-4 bg-[#fff8f0]">
+                  <div className="px-5 pb-4 bg-[#f5f5f5]">
                     <SubmissionDetail data={sub.data} />
                   </div>
                 )}
@@ -210,14 +210,14 @@ export default function SubmissionsTable({ isSuperAdmin }: { isSuperAdmin: boole
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
-              className="px-3 py-1.5 bg-white border border-[#e8e0d8] rounded-lg text-xs font-inter text-[#383838] disabled:opacity-40 hover:border-[#f58c23] transition-colors"
+              className="px-3 py-1.5 bg-[#f5f5f5] border border-[#f5f5f5] rounded-lg text-xs font-inter text-[#383838] disabled:opacity-40 hover:border-[#d4a53a] transition-colors"
             >
               Previous
             </button>
             <button
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page === totalPages}
-              className="px-3 py-1.5 bg-white border border-[#e8e0d8] rounded-lg text-xs font-inter text-[#383838] disabled:opacity-40 hover:border-[#f58c23] transition-colors"
+              className="px-3 py-1.5 bg-[#f5f5f5] border border-[#f5f5f5] rounded-lg text-xs font-inter text-[#383838] disabled:opacity-40 hover:border-[#d4a53a] transition-colors"
             >
               Next
             </button>

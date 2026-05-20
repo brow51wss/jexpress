@@ -35,23 +35,23 @@ const reasons = [
 
 export default function ServicesWhy() {
   return (
-    <section className="py-24" style={{ background: '#fdf8f4' }}>
+    <section className="py-24" style={{ background: '#f5f5f5' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-16 items-start">
 
           <div className="lg:sticky lg:top-32">
-            <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+            <span className="eyebrow-dash text-[#00193c] mb-4">
               Why JTTC
             </span>
-            <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
+            <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
               Why Clients{' '}
-              <span className="text-[#f58c23]">Choose Us</span>
+              <span className="text-[#d4a53a]">Choose Us</span>
             </h2>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
               We are built on a foundation of trust, professionalism, and genuine commitment
               to the safety and satisfaction of every client and passenger we serve.
             </p>
-            <div className="mt-8 h-1 w-16 rounded-full" style={{ background: '#f58c23' }} />
+            <div className="mt-8 h-1 w-16 rounded-full" style={{ background: '#d4a53a' }} />
           </div>
 
           <div className="flex flex-col gap-5">
@@ -60,17 +60,17 @@ export default function ServicesWhy() {
               return (
                 <div
                   key={reason.title}
-                  className="flex items-start gap-5 bg-white border border-[#e8e0d8] rounded-2xl p-7 group hover:border-[#f58c23]/40 hover:shadow-md transition-all duration-200"
+                  className="flex items-start gap-5 bg-[#f5f5f5] border border-[#f5f5f5] rounded-2xl p-7 group hover:border-[#d4a53a]/40 hover:shadow-md transition-all duration-200"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[#f58c23]/10 group-hover:bg-[#f58c23] flex items-center justify-center flex-shrink-0 transition-colors duration-200">
-                    <Icon size={20} className="text-[#f58c23] group-hover:text-white transition-colors duration-200" strokeWidth={1.75} />
+                  <div className="w-11 h-11 rounded-xl bg-[#d4a53a]/10 group-hover:bg-[#d4a53a] flex items-center justify-center flex-shrink-0 transition-colors duration-200">
+                    <Icon size={20} className="text-[#d4a53a] group-hover:text-white transition-colors duration-200" strokeWidth={1.75} />
                   </div>
                   <div>
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-[#f58c23]/40 font-black text-sm font-sans">
+                      <span className="font-stat text-[#d4a53a]/40 text-sm">
                         {String(index + 1).padStart(2, '0')}
                       </span>
-                      <h3 className="font-sans font-bold text-[#383838] text-base leading-tight">
+                      <h3 className="font-heading text-[#383838] leading-tight">
                         {reason.title}
                       </h3>
                     </div>

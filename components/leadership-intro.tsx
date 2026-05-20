@@ -1,12 +1,12 @@
 export default function LeadershipIntro() {
   return (
-    <section className="py-20" style={{ background: '#ffffff' }}>
+    <section className="py-20" style={{ background: '#f5f5f5' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+          <span className="eyebrow-dash text-[#00193c] mb-4">
             Structure &amp; Governance
           </span>
-          <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-6">
+          <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-6">
             Built on a Structured Leadership Framework
           </h2>
           <p className="font-inter text-[#6b6b6b] text-base sm:text-lg leading-relaxed">

@@ -28,11 +28,11 @@ export default function WhyUsValues() {
     <section className="py-20" style={{ background: '#383838' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+          <span className="eyebrow-dash text-[#00193c] mb-4">
             What We Stand For
           </span>
-          <h2 className="font-sans font-black text-white text-3xl sm:text-4xl leading-tight text-balance">
-            Our Core <span className="text-[#fed16c]">Values</span>
+          <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance">
+            Our Core <span className="text-[#d4a53a]">Values</span>
           </h2>
         </div>
 
@@ -42,17 +42,17 @@ export default function WhyUsValues() {
             return (
               <div
                 key={i}
-                className="group flex flex-col items-center text-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#f58c23]/40 rounded-2xl p-8 transition-all duration-200"
+                className="group flex flex-col items-center text-center gap-4 bg-[#f5f5f5]/5 hover:bg-[#f5f5f5]/10 border border-white/10 hover:border-[#d4a53a]/40 rounded-2xl p-8 transition-all duration-200"
               >
-                <div className="w-14 h-14 rounded-2xl bg-[#f58c23]/15 group-hover:bg-[#f58c23] flex items-center justify-center transition-colors duration-200">
+                <div className="w-14 h-14 rounded-2xl bg-[#d4a53a]/15 group-hover:bg-[#d4a53a] flex items-center justify-center transition-colors duration-200">
                   <Icon
                     size={26}
-                    className="text-[#f58c23] group-hover:text-white transition-colors duration-200"
+                    className="text-[#d4a53a] group-hover:text-white transition-colors duration-200"
                     strokeWidth={1.75}
                   />
                 </div>
                 <div>
-                  <h3 className="font-sans font-bold text-white text-lg mb-2">
+                  <h3 className="font-heading text-white mb-2">
                     {value.title}
                   </h3>
                   <p className="font-inter text-white/50 text-sm leading-relaxed">

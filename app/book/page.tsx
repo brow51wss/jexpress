@@ -3,7 +3,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import BookHero from '@/components/book-hero'
 import BookIntro from '@/components/book-intro'
-import BookForm from '@/components/book-form'
+import BookFormClient from '@/components/book-form-client'
 import BookFleet from '@/components/book-fleet'
 import BookWhy from '@/components/book-why'
 import BookContact from '@/components/book-contact'
@@ -46,7 +46,7 @@ export default function BookPage() {
       <main>
         <BookHero />
         <BookIntro />
-        <BookForm />
+        <BookFormClient />
         <BookFleet />
         <BookWhy />
         <BookContact />

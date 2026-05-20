@@ -16,11 +16,11 @@ export default function ProfileFleet() {
 
           <div className="flex flex-col gap-7">
             <div>
-              <span className="inline-block text-[#fed16c] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+              <span className="eyebrow-dash text-[#00193c] mb-4">
                 Fleet &amp; Equipment
               </span>
-              <h2 className="font-sans font-black text-white text-3xl sm:text-4xl leading-tight text-balance mb-5">
-                Fleet and Equipment <span className="text-[#f58c23]">Resources</span>
+              <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance mb-5">
+                Fleet and Equipment <span className="text-[#d4a53a]">Resources</span>
               </h2>
               <p className="font-inter text-white/60 text-base leading-relaxed">
                 JTTC maintains a capable fleet to support a variety of transport requirements
@@ -33,11 +33,11 @@ export default function ProfileFleet() {
               {vehicles.map((v) => (
                 <div
                   key={v.name}
-                  className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-xl px-5 py-4 hover:border-[#f58c23]/40 transition-colors duration-200"
+                  className="flex items-center gap-4 bg-[#f5f5f5]/5 border border-white/10 rounded-xl px-5 py-4 hover:border-[#d4a53a]/40 transition-colors duration-200"
                 >
-                  <CheckCircle size={20} className="text-[#f58c23] flex-shrink-0" strokeWidth={2} />
-                  <span className="font-sans font-bold text-white text-sm flex-1">{v.name}</span>
-                  <span className="inline-block bg-[#f58c23]/20 text-[#fed16c] font-inter font-semibold text-[11px] px-3 py-1 rounded-full flex-shrink-0">
+                  <CheckCircle size={20} className="text-[#d4a53a] flex-shrink-0" strokeWidth={2} />
+                  <span className="font-heading text-white text-sm flex-1">{v.name}</span>
+                  <span className="inline-block bg-[#d4a53a]/20 text-[#d4a53a] font-inter font-semibold text-[11px] px-3 py-1 rounded-full flex-shrink-0">
                     {v.qty}
                   </span>
                 </div>

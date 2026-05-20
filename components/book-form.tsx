@@ -15,12 +15,12 @@ function isValidEmail(email: string) {
 }
 
 const inputClass =
-  'w-full bg-white border border-[#e8e0d8] focus:border-[#f58c23] focus:ring-2 focus:ring-[#f58c23]/20 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
+  'w-full bg-[#f5f5f5] border border-[#f5f5f5] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#f5f5f5] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
 
 const labelClass =
   'text-[#383838] text-xs font-bold font-inter uppercase tracking-wide mb-1.5 block'
 const inputErrorClass =
-  'w-full bg-white border border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-400/20 text-[#383838] placeholder:text-[#bbb] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
+  'w-full bg-[#f5f5f5] border border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-400/20 text-[#383838] placeholder:text-[#f5f5f5] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
 
 export default function BookForm() {
   const [formState, setFormState] = useState<FormState>('idle')
@@ -127,18 +127,18 @@ export default function BookForm() {
   }
 
   return (
-    <section id="booking-form" className="py-20 bg-[#fff8f0]">
+    <section id="booking-form" className="py-20 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
 
           <div className="lg:col-span-2 flex flex-col gap-8 lg:sticky lg:top-28">
             <div>
-              <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4 border-l-4 border-[#f58c23] pl-3">
+              <span className="eyebrow-dash text-[#00193c] mb-4 border-l-4 border-[#d4a53a] pl-3">
                 Booking Request
               </span>
-              <h2 className="font-sans font-black text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-4">
+              <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-4">
                 Send a{' '}
-                <span className="text-[#f58c23]">Booking Request</span>
+                <span className="text-[#d4a53a]">Booking Request</span>
               </h2>
               <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
                 Complete the form and a member of our team will contact you regarding your
@@ -146,13 +146,13 @@ export default function BookForm() {
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-[#e8e0d8] p-6 flex flex-col gap-4 shadow-sm">
-              <p className="font-sans font-bold text-[#383838] text-sm uppercase tracking-wide">
+            <div className="bg-[#f5f5f5] rounded-2xl border border-[#f5f5f5] p-6 flex flex-col gap-4 shadow-sm">
+              <p className="font-heading text-[#383838] text-sm uppercase tracking-wide">
                 Services Available
               </p>
               {serviceNames.map((item) => (
                 <div key={item} className="flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[#f58c23] flex-shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-[#d4a53a] flex-shrink-0" />
                   <span className="font-inter text-[#6b6b6b] text-sm">{item}</span>
                 </div>
               ))}
@@ -168,7 +168,7 @@ export default function BookForm() {
                   <a
                     key={num}
                     href={`tel:${num.replace(/[\s-]/g, '')}`}
-                    className="text-[#f58c23] text-sm font-bold font-inter hover:text-[#fed16c] transition-colors"
+                    className="font-phone text-[#d4a53a] text-lg hover:text-[#d4a53a] transition-colors"
                   >
                     {num}
                   </a>
@@ -178,13 +178,13 @@ export default function BookForm() {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="bg-white rounded-2xl border border-[#e8e0d8] p-8 lg:p-10 shadow-sm">
+            <div className="bg-[#f5f5f5] rounded-2xl border border-[#f5f5f5] p-8 lg:p-10 shadow-sm">
               {formState === 'success' ? (
                 <div className="flex flex-col items-center justify-center gap-5 py-16 text-center">
                   <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
                     <CheckCircle size={40} className="text-green-600" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-sans font-black text-[#383838] text-2xl">
+                  <h3 className="font-heading text-[#383838] text-2xl">
                     Booking Request Sent!
                   </h3>
                   <p className="font-inter text-[#6b6b6b] text-base max-w-sm leading-relaxed">
@@ -193,7 +193,7 @@ export default function BookForm() {
                   </p>
                   <button
                     onClick={() => setFormState('idle')}
-                    className="mt-2 bg-[#f58c23] hover:bg-[#d97b1a] text-white font-bold text-sm px-8 py-3 rounded-full transition-colors"
+                    className="mt-2 bg-[#d4a53a] hover:bg-[#d4a53a] text-white font-bold text-sm px-8 py-3 rounded-full transition-colors"
                   >
                     Submit Another Request
                   </button>
@@ -201,7 +201,7 @@ export default function BookForm() {
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
                   <div>
-                    <h3 className="font-sans font-black text-[#383838] text-xl mb-1">
+                    <h3 className="font-heading text-[#383838] text-xl mb-1">
                       Booking Request Form
                     </h3>
                     <p className="font-inter text-[#6b6b6b] text-sm leading-relaxed">
@@ -220,7 +220,7 @@ export default function BookForm() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="fullName" className={labelClass}>
-                        Full Name <span className="text-[#f58c23]">*</span>
+                        Full Name <span className="text-[#d4a53a]">*</span>
                       </label>
                       <input
                         id="fullName"
@@ -252,7 +252,7 @@ export default function BookForm() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="contactNumber" className={labelClass}>
-                        Contact Number <span className="text-[#f58c23]">*</span>
+                        Contact Number <span className="text-[#d4a53a]">*</span>
                       </label>
                       <input
                         id="contactNumber"
@@ -267,7 +267,7 @@ export default function BookForm() {
                     </div>
                     <div>
                       <label htmlFor="email" className={labelClass}>
-                        Email Address <span className="text-[#f58c23]">*</span>
+                        Email Address <span className="text-[#d4a53a]">*</span>
                       </label>
                       <input
                         id="email"
@@ -285,7 +285,7 @@ export default function BookForm() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="serviceNeeded" className={labelClass}>
-                        Service Needed <span className="text-[#f58c23]">*</span>
+                        Service Needed <span className="text-[#d4a53a]">*</span>
                       </label>
                       <select
                         id="serviceNeeded"
@@ -405,7 +405,7 @@ export default function BookForm() {
                   <button
                     type="submit"
                     disabled={formState === 'loading'}
-                    className="w-full flex items-center justify-center gap-2.5 bg-[#f58c23] hover:bg-[#d97b1a] disabled:bg-[#f58c23]/60 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-[#f58c23]/30 mt-1"
+                    className="w-full flex items-center justify-center gap-2.5 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:bg-[#d4a53a]/60 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-[#d4a53a]/30 mt-1"
                   >
                     {formState === 'loading' ? (
                       <>

@@ -15,7 +15,7 @@ export default function DashboardLoginForm() {
   const cooldownRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const inputClass =
-    'w-full bg-white/10 border border-white/20 focus:border-[#f58c23] focus:ring-2 focus:ring-[#f58c23]/20 text-white placeholder:text-white/30 rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
+    'w-full bg-[#f5f5f5]/10 border border-white/20 focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-white placeholder:text-white/30 rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
 
   function startCooldown() {
     setResendCooldown(60)
@@ -120,7 +120,7 @@ export default function DashboardLoginForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex items-center justify-center gap-2 bg-[#f58c23] hover:bg-[#d97b1a] disabled:opacity-60 text-white font-bold text-sm px-6 py-3.5 rounded-xl transition-all duration-200 mt-1"
+            className="w-full flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:opacity-60 text-white font-bold text-sm px-6 py-3.5 rounded-xl transition-all duration-200 mt-1"
           >
             {loading ? (
               <RiLoader4Line size={16} className="animate-spin" />
@@ -134,8 +134,8 @@ export default function DashboardLoginForm() {
         </form>
       ) : (
         <form onSubmit={handleVerifyOtp} className="flex flex-col gap-4">
-          <div className="flex items-center gap-3 bg-[#f58c23]/10 border border-[#f58c23]/30 rounded-xl px-4 py-3">
-            <RiShieldCheckLine className="text-[#f58c23] flex-shrink-0" size={18} />
+          <div className="flex items-center gap-3 bg-[#d4a53a]/10 border border-[#d4a53a]/30 rounded-xl px-4 py-3">
+            <RiShieldCheckLine className="text-[#d4a53a] flex-shrink-0" size={18} />
             <p className="text-white/70 text-xs font-inter leading-relaxed">
               A 6-digit code was sent to <strong className="text-white">{email}</strong>
             </p>
@@ -152,7 +152,7 @@ export default function DashboardLoginForm() {
               value={otp}
               onChange={(e) => { setOtp(e.target.value.replace(/\D/g, '')); setError('') }}
               placeholder="000000"
-              className={`${inputClass} text-center text-2xl font-black tracking-[0.4em]`}
+              className={`${inputClass} text-center font-stat text-2xl tracking-[0.4em]`}
               autoFocus
             />
           </div>
@@ -164,7 +164,7 @@ export default function DashboardLoginForm() {
           <button
             type="submit"
             disabled={loading || otp.length !== 6}
-            className="w-full flex items-center justify-center gap-2 bg-[#f58c23] hover:bg-[#d97b1a] disabled:opacity-60 text-white font-bold text-sm px-6 py-3.5 rounded-xl transition-all duration-200"
+            className="w-full flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:opacity-60 text-white font-bold text-sm px-6 py-3.5 rounded-xl transition-all duration-200"
           >
             {loading ? (
               <RiLoader4Line size={16} className="animate-spin" />
@@ -188,7 +188,7 @@ export default function DashboardLoginForm() {
               type="button"
               onClick={handleResend}
               disabled={resendCooldown > 0 || loading}
-              className="text-[#f58c23]/70 hover:text-[#f58c23] disabled:text-white/30 text-xs font-inter transition-colors"
+              className="text-[#d4a53a]/70 hover:text-[#d4a53a] disabled:text-white/30 text-xs font-inter transition-colors"
             >
               {resendCooldown > 0 ? `Resend in ${resendCooldown}s` : 'Resend code'}
             </button>

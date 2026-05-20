@@ -17,12 +17,12 @@ export default function AboutTeam() {
       <div className="max-w-7xl mx-auto px-6 py-20 border-b border-white/10">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <div>
-            <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               Leadership
             </span>
-            <h2 className="font-sans font-black text-white text-3xl sm:text-4xl leading-tight text-balance mb-5">
+            <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance mb-5">
               Supported by an{' '}
-              <span className="text-[#fed16c]">Organized Leadership Structure</span>
+              <span className="text-[#d4a53a]">Organized Leadership Structure</span>
             </h2>
             <p className="font-inter text-white/60 text-base leading-relaxed mb-8">
               JTTC is backed by a board of directors, key cooperative personnel, and an
@@ -32,7 +32,7 @@ export default function AboutTeam() {
             </p>
             <Link
               href="/leadership"
-              className="inline-flex items-center gap-2 bg-[#f58c23] hover:bg-[#d97b1a] text-white font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-[#f58c23]/30"
+              className="inline-flex items-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] text-white font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-[#d4a53a]/30"
             >
               View Leadership Structure
               <ArrowRight size={16} strokeWidth={2.5} />
@@ -85,12 +85,12 @@ export default function AboutTeam() {
           </div>
 
           <div>
-            <span className="inline-block text-[#f58c23] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               Our Fleet
             </span>
-            <h2 className="font-sans font-black text-white text-3xl sm:text-4xl leading-tight text-balance mb-5">
+            <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance mb-5">
               Ready to Serve With the{' '}
-              <span className="text-[#fed16c]">Right Vehicle Options</span>
+              <span className="text-[#d4a53a]">Right Vehicle Options</span>
             </h2>
             <p className="font-inter text-white/60 text-base leading-relaxed mb-8">
               Our equipment resources allow us to support a variety of transport needs
@@ -100,13 +100,13 @@ export default function AboutTeam() {
               {fleet.map((item) => (
                 <li
                   key={item.label}
-                  className="flex items-center justify-between gap-4 bg-white/5 border border-white/10 rounded-xl px-6 py-4"
+                  className="flex items-center justify-between gap-4 bg-[#f5f5f5]/5 border border-white/10 rounded-xl px-6 py-4"
                 >
                   <div className="flex items-center gap-3">
-                    <Bus size={18} className="text-[#f58c23] flex-shrink-0" strokeWidth={1.8} />
+                    <Bus size={18} className="text-[#d4a53a] flex-shrink-0" strokeWidth={1.8} />
                     <span className="font-inter text-white/80 text-sm">{item.label}</span>
                   </div>
-                  <span className="font-inter text-[#fed16c] text-xs font-semibold uppercase tracking-wide flex-shrink-0">
+                  <span className="font-inter text-[#d4a53a] text-xs font-semibold uppercase tracking-wide flex-shrink-0">
                     {item.count}
                   </span>
                 </li>

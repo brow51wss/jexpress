@@ -4,31 +4,31 @@ const orgLevels = [
   {
     label: 'General Assembly',
     description: 'All cooperative members',
-    color: '#f58c23',
-    textColor: '#ffffff',
+    color: '#d4a53a',
+    textColor: '#f5f5f5',
   },
   {
     label: 'Chairperson / Vice Chairperson',
     description: 'Executive leadership',
-    color: '#fff8f0',
+    color: '#f5f5f5',
     textColor: '#383838',
   },
   {
     label: 'Board of Directors',
     description: '7 board members providing governance and oversight',
     color: '#4a4a4a',
-    textColor: '#ffffff',
+    textColor: '#f5f5f5',
   },
   {
     label: 'Secretary · Treasurer · General Manager',
     description: 'Core cooperative officers',
     color: '#5c5c5c',
-    textColor: '#ffffff',
+    textColor: '#f5f5f5',
   },
   {
     label: 'Committees & Operational Support Team',
     description: 'Audit · Election · Ethics · Gender & Development · Operations',
-    color: '#fed16c',
+    color: '#d4a53a',
     textColor: '#383838',
   },
 ]
@@ -38,11 +38,11 @@ export default function LeadershipOrgChart() {
     <section className="py-24" style={{ background: '#383838' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
-          <span className="inline-block text-[#fed16c] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+          <span className="eyebrow-dash text-[#00193c] mb-4">
             Structure
           </span>
-          <h2 className="font-sans font-black text-white text-3xl sm:text-4xl leading-tight text-balance mb-4">
-            How Our <span className="text-[#f58c23]">Organization Works</span>
+          <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance mb-4">
+            How Our <span className="text-[#d4a53a]">Organization Works</span>
           </h2>
           <p className="font-inter text-white/60 text-base leading-relaxed max-w-2xl mx-auto">
             JTTC&apos;s structure begins with the General Assembly and is supported by committees,
@@ -59,7 +59,7 @@ export default function LeadershipOrgChart() {
                 style={{ background: level.color }}
               >
                 <p
-                  className="font-sans font-black text-base sm:text-lg leading-tight"
+                  className="font-heading text-base sm:text-lg leading-tight"
                   style={{ color: level.textColor }}
                 >
                   {level.label}
@@ -73,9 +73,9 @@ export default function LeadershipOrgChart() {
               </div>
               {index < orgLevels.length - 1 && (
                 <div className="flex flex-col items-center py-2">
-                  <div className="w-px h-4 bg-white/20" />
-                  <ChevronDown size={16} className="text-[#f58c23]" strokeWidth={2.5} />
-                  <div className="w-px h-4 bg-white/20" />
+                  <div className="w-px h-4 bg-[#f5f5f5]/20" />
+                  <ChevronDown size={16} className="text-[#d4a53a]" strokeWidth={2.5} />
+                  <div className="w-px h-4 bg-[#f5f5f5]/20" />
                 </div>
               )}
             </div>
