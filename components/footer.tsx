@@ -32,8 +32,15 @@ export default async function Footer() {
   const services = await getServiceNames()
 
   return (
-    <footer className="bg-[#2a2a2a] text-white" role="contentinfo">
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
+    <footer className="relative bg-[#000c26] text-white overflow-hidden" role="contentinfo">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/branding/road2.webp"
+        alt=""
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 w-auto h-[70%] object-contain pointer-events-none select-none z-0"
+      />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div className="lg:col-span-1 flex flex-col gap-5">
             <Link

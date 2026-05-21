@@ -20,7 +20,7 @@ export default async function Hero() {
     <>
     <section
       id="home"
-      className="relative py-[150px] lg:py-8 h-auto bg-[#fefefe] flex flex-col overflow-hidden"
+      className="relative pt-[-150px] pb-[-50px] lg:pt-[150px] lg:pb-[150px] lg:py-8 h-auto bg-[#fefefe] flex flex-col overflow-hidden"
     >
       {/* Two-column row: left = content, right = image panel */}
       <div className="flex-1 flex flex-col lg:flex-row">
@@ -51,9 +51,10 @@ export default async function Hero() {
               </Link>
               <Link
                 href="#services"
-                className="inline-flex items-center gap-2 border-2 border-[#383838]/30 hover:border-[#d4a53a] text-[#383838] hover:text-[#d4a53a] font-semibold text-base px-8 py-4 rounded-full transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-brand-blue hover:bg-[#00193c] text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#00193c]/40"
               >
                 Our Services
+                <RiArrowRightLine size={18} />
               </Link>
             </div>
 
@@ -92,7 +93,7 @@ export default async function Hero() {
         {/* Service titles + icons pulled from dashboard */}
         <div className="hidden relative z-20 lg:flex lg:flex-row justify-center lg:flex-wrap gap-4 px-4">
           {services.map((service) => (
-            <div key={service.id} className="flex flex-col items-center justify-center gap-2 p-4 w-[200px] h-[200px] overflow-hidden shrink-0 grow-0">
+            <div key={service.id} className="flex flex-col items-center justify-center gap-2 p-4 w-[150px] h-[200px] overflow-hidden shrink-0 grow-0">
               <div className="w-8 h-8 rounded-lg bg-[#d4a53a]/10 flex items-center justify-center shrink-0">
                 <ServiceIcon name={service.icon ?? ''} size={24} className="text-[#d4a53a]" />
               </div>

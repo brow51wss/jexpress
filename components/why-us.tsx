@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import {
   RiShieldCheckLine,
   RiHandHeartLine,
@@ -49,7 +48,19 @@ const features = [
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="py-24 bg-[#383838] relative overflow-hidden">
+    <section id="why-us" className="relative bg-brand-blue overflow-hidden">
+      {/* Top wave divider — thick on left, tapers thin on right */}
+      <svg
+        viewBox="0 0 1440 56"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full block relative z-10"
+        style={{ height: 56 }}
+        aria-hidden="true"
+      >
+        <path d="M0,0 L1440,0 L1440,22 C720,24 720,24 0,28 Z" fill="#f5f5f5" />
+        <path d="M0,28 C720,24 720,24 1440,22 L1440,26 C720,44 720,44 0,48 Z" fill="#d4a53a" />
+      </svg>
       <div
         className="absolute top-0 right-0 w-1/2 h-full opacity-5"
         style={{
@@ -65,7 +76,7 @@ export default function WhyUs() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <span className="eyebrow-dash text-[#d4a53a] mb-4">
             Why Choose Us
@@ -101,22 +112,11 @@ export default function WhyUs() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-stretch mb-8">
-          <div className="relative rounded-2xl overflow-hidden min-h-72 sm:min-h-80 lg:min-h-64">
-            <Image
-              src="https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/photos/Jexpress%20Tourist%20Transport%20Cooperative/1775101309773-472257212_122131383326396609_1045635834548108228_n.jpg"
-              alt="Jexpress fleet"
-              fill
-              className="object-cover"
-            />
-            <div
-              className="absolute inset-0"
-              style={{ background: 'linear-gradient(to right, #1a1a1a 0%, transparent 65%)' }}
-            />
-            <div className="absolute inset-0 flex flex-col justify-center p-8 lg:p-10">
+          <div className="relative rounded-2xl overflow-hidden min-h-72 sm:min-h-80 lg:min-h-64 bg-[#fefefe] flex flex-col justify-center p-8 lg:p-10">
               <p className="eyebrow-dash text-[#d4a53a] mb-3">
                 Our Fleet
               </p>
-              <h3 className="font-heading text-white text-2xl leading-tight mb-5">
+              <h3 className="font-heading text-[#00193c] text-2xl leading-tight mb-5">
                 Well-Maintained Vehicles
                 <br />for Every Journey
               </h3>
@@ -129,11 +129,10 @@ export default function WhyUs() {
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#d4a53a] flex-shrink-0" />
-                    <span className="text-white/80 text-sm font-inter">{item}</span>
+                    <span className="text-[#383838] text-sm font-inter">{item}</span>
                   </li>
                 ))}
               </ul>
-            </div>
           </div>
 
           <div className="bg-[#d4a53a] rounded-2xl p-8 lg:p-10 flex flex-col justify-between">
@@ -191,6 +190,19 @@ export default function WhyUs() {
           </div>
         </div>
       </div>
+
+      {/* Bottom wave divider — thin on left, tapers thick on right */}
+      <svg
+        viewBox="0 0 1440 56"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full block relative z-10"
+        style={{ height: 56 }}
+        aria-hidden="true"
+      >
+        <path d="M0,22 C720,24 720,24 1440,28 L1440,48 C720,44 720,44 0,26 Z" fill="#d4a53a" />
+        <path d="M0,26 C720,44 720,44 1440,48 L1440,56 L0,56 Z" fill="#f5f5f5" />
+      </svg>
     </section>
   )
 }

@@ -44,7 +44,7 @@ export default function Services() {
   }, [])
 
   return (
-    <section id="services" className="relative bg-brand-blue">
+    <section id="services" className="relative bg-[#010717] overflow-hidden">
       {/* Top wave divider — thick on left (~20 px), tapers to thin on right (~4 px) */}
       <svg
         viewBox="0 0 1440 56"
@@ -83,7 +83,7 @@ export default function Services() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
           <div>
-            <span className="inline-block text-[#d4a53a] text-xs font-inter font-bold uppercase tracking-widest mb-4 border-l-4 border-[#d4a53a] pl-3">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               What We Offer
             </span>
             <h2 className="font-heading text-4xl lg:text-5xl text-[#fefefe] leading-tight text-balance">
@@ -167,12 +167,21 @@ export default function Services() {
         </div>
       </div>
 
+      {/* Road background — placed before bottom wave so wave renders on top */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/branding/road1.webp"
+        alt=""
+        aria-hidden="true"
+        className="absolute bottom-0 right-0 w-auto h-[320px] object-contain pointer-events-none select-none z-0"
+      />
+
       {/* Bottom wave divider — thin on left (~4 px), tapers to thick on right (~20 px) */}
       <svg
         viewBox="0 0 1440 56"
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full block"
+        className="w-full block relative z-10"
         style={{ height: 56 }}
         aria-hidden="true"
       >
@@ -187,16 +196,6 @@ export default function Services() {
           fill="#f5f5f5"
         />
       </svg>
-
-      {/* Road image — sticky to viewport bottom until section scrolls away */}
-      <div className="lg:sticky lg:bottom-0 h-0 w-full z-0 pointer-events-none" aria-hidden="true">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/branding/roadBG.webp"
-          alt=""
-          className="absolute top-[250px] lg:bottom-[30px] right-0 w-auto h-[320px] object-contain select-none opacity-25"
-        />
-      </div>
     </section>
   )
 }

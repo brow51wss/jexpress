@@ -15,7 +15,7 @@ export default function BookFleet() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <div>
-            <span className="eyebrow-dash text-[#00193c] mb-4 border-l-4 border-[#d4a53a] pl-3">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               Our Fleet
             </span>
             <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">

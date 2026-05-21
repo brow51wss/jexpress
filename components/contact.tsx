@@ -90,7 +90,7 @@ export default function Contact() {
   }
 
   const inputClass =
-    'w-full bg-[#f5f5f5] border border-[#f5f5f5] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#aaa] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200'
+    'w-full bg-white border border-[#d1d5db] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#9ca3af] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200'
 
   return (
     <section id="contact" className="py-24 bg-[#f5f5f5]">
@@ -98,10 +98,10 @@ export default function Contact() {
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
           <div className="lg:col-span-2 flex flex-col gap-8">
             <div>
-              <span className="inline-block text-[#d4a53a] text-xs font-inter font-bold uppercase tracking-widest mb-4 border-l-4 border-[#d4a53a] pl-3">
+              <span className="eyebrow-dash text-[#d4a53a] mb-4">
                 Get In Touch
               </span>
-              <h2 className="font-heading text-4xl lg:text-5xl text-[#383838] leading-tight mb-5 text-balance">
+              <h2 className="font-heading text-4xl lg:text-5xl text-brand-blue leading-tight mb-5 text-balance">
                 Book a Trip or <span className="text-[#d4a53a]">Request a Quote</span>
               </h2>
               <p className="text-[#6b6b6b] text-base leading-relaxed font-inter">
@@ -164,7 +164,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-[#383838] rounded-2xl p-6 flex flex-col gap-3">
+            <div className="bg-brand-blue rounded-2xl p-6 flex flex-col gap-3">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-white font-bold text-sm">
@@ -179,7 +179,7 @@ export default function Contact() {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="bg-[#f5f5f5] rounded-2xl shadow-xl shadow-[#383838]/5 border border-[#f5f5f5] p-8 lg:p-10">
+            <div className="bg-white rounded-2xl shadow-xl shadow-[#383838]/8 border border-[#e5e7eb] p-8 lg:p-10">
               {formState === 'success' ? (
                 <div className="flex flex-col items-center justify-center gap-5 py-16 text-center">
                   <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">

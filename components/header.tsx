@@ -159,7 +159,7 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="lg:hidden bg-[#383838]/98 backdrop-blur-md border-t border-white/10 px-6 py-6 flex flex-col gap-1">
+        <div className="lg:hidden bg-brand-blue backdrop-blur-md border-t border-white/10 px-6 py-6 flex flex-col gap-1">
           {navLinks.map((link) => {
             const isActive = pathname === link.href
 

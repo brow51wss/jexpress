@@ -13,15 +13,22 @@ const values = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-[#f5f5f5]">
+    <section id="about" className="relative py-24 bg-[#fdfdfd] overflow-hidden">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/branding/scene-mask1.webp"
+        alt=""
+        aria-hidden="true"
+        className="hidden lg:block absolute top-0 right-0 h-full w-auto object-cover pointer-events-none select-none z-0"
+      />
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="flex flex-col gap-7">
+          <div className="relative z-10 flex flex-col gap-7">
             <div>
-              <span className="inline-block text-[#d4a53a] text-xs font-inter font-bold uppercase tracking-widest mb-4 border-l-4 border-[#d4a53a] pl-3">
+              <span className="eyebrow-dash text-[#d4a53a] mb-4">
                 Our Story
               </span>
-              <h2 className="font-heading text-4xl lg:text-5xl text-[#383838] leading-tight mb-5 text-balance">
+              <h2 className="font-heading text-4xl lg:text-5xl text-brand-blue leading-tight mb-5 text-balance">
                 A Cooperative Built on{' '}
                 <span className="text-[#d4a53a]">Trust & Service</span>
               </h2>
@@ -54,22 +61,22 @@ export default function About() {
             <div className="flex flex-wrap items-center gap-4 mt-2">
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-2 bg-[#383838] hover:bg-[#d4a53a] text-white font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
+                className="inline-flex items-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#d4a53a]/40"
               >
                 Contact Us
-                <RiArrowRightLine size={16} />
+                <RiArrowRightLine size={18} />
               </Link>
               <Link
                 href="#services"
-                className="inline-flex items-center gap-2 text-[#d4a53a] font-semibold text-sm font-inter hover:underline underline-offset-4"
+                className="inline-flex items-center gap-2 bg-brand-blue hover:bg-[#00193c] text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#00193c]/40"
               >
                 View Our Services
-                <RiArrowRightLine size={16} />
+                <RiArrowRightLine size={18} />
               </Link>
             </div>
           </div>
 
-          {/* Right column — placeholder for upcoming content */}
+          {/* Right column — decorative image */}
           <div className="hidden lg:block" />
         </div>
       </div>
