@@ -34,7 +34,7 @@ export default function LeadershipCommittees() {
         <div className="flex flex-col lg:flex-row gap-16 items-start">
 
           <div className="lg:w-80 flex-shrink-0">
-            <span className="eyebrow-dash text-[#00193c] mb-4">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               Governance Support
             </span>
             <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">

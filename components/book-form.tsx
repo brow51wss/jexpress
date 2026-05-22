@@ -15,12 +15,12 @@ function isValidEmail(email: string) {
 }
 
 const inputClass =
-  'w-full bg-[#f5f5f5] border border-[#f5f5f5] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#f5f5f5] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
+  'w-full bg-white border border-[#d1d5db] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#9ca3af] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
 
 const labelClass =
   'text-[#383838] text-xs font-bold font-inter uppercase tracking-wide mb-1.5 block'
 const inputErrorClass =
-  'w-full bg-[#f5f5f5] border border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-400/20 text-[#383838] placeholder:text-[#f5f5f5] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
+  'w-full bg-white border border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-400/20 text-[#383838] placeholder:text-[#9ca3af] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200'
 
 export default function BookForm() {
   const [formState, setFormState] = useState<FormState>('idle')
@@ -146,7 +146,7 @@ export default function BookForm() {
               </p>
             </div>
 
-            <div className="bg-[#f5f5f5] rounded-2xl border border-[#f5f5f5] p-6 flex flex-col gap-4 shadow-sm">
+            <div className="bg-white border border-[#e5e7eb] rounded-2xl p-6 flex flex-col gap-4 shadow-sm">
               <p className="font-heading text-[#383838] text-sm uppercase tracking-wide">
                 Services Available
               </p>
@@ -158,7 +158,7 @@ export default function BookForm() {
               ))}
             </div>
 
-            <div className="bg-[#383838] rounded-2xl p-6 flex flex-col gap-3">
+            <div className="bg-brand-blue rounded-2xl p-6 flex flex-col gap-3">
               <p className="text-white font-bold text-sm">Need Help?</p>
               <p className="text-white/60 text-xs font-inter leading-relaxed">
                 For urgent inquiries, you may also reach us directly by phone.
@@ -178,7 +178,7 @@ export default function BookForm() {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="bg-[#f5f5f5] rounded-2xl border border-[#f5f5f5] p-8 lg:p-10 shadow-sm">
+            <div className="bg-white border border-[#e5e7eb] rounded-2xl p-8 lg:p-10 shadow-sm">
               {formState === 'success' ? (
                 <div className="flex flex-col items-center justify-center gap-5 py-16 text-center">
                   <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
@@ -405,7 +405,7 @@ export default function BookForm() {
                   <button
                     type="submit"
                     disabled={formState === 'loading'}
-                    className="w-full flex items-center justify-center gap-2.5 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:bg-[#d4a53a]/60 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-[#d4a53a]/30 mt-1"
+                    className="w-full flex items-center justify-center gap-2.5 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:bg-[#d4a53a]/60 text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#d4a53a]/40 mt-1"
                   >
                     {formState === 'loading' ? (
                       <>

@@ -8,16 +8,16 @@ export const metadata: Metadata = {
 
 export default function DashboardLoginPage() {
   return (
-    <div className="min-h-screen bg-[#383838] flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[#fefefe] flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <span className="eyebrow-dash text-[#00193c] mb-3">
+          <span className="eyebrow-dash text-[#d4a53a] mb-3">
             Internal Access
           </span>
-          <h1 className="text-white font-heading text-3xl leading-tight">
-            J Express <span className="text-[#d4a53a]">Dashboard</span>
+          <h1 className="text-brand-blue font-heading text-3xl leading-tight">
+            Jexpress <span className="text-[#d4a53a]">Dashboard</span>
           </h1>
-          <p className="text-white/50 font-inter text-sm mt-2">
+          <p className="text-[#6b6b6b] font-inter text-sm mt-2">
             Enter your email to receive a login code
           </p>
         </div>

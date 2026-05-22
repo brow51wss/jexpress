@@ -43,28 +43,35 @@ All `h1`–`h6` and `blockquote` use Bebas Neue via base styles (`var(--font-beb
 | `<h3>` card/item | `text-xl` | `text-2xl` | — | — |
 | Body / description | `text-base` | `text-lg` | — | — |
 | Small body | `text-sm` | — | — | — |
+| UI meta / labels | `text-xs` | — | — | — |
 
 Bebas Neue reads smaller than Montserrat at the same pixel size. Default `h3` styles in `globals.css` use `text-xl sm:text-2xl` so headings stay visibly larger than `text-sm` body copy. Do not set card `h3` to `text-lg` or `text-base` when body is `text-sm`.
-| UI meta / labels | `text-xs` | — | — | — |
 
 ### Line Heights & Tracking
 
 - Headings: `leading-tight`
 - Body paragraphs: `leading-relaxed`
-- Section eyebrow labels: `tracking-[0.2em]` or `tracking-widest`
+- Section eyebrow labels: `tracking-[0.2em]` (handled automatically by `.eyebrow-dash`)
 - Nav links: `tracking-wide`
 - Footer headings / key area labels: `tracking-widest`
 - Use `text-balance` on all multi-line headings to prevent orphans.
 
 ### Eyebrow Labels (Section Labels)
 
-All section eyebrow labels follow this exact pattern:
+All section eyebrow labels **must** use the `.eyebrow-dash` CSS utility class. Never use an inline `border-l-4` span pattern.
 
 ```tsx
-<span className="inline-block text-[#d4a53a] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
-  Section Name
-</span>
+{/* On light backgrounds */}
+<span className="eyebrow-dash text-[#d4a53a] mb-4">Section Name</span>
+
+{/* On dark (brand-blue) backgrounds */}
+<span className="eyebrow-dash text-[#d4a53a] mb-4">Section Name</span>
+
+{/* In hero sections on dark bg (slightly muted) */}
+<span className="eyebrow-dash text-white/70 mb-4">Section Name</span>
 ```
+
+The `.eyebrow-dash` class (defined in `app/globals.css`) provides: `inline-flex`, `items-center`, `gap-0.65rem`, Montserrat font, `text-xs`, `font-semibold`, `uppercase`, `letter-spacing: 0.2em`, and a gold `::before` dash pseudo-element. Do **not** duplicate these properties inline.
 
 ---
 
@@ -76,11 +83,11 @@ All colors are defined as CSS variables in `app/globals.css`. Use the token name
 
 | Token | Hex | Tailwind Utility | Usage |
 |---|---|---|---|
-| `--brand-blue` | `#00193c` | `text-brand-blue` / `bg-brand-blue` / `.BrandBlue` | Brand navy blue |
+| `--brand-blue` | `#00193c` | `text-brand-blue` / `bg-brand-blue` | Brand navy — primary dark bg for all dark sections, heroes, header |
 | `--brand-orange` / `--primary` | `#d4a53a` | `text-[#d4a53a]` / `bg-[#d4a53a]` | Primary CTA, highlights, icons, underlines, active states |
-| `--brand-orange-dark` | `#d4a53a` | `bg-[#d4a53a]` | Hover state of orange buttons |
+| `--brand-orange-dark` | `#d4a53a` | `bg-[#d4a53a]` | Hover state of gold buttons |
 | `--brand-yellow` / `--accent` | `#d4a53a` | `text-[#d4a53a]` | Active nav links, decorative accents, star ratings |
-| `--brand-dark` / `--secondary` | `#383838` | `bg-[#383838]` / `text-[#383838]` | Hero bg, header bg, dark sections, dark text on light |
+| `--brand-dark` / `--secondary` | `#383838` | `text-[#383838]` | Dark body text on light backgrounds only — NOT section backgrounds |
 | `--brand-light` | `#f5f5f5` | `bg-[#f5f5f5]` | Warm light section backgrounds |
 
 ### Semantic / Surface Colors
@@ -91,16 +98,16 @@ All colors are defined as CSS variables in `app/globals.css`. Use the token name
 | `--foreground` | `#383838` | Default body text |
 | `--muted` | `#f5f5f5` | Alternating card row backgrounds |
 | `--muted-foreground` | `#6b6b6b` | Secondary descriptive text |
-| `--border` | `#f5f5f5` | Card borders, dividers, input borders |
-| `--card` | `#f5f5f5` | Card surfaces on light backgrounds |
+| `--border` | `#e5e7eb` | Card borders, dividers, input borders |
+| `--card` | `#ffffff` | Card surfaces on light backgrounds |
 
 ### Dark Section Background Variants
 
-| Hex | Usage |
+| Hex / Class | Usage |
 |---|---|
-| `#383838` | Primary dark bg (hero, header, inner page heroes) |
-| `#2a2a2a` | Darker surface (footer, dropdowns, floating cards) |
-| `#1a1a1a` | Deepest gradient stop only |
+| `bg-brand-blue` (`#00193c`) | **All dark sections** — heroes, feature sections, services, why-us, nav, mobile menu |
+| `#2a2a2a` | Footer only |
+| `#383838` | Body text on light backgrounds, card text — **never** use as section background |
 
 ### Opacity Conventions on Dark Backgrounds
 
@@ -121,43 +128,51 @@ All colors are defined as CSS variables in `app/globals.css`. Use the token name
 
 ### Gradient Patterns
 
-- **Hero background**: `linear-gradient(135deg, #383838 0%, #2a2a2a 40%, #1a1a1a 100%)`
-- **Hero overlay accents**: Radial orange glow top-right at 20% opacity; radial yellow glow bottom-left at 10% opacity
-- **Inner page hero overlay**: `linear-gradient(to bottom, #38383880 0%, #383838 100%)`
+- **Hero background**: `bg-brand-blue` solid, optionally with radial gold glow overlays at 5–10% opacity
+- **Inner page hero overlay**: `linear-gradient(to bottom, #00193c80 0%, #00193c 100%)`
 - **Decorative hr**: `linear-gradient(to right, transparent, #d4a53a, transparent)`
-- **Card image overlay**: `linear-gradient(to bottom right, transparent 60%, #383838 100%)`
+- **Card image overlay**: `linear-gradient(to bottom right, transparent 60%, #00193c 100%)`
 
 ---
 
 ## 3. Buttons
 
-### Primary Button (CTA)
+### Primary Button (CTA) — Gold
 
 ```tsx
 className="inline-flex items-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#d4a53a]/40"
 ```
 
 - Shape: `rounded-full`
-- Default padding: `px-8 py-4` (large sections), `px-6 py-2.5` (header/compact)
+- Default padding: `px-8 py-4` (large), `px-6 py-2.5` (compact header)
 - Font: `font-bold`, `text-base` (large) or `text-sm` (compact)
-- Hover: background → `#d4a53a`, scale up `hover:scale-105`
+- Hover: scale up `hover:scale-105`
 - Active: scale down `active:scale-95`
-- Shadow: `shadow-xl shadow-[#d4a53a]/40` on large, `shadow-lg shadow-[#d4a53a]/30` on compact
+- Shadow: `shadow-xl shadow-[#d4a53a]/40` (large), `shadow-lg shadow-[#d4a53a]/30` (compact)
 
-### Ghost / Outline Button (Secondary)
+### Secondary Button — Brand Blue (solid)
+
+```tsx
+className="inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blue text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#00193c]/40"
+```
+
+- Same shape, padding, and motion as primary
+- Use when a secondary action exists alongside a gold primary CTA
+- Do **not** use the old ghost/outline `border-2 border-white/30` pattern for marketing CTAs
+
+### Ghost / Outline Button
 
 ```tsx
 className="inline-flex items-center gap-2 border-2 border-white/30 hover:border-[#d4a53a] text-white hover:text-[#d4a53a] font-semibold text-base px-8 py-4 rounded-full transition-all duration-200"
 ```
 
-- Used on dark backgrounds only
-- Hover: border and text both transition to `#d4a53a`
-- No background fill; no shadow
+- Reserved for nav-level compact actions only (e.g. header "Book Now" outline variant)
+- Not used in marketing section CTAs
 
 ### Rules
 
 - All buttons use `transition-all duration-200`
-- All buttons include icons (`RiArrowRightLine` or similar) where directional intent exists
+- All marketing CTA buttons include `<RiArrowRightLine size={18} />` icon
 - Disabled state: `opacity-50 pointer-events-none`
 - Never use square corners (`rounded-md`) on marketing CTA buttons — always `rounded-full`
 
@@ -176,6 +191,10 @@ className="font-inter text-sm tracking-wide font-medium ... text-[#d4a53a]"
 - Active state: `text-[#d4a53a]` + full-width `h-0.5 bg-[#d4a53a]` underline
 - Hover state: text → `#d4a53a`, underline animates from `w-0` to `w-full`
 - Underline animation: `transition-all duration-300`
+
+### Mobile Menu
+
+- Background: `bg-brand-blue` — always navy, never gray
 
 ### Dropdown Menu Links
 
@@ -202,30 +221,56 @@ className="text-white/50 hover:text-[#d4a53a] font-inter text-sm transition-colo
 className="text-[#d4a53a] hover:text-[#d4a53a] transition-colors"
 ```
 
-### External / Contact Links
+---
 
-Same pattern as footer links. Use `hover:text-[#d4a53a]` for all contact details (phone, email).
+## 5. Forms (ADA Compliant)
+
+All form fields must be visually distinct from the page and card background.
+
+### Input / Textarea / Select
+
+```tsx
+className="w-full bg-white border border-[#d1d5db] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#9ca3af] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200"
+```
+
+### Form Card / Container
+
+```tsx
+className="bg-white rounded-2xl shadow-xl shadow-[#383838]/8 border border-[#e5e7eb] p-8 lg:p-10"
+```
+
+### Labels
+
+```tsx
+className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
+```
+
+- Required field asterisk: `<span className="text-[#d4a53a]">*</span>`
+- Every `<input>`, `<select>`, and `<textarea>` must have a visible `<label>` with matching `htmlFor` / `id`
+
+### Rules
+
+- Never use `bg-[#f5f5f5]` for input backgrounds — use `bg-white` so fields are visually distinct
+- Never use a same-color border as the field background (`border-[#f5f5f5]` on `bg-[#f5f5f5]` is invisible)
+- Placeholder contrast minimum: `#9ca3af` on white
 
 ---
 
-## 5. Cards
+## 6. Cards
 
 ### Service / Content Card (Light Background)
 
 ```tsx
-className="rounded-2xl overflow-hidden border border-[#f5f5f5] bg-[#f5f5f5]"
-// Alternating rows:
-className="rounded-2xl overflow-hidden border border-[#f5f5f5] bg-[#f5f5f5]"
+className="rounded-2xl overflow-hidden border border-[#e8e8e8] bg-white"
 ```
 
 - Border radius: `rounded-2xl`
-- Border: `border border-[#f5f5f5]`
-- No drop shadow by default
+- Hover: `hover:border-[#d4a53a] hover:shadow-xl hover:shadow-[#d4a53a]/10 hover:-translate-y-1`
 
 ### Floating / Overlay Card (Dark Background)
 
 ```tsx
-className="bg-[#383838]/90 backdrop-blur-sm border border-[#d4a53a]/30 rounded-xl px-4 py-3 shadow-xl"
+className="bg-brand-blue/90 backdrop-blur-sm border border-[#d4a53a]/30 rounded-xl px-4 py-3 shadow-xl"
 ```
 
 ### Image Frame Card
@@ -248,15 +293,9 @@ className="text-[#d4a53a]"  // size={22} strokeWidth={1.75}
 className="inline-block bg-[#d4a53a]/10 text-[#d4a53a] font-inter font-semibold text-xs px-4 py-2 rounded-full"
 ```
 
-### Eyebrow Badge (Dark BG)
-
-```tsx
-className="inline-flex items-center gap-2 bg-[#d4a53a]/15 border border-[#d4a53a]/30 text-[#d4a53a] text-xs font-inter font-semibold uppercase tracking-widest px-4 py-2 rounded-full w-fit"
-```
-
 ---
 
-## 6. Section Layout
+## 7. Section Layout
 
 ### Max Width & Padding
 
@@ -264,7 +303,7 @@ className="inline-flex items-center gap-2 bg-[#d4a53a]/15 border border-[#d4a53a
 className="max-w-7xl mx-auto px-6"
 ```
 
-Always `max-w-7xl`. Horizontal padding is always `px-6` (24px) at all breakpoints — never less.
+Always `max-w-7xl`. Horizontal padding is always `px-6` at all breakpoints.
 
 ### Section Vertical Spacing
 
@@ -279,32 +318,49 @@ Always `max-w-7xl`. Horizontal padding is always `px-6` (24px) at all breakpoint
 
 ```tsx
 <div className="text-center mb-16">
-  <span className="inline-block text-[#d4a53a] font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
-    Eyebrow Label
-  </span>
+  <span className="eyebrow-dash text-[#d4a53a] mb-4">Eyebrow Label</span>
   <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance">
     Section <span className="text-[#d4a53a]">Highlight Word</span>
   </h2>
 </div>
 ```
 
-- The highlighted keyword within `<h2>` is always wrapped in `<span className="text-[#d4a53a]">`.
-- Use `text-balance` on all headings.
+On dark (`bg-brand-blue`) sections, use `text-white` on the `<h2>` and `text-[#d4a53a]` on the eyebrow.
 
 ### Background Alternation
 
 | Surface | Color |
 |---|---|
 | Light default | `bg-[#f5f5f5]` |
-| Light warm alternate | `bg-[#f5f5f5]` |
-| Dark primary | `bg-[#383838]` |
-| Dark footer | `bg-[#2a2a2a]` |
+| Light alternate / card | `bg-white` |
+| Dark primary (all dark sections) | `bg-brand-blue` |
+| Footer | `bg-[#2a2a2a]` |
 
-Never use arbitrary grays that are not from the palette above.
+### Section Dividers (Wave)
+
+Sections that transition between `bg-brand-blue` and `bg-[#f5f5f5]` use SVG wave dividers:
+
+```tsx
+{/* Top of a dark section — fill above matches the section above (#f5f5f5 or #fefefe) */}
+<svg viewBox="0 0 1440 56" preserveAspectRatio="none" className="w-full block relative z-10" style={{ height: 56 }} aria-hidden="true">
+  <path d="M0,0 L1440,0 L1440,22 C720,24 720,24 0,28 Z" fill="#f5f5f5" />
+  <path d="M0,28 C720,24 720,24 1440,22 L1440,26 C720,44 720,44 0,48 Z" fill="#d4a53a" />
+</svg>
+
+{/* Bottom of a dark section — fill below matches the section below (#f5f5f5) */}
+<svg viewBox="0 0 1440 56" preserveAspectRatio="none" className="w-full block relative z-10" style={{ height: 56 }} aria-hidden="true">
+  <path d="M0,22 C720,24 720,24 1440,28 L1440,48 C720,44 720,44 0,26 Z" fill="#d4a53a" />
+  <path d="M0,26 C720,44 720,44 1440,48 L1440,56 L0,56 Z" fill="#f5f5f5" />
+</svg>
+```
+
+- Wave band color: `#d4a53a` (gold), tapered thickness left-to-right
+- Sections with wave dividers must have `overflow-hidden` removed (use `relative` only)
+- Content inside wave-bordered sections needs `relative z-10`
 
 ---
 
-## 7. Iconography
+## 8. Iconography
 
 - Library: `react-icons/ri` (Remix Icons) for UI icons; `lucide-react` for content/service icons
 - Icon size on nav/utility: `size={16–18}`
@@ -314,19 +370,19 @@ Never use arbitrary grays that are not from the palette above.
 
 ---
 
-## 8. Spacing & Border Radius Tokens
+## 9. Spacing & Border Radius Tokens
 
 | Token | Value | Usage |
 |---|---|---|
 | `--radius` | `0.5rem` | Base radius |
 | `rounded-full` | 9999px | All CTA buttons, tags, pills, badges |
 | `rounded-2xl` | 1rem | Cards, image frames |
-| `rounded-xl` | 0.75rem | Dropdown menus, floating cards, icon badges |
-| `rounded-lg` | `--radius-lg` | Form inputs, secondary containers |
+| `rounded-xl` | 0.75rem | Dropdown menus, floating cards, icon badges, form inputs |
+| `rounded-lg` | `--radius-lg` | Secondary containers |
 
 ---
 
-## 9. Transitions & Motion
+## 10. Transitions & Motion
 
 - All interactive elements: `transition-all duration-200` or `transition-colors duration-200`
 - Nav underline: `transition-all duration-300`
@@ -338,6 +394,6 @@ Never use arbitrary grays that are not from the palette above.
 
 ---
 
-## 10. Dark Mode
+## 11. Dark Mode
 
-This project does **not** implement a user-toggled dark mode. The `.dark` variant in `styles/globals.css` is a legacy scaffold and is **not used**. All dark surfaces are intentional design choices using the brand dark palette (`#383838`, `#2a2a2a`). Do not add dark mode class toggling or `dark:` variants to new components.
+This project does **not** implement a user-toggled dark mode. All dark surfaces are intentional design choices using the brand dark palette. The `.dark` variant in `styles/globals.css` is a legacy scaffold and is **not used**. Do not add `dark:` variants to new components.

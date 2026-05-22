@@ -3,8 +3,13 @@ import { PhoneCall, ArrowRight } from 'lucide-react'
 
 export default function ContactCta() {
   return (
-    <section className="py-24" style={{ background: '#383838' }}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative bg-brand-blue">
+      {/* Top wave divider */}
+      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block relative z-10" style={{ height: 56 }} aria-hidden="true">
+        <path d="M0,0 L1440,0 L1440,22 C720,24 720,24 0,28 Z" fill="#f5f5f5" />
+        <path d="M0,28 C720,24 720,24 1440,22 L1440,26 C720,44 720,44 0,48 Z" fill="#d4a53a" />
+      </svg>
+      <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="eyebrow-dash text-[#d4a53a] mb-5">
@@ -62,14 +67,14 @@ export default function ContactCta() {
             <div className="flex flex-col gap-3 w-full sm:w-auto">
               <a
                 href="mailto:jexpresstouristtransport.jttsc@gmail.com"
-                className="inline-flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] text-white font-bold text-sm px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-[#d4a53a]/30 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#d4a53a]/40 whitespace-nowrap"
               >
                 <ArrowRight size={16} strokeWidth={2} />
                 Email Us Now
               </a>
               <a
                 href="tel:+639166112928"
-                className="inline-flex items-center justify-center gap-2 bg-[#f5f5f5]/10 hover:bg-[#f5f5f5]/20 text-white font-bold text-sm px-8 py-4 rounded-full transition-all duration-200 border border-white/20 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 bg-brand-blue hover:bg-brand-blue text-white font-bold text-base px-8 py-4 rounded-full shadow-xl shadow-[#00193c]/40 hover:scale-105 active:scale-95 transition-all duration-200 whitespace-nowrap"
               >
                 <PhoneCall size={16} strokeWidth={2} />
                 Call Us Now
@@ -84,6 +89,12 @@ export default function ContactCta() {
           </div>
         </div>
       </div>
+
+      {/* Bottom wave divider */}
+      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block relative z-10" style={{ height: 56 }} aria-hidden="true">
+        <path d="M0,22 C720,24 720,24 1440,28 L1440,48 C720,44 720,44 0,26 Z" fill="#d4a53a" />
+        <path d="M0,26 C720,44 720,44 1440,48 L1440,56 L0,56 Z" fill="#f5f5f5" />
+      </svg>
     </section>
   )
 }

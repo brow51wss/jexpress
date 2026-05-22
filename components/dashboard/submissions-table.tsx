@@ -127,7 +127,7 @@ export default function SubmissionsTable({ isSuperAdmin }: { isSuperAdmin: boole
             placeholder="Search name or email…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-8 pr-3 py-2 bg-[#f5f5f5] border border-[#f5f5f5] rounded-xl text-sm font-inter text-[#383838] placeholder:text-[#f5f5f5] outline-none focus:border-[#d4a53a] transition-colors"
+            className="w-full pl-8 pr-3 py-2 bg-white border border-[#d1d5db] rounded-xl text-sm font-inter text-[#383838] placeholder:text-[#9ca3af] outline-none focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 transition-colors"
           />
         </div>
 

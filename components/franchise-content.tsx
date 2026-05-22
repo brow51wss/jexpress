@@ -73,7 +73,12 @@ export default function FranchiseContent() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[#383838] overflow-hidden">
+      <section className="relative bg-brand-blue overflow-hidden">
+        {/* Top wave divider */}
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block relative z-10" style={{ height: 56 }} aria-hidden="true">
+          <path d="M0,0 L1440,0 L1440,22 C720,24 720,24 0,28 Z" fill="#f5f5f5" />
+          <path d="M0,28 C720,24 720,24 1440,22 L1440,26 C720,44 720,44 0,48 Z" fill="#d4a53a" />
+        </svg>
         <div
           className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse at top right, #d4a53a 0%, transparent 70%)' }}
@@ -107,13 +112,19 @@ export default function FranchiseContent() {
               </a>
               <a
                 href="#franchise-form"
-                className="inline-flex items-center gap-2 border-2 border-white/30 hover:border-[#d4a53a] text-white hover:text-[#d4a53a] font-semibold text-base px-8 py-4 rounded-full transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blue text-white font-bold text-base px-8 py-4 rounded-full shadow-xl shadow-[#00193c]/40 hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 Inquire Today
               </a>
             </div>
           </div>
         </div>
+
+        {/* Bottom wave divider */}
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block relative z-10" style={{ height: 56 }} aria-hidden="true">
+          <path d="M0,22 C720,24 720,24 1440,28 L1440,48 C720,44 720,44 0,26 Z" fill="#d4a53a" />
+          <path d="M0,26 C720,44 720,44 1440,48 L1440,56 L0,56 Z" fill="#f5f5f5" />
+        </svg>
       </section>
 
       {/* Why Choose J Express */}
@@ -121,7 +132,7 @@ export default function FranchiseContent() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="eyebrow-dash text-[#00193c] mb-4">
+              <span className="eyebrow-dash text-[#d4a53a] mb-4">
                 Why Partner With Us
               </span>
               <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance mb-6">
@@ -160,7 +171,7 @@ export default function FranchiseContent() {
       <section className="py-24 bg-[#f5f5f5]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="eyebrow-dash text-[#00193c] mb-4">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               Partner Benefits
             </span>
             <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance">
@@ -188,7 +199,7 @@ export default function FranchiseContent() {
       <section className="py-24 bg-[#f5f5f5]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="eyebrow-dash text-[#00193c] mb-4">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               Revenue Streams
             </span>
             <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance mb-4">
@@ -228,7 +239,7 @@ export default function FranchiseContent() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="eyebrow-dash text-[#00193c] mb-4">
+              <span className="eyebrow-dash text-[#d4a53a] mb-4">
                 Who Can Apply
               </span>
               <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance mb-6">
@@ -262,13 +273,18 @@ export default function FranchiseContent() {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 bg-[#383838] relative overflow-hidden">
+      <section className="bg-brand-blue relative overflow-hidden">
+        {/* Top wave divider */}
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block relative z-10" style={{ height: 56 }} aria-hidden="true">
+          <path d="M0,0 L1440,0 L1440,22 C720,24 720,24 0,28 Z" fill="#f5f5f5" />
+          <path d="M0,28 C720,24 720,24 1440,22 L1440,26 C720,44 720,44 0,48 Z" fill="#d4a53a" />
+        </svg>
         <div
           className="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse at top right, #d4a53a 0%, transparent 70%)' }}
           aria-hidden="true"
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
           <div className="text-center mb-16">
             <span className="eyebrow-dash text-[#d4a53a] mb-4">
               Simple Process
@@ -299,6 +315,12 @@ export default function FranchiseContent() {
             ))}
           </div>
         </div>
+
+        {/* Bottom wave divider */}
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block relative z-10" style={{ height: 56 }} aria-hidden="true">
+          <path d="M0,22 C720,24 720,24 1440,28 L1440,48 C720,44 720,44 0,26 Z" fill="#d4a53a" />
+          <path d="M0,26 C720,44 720,44 1440,48 L1440,56 L0,56 Z" fill="#f5f5f5" />
+        </svg>
       </section>
 
       {/* Why Now */}
@@ -308,7 +330,7 @@ export default function FranchiseContent() {
             <div className="w-14 h-14 rounded-xl bg-[#d4a53a]/10 flex items-center justify-center mx-auto mb-6">
               <TrendingUp size={26} className="text-[#d4a53a]" strokeWidth={1.75} />
             </div>
-            <span className="eyebrow-dash text-[#00193c] mb-4">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               The Opportunity
             </span>
             <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance mb-6">
@@ -326,13 +348,18 @@ export default function FranchiseContent() {
       </section>
 
       {/* Strong CTA */}
-      <section className="py-24 bg-[#383838] relative overflow-hidden">
+      <section className="bg-brand-blue relative overflow-hidden">
+        {/* Top wave divider */}
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block relative z-10" style={{ height: 56 }} aria-hidden="true">
+          <path d="M0,0 L1440,0 L1440,22 C720,24 720,24 0,28 Z" fill="#f5f5f5" />
+          <path d="M0,28 C720,24 720,24 1440,22 L1440,26 C720,44 720,44 0,48 Z" fill="#d4a53a" />
+        </svg>
         <div
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse at center, #d4a53a 0%, transparent 70%)' }}
           aria-hidden="true"
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 text-center">
           <span className="eyebrow-dash text-[#d4a53a] mb-6">
             Take the First Step
           </span>
@@ -351,6 +378,12 @@ export default function FranchiseContent() {
             <RiArrowRightLine size={18} />
           </a>
         </div>
+
+        {/* Bottom wave divider */}
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block relative z-10" style={{ height: 56 }} aria-hidden="true">
+          <path d="M0,22 C720,24 720,24 1440,28 L1440,48 C720,44 720,44 0,26 Z" fill="#d4a53a" />
+          <path d="M0,26 C720,44 720,44 1440,48 L1440,56 L0,56 Z" fill="#f5f5f5" />
+        </svg>
       </section>
 
       {/* Lead Form */}

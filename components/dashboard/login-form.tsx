@@ -93,7 +93,7 @@ export default function DashboardLoginForm() {
   }
 
   return (
-    <div className="bg-[#2a2a2a] border border-white/10 rounded-2xl p-8">
+    <div className="bg-brand-blue border border-white/10 rounded-2xl p-8">
       {step === 'email' ? (
         <form onSubmit={handleRequestOtp} className="flex flex-col gap-4">
           <div>

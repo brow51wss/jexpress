@@ -8,7 +8,7 @@ export default function ContactMap() {
     <section className="py-20 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-10">
-          <span className="eyebrow-dash text-[#00193c] mb-4">
+          <span className="eyebrow-dash text-[#d4a53a] mb-4">
             Find Us
           </span>
           <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-3">
@@ -31,6 +31,7 @@ export default function ContactMap() {
             referrerPolicy="no-referrer-when-downgrade"
             title="Jexpress Tourist Transport Cooperative Location — Marikina Heights, Marikina City"
             aria-label="Google Map showing JTTC office location in Marikina Heights"
+            suppressHydrationWarning
           />
 
           <div className="absolute bottom-5 left-5 bg-[#f5f5f5] rounded-xl shadow-lg border border-[#f5f5f5] px-5 py-4 flex items-start gap-3 max-w-xs">

@@ -54,12 +54,12 @@ export default function FranchiseLogin() {
           </div>
         </div>
 
-        <div className="bg-[#f5f5f5] rounded-2xl border border-[#f5f5f5] shadow-sm p-8 lg:p-10">
+        <div className="bg-white rounded-2xl border border-[#e5e7eb] shadow-sm p-8 lg:p-10">
           <div className="flex flex-col items-center text-center mb-8">
             <div className="w-14 h-14 rounded-xl bg-[#d4a53a]/10 flex items-center justify-center mb-5">
               <RiLockLine size={26} className="text-[#d4a53a]" />
             </div>
-            <span className="eyebrow-dash text-[#00193c] mb-3">
+            <span className="eyebrow-dash text-[#d4a53a] mb-3">
               Restricted Access
             </span>
             <h1 className="font-heading text-[#383838] text-2xl leading-tight mb-2">
@@ -93,7 +93,7 @@ export default function FranchiseLogin() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
-                  className="w-full bg-[#f5f5f5] border border-[#f5f5f5] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#f5f5f5] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200 pr-12"
+                  className="w-full bg-white border border-[#d1d5db] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#9ca3af] rounded-xl px-4 py-3.5 text-sm font-inter outline-none transition-all duration-200 pr-12"
                 />
                 <button
                   type="button"
@@ -109,7 +109,7 @@ export default function FranchiseLogin() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full inline-flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:bg-[#d4a53a]/60 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-[#d4a53a]/30 mt-1"
+              className="w-full inline-flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:bg-[#d4a53a]/60 text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#d4a53a]/40 mt-1"
             >
               {loading ? (
                 <>

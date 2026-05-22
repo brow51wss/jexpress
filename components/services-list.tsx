@@ -46,10 +46,10 @@ export default async function ServicesList() {
     <section className="py-24" style={{ background: '#f5f5f5' }} id="services-list">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="eyebrow-dash text-[#00193c] mb-4">
+          <span className="eyebrow-dash text-[#d4a53a] mb-4">
             Full Service Range
           </span>
-          <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance">
+          <h2 className="font-heading text-brand-blue text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance">
             Everything We <span className="text-[#d4a53a]">Offer</span>
           </h2>
         </div>
@@ -77,7 +77,7 @@ export default async function ServicesList() {
                     </div>
                   </div>
                   <div className="flex items-start justify-between gap-4 mb-4">
-                    <h3 className="font-heading text-[#383838] text-xl sm:text-2xl leading-tight">
+                    <h3 className="font-heading text-brand-blue text-xl sm:text-2xl leading-tight">
                       {service.name}
                     </h3>
                     {priceDisplay && (

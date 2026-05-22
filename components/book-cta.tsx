@@ -19,7 +19,7 @@ export default function BookCta() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <span className="inline-block text-white/70 font-inter text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+            <span className="eyebrow-dash text-white/80 mb-4">
               Ready to Arrange Transport?
             </span>
             <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance mb-5">
@@ -35,13 +35,13 @@ export default function BookCta() {
           <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 lg:justify-end">
             <Link
               href="#booking-form"
-              className="inline-flex items-center justify-center gap-2 bg-[#383838] hover:bg-[#2a2a2a] text-white font-bold text-sm px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#383838]/40"
+              className="inline-flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] text-white font-bold text-base px-8 py-4 rounded-full shadow-xl shadow-[#d4a53a]/40 hover:scale-105 active:scale-95 transition-all duration-200"
             >
               Submit Booking Request
             </Link>
             <a
               href="tel:+639166112928"
-              className="inline-flex items-center justify-center gap-2 bg-[#f5f5f5]/20 hover:bg-[#f5f5f5]/30 text-white border border-white/40 font-bold text-sm px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
+              className="inline-flex items-center justify-center gap-2 bg-brand-blue hover:bg-brand-blue text-white font-bold text-base px-8 py-4 rounded-full shadow-xl shadow-[#00193c]/40 hover:scale-105 active:scale-95 transition-all duration-200"
             >
               <Phone size={16} strokeWidth={2} />
               Call Us Now

@@ -47,10 +47,10 @@ export default function AboutMission() {
         {/* Driven by Service */}
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-20 pb-20 border-b border-[#f5f5f5]">
           <div>
-            <span className="eyebrow-dash text-[#00193c] mb-4">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               What Drives Us
             </span>
-            <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
+            <h2 className="font-heading text-brand-blue text-3xl sm:text-4xl leading-tight text-balance mb-5">
               Driven by Service,{' '}
               <span className="text-[#d4a53a]">Built on Integrity</span>
             </h2>
@@ -85,11 +85,12 @@ export default function AboutMission() {
         {/* Core Values */}
         <div>
           <div className="text-center mb-12">
-            <span className="eyebrow-dash text-[#00193c] mb-4">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               Our Core Values
             </span>
             <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance">
-              The Principles That Guide Us
+              The Principles {' '}
+              <span className="text-[#d4a53a]">That Guide Us</span> 
             </h2>
           </div>
 
@@ -97,14 +98,14 @@ export default function AboutMission() {
             {values.map((value, i) => (
               <div
                 key={i}
-                className="group flex flex-col gap-4 bg-[#f5f5f5] hover:bg-[#f5f5f5] border border-[#f5f5f5] hover:border-[#d4a53a]/40 rounded-2xl p-7 transition-all duration-300 shadow-sm"
+                className="group flex flex-col gap-4 bg-brand-blue border rounded-2xl p-7 shadow-sm"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#d4a53a]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#d4a53a]/20 transition-colors">
-                  <value.icon size={22} className="text-[#d4a53a]" strokeWidth={1.8} />
+                <div className="w-12 h-12 rounded-xl bg-[#d4a53a] flex items-center justify-center flex-shrink-0">
+                  <value.icon size={22} className="text-[#fefefe]" strokeWidth={1.8} />
                 </div>
                 <div>
-                  <h3 className="font-heading text-[#383838] mb-2">{value.title}</h3>
-                  <p className="font-inter text-[#6b6b6b] text-sm leading-relaxed">
+                  <h3 className="font-heading text-[#d4a53a] mb-2">{value.title}</h3>
+                  <p className="font-inter text-[#fefefe] text-sm leading-relaxed">
                     {value.description}
                   </p>
                 </div>

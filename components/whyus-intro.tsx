@@ -4,7 +4,7 @@ export default function WhyUsIntro() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 items-center">
           <div>
-            <span className="eyebrow-dash text-[#00193c] mb-4">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               The Right Choice
             </span>
             <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance">

@@ -92,12 +92,12 @@ export default function DashboardNav({ isSuperAdmin, isMarketing, email }: NavPr
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex flex-col w-56 bg-[#2a2a2a] min-h-screen flex-shrink-0">
+      <aside className="hidden lg:flex flex-col w-56 bg-brand-blue min-h-screen flex-shrink-0">
         <NavContent />
       </aside>
 
       {/* Mobile top bar */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#2a2a2a] border-b border-white/10 px-4 py-3 flex items-center justify-between">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-brand-blue border-b border-white/10 px-4 py-3 flex items-center justify-between">
         <p className="text-white font-heading text-sm">JTTC Dashboard</p>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -111,7 +111,7 @@ export default function DashboardNav({ isSuperAdmin, isMarketing, email }: NavPr
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 z-30 bg-black/50" onClick={() => setMobileOpen(false)}>
           <div
-            className="absolute left-0 top-0 bottom-0 w-64 bg-[#2a2a2a] flex flex-col pt-14"
+            className="absolute left-0 top-0 bottom-0 w-64 bg-brand-blue flex flex-col pt-14"
             onClick={(e) => e.stopPropagation()}
           >
             <NavContent />

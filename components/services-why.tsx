@@ -40,7 +40,7 @@ export default function ServicesWhy() {
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-16 items-start">
 
           <div className="lg:sticky lg:top-32">
-            <span className="eyebrow-dash text-[#00193c] mb-4">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               Why JTTC
             </span>
             <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">

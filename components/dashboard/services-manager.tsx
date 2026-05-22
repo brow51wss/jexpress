@@ -29,7 +29,7 @@ interface Service {
 }
 
 const inputClass =
-  'w-full bg-[#f5f5f5] border border-[#f5f5f5] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#f5f5f5] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200'
+  'w-full bg-white border border-[#d1d5db] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#9ca3af] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200'
 
 const labelClass = 'text-[#383838] text-xs font-bold font-inter uppercase tracking-wide mb-1.5 block'
 

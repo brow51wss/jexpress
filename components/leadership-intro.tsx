@@ -3,7 +3,7 @@ export default function LeadershipIntro() {
     <section className="py-20" style={{ background: '#f5f5f5' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="eyebrow-dash text-[#00193c] mb-4">
+          <span className="eyebrow-dash text-[#d4a53a] mb-4">
             Structure &amp; Governance
           </span>
           <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-6">

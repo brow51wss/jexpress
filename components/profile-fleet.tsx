@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { CheckCircle } from 'lucide-react'
 
 const vehicles = [
@@ -10,13 +9,18 @@ const vehicles = [
 
 export default function ProfileFleet() {
   return (
-    <section className="py-24 overflow-hidden" style={{ background: '#383838' }}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative bg-brand-blue overflow-hidden">
+      {/* Top wave divider */}
+      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 56 }} aria-hidden="true">
+        <path d="M0,0 L1440,0 L1440,22 C720,24 720,24 0,28 Z" fill="#f5f5f5" />
+        <path d="M0,28 C720,24 720,24 1440,22 L1440,26 C720,44 720,44 0,48 Z" fill="#d4a53a" />
+      </svg>
+      <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           <div className="flex flex-col gap-7">
             <div>
-              <span className="eyebrow-dash text-[#00193c] mb-4">
+              <span className="eyebrow-dash text-[#d4a53a] mb-4">
                 Fleet &amp; Equipment
               </span>
               <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance mb-5">
@@ -45,39 +49,22 @@ export default function ProfileFleet() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden col-span-2">
-              <Image
-                src="https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/photos/Jexpress%20Tourist%20Transport%20Cooperative/1775101309773-472336187_122131206134396609_331734107237458708_n.jpg"
-                alt="Jexpress fleet vehicles"
-                fill
-                className="object-cover"
-              />
-              <div
-                className="absolute inset-0"
-                style={{ background: 'linear-gradient(to top, #383838 0%, transparent 50%)' }}
-              />
-            </div>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image
-                src="https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/photos/Jexpress%20Tourist%20Transport%20Cooperative/1775101309773-472318464_122131383872396609_3251099583690664541_n.jpg"
-                alt="Jexpress transport vehicle"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image
-                src="https://fwndqprdqitzrprauvqy.supabase.co/storage/v1/object/public/brand-assets/photos/Jexpress%20Tourist%20Transport%20Cooperative/1775101309773-472257212_122131383326396609_1045635834548108228_n.jpg"
-                alt="Jexpress commuter service"
-                fill
-                className="object-cover"
-              />
-            </div>
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/branding/NAIA.webp"
+              alt="NAIA airport transport operations"
+              className="w-full h-full object-cover"
+            />
           </div>
 
         </div>
       </div>
+      {/* Bottom wave divider */}
+      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 56 }} aria-hidden="true">
+        <path d="M0,22 C720,24 720,24 1440,28 L1440,48 C720,44 720,44 0,26 Z" fill="#d4a53a" />
+        <path d="M0,26 C720,44 720,44 1440,48 L1440,56 L0,56 Z" fill="#f5f5f5" />
+      </svg>
     </section>
   )
 }

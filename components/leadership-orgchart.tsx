@@ -35,10 +35,15 @@ const orgLevels = [
 
 export default function LeadershipOrgChart() {
   return (
-    <section className="py-24" style={{ background: '#383838' }}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative bg-brand-blue">
+      {/* Top wave divider */}
+      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 56 }} aria-hidden="true">
+        <path d="M0,0 L1440,0 L1440,22 C720,24 720,24 0,28 Z" fill="#f5f5f5" />
+        <path d="M0,28 C720,24 720,24 1440,22 L1440,26 C720,44 720,44 0,48 Z" fill="#d4a53a" />
+      </svg>
+      <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center mb-14">
-          <span className="eyebrow-dash text-[#00193c] mb-4">
+          <span className="eyebrow-dash text-[#d4a53a] mb-4">
             Structure
           </span>
           <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance mb-4">
@@ -82,6 +87,11 @@ export default function LeadershipOrgChart() {
           ))}
         </div>
       </div>
+      {/* Bottom wave divider */}
+      <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" style={{ height: 56 }} aria-hidden="true">
+        <path d="M0,22 C720,24 720,24 1440,28 L1440,48 C720,44 720,44 0,26 Z" fill="#d4a53a" />
+        <path d="M0,26 C720,44 720,44 1440,48 L1440,56 L0,56 Z" fill="#f5f5f5" />
+      </svg>
     </section>
   )
 }

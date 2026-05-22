@@ -38,7 +38,7 @@ export default function ProfileCompliance() {
     <section className="py-24" style={{ background: '#f5f5f5' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
-          <span className="eyebrow-dash text-[#00193c] mb-4">
+          <span className="eyebrow-dash text-[#d4a53a] mb-4">
             Registrations &amp; Certifications
           </span>
           <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-4">

@@ -17,7 +17,7 @@ export default function LeadershipBoard() {
         <div className="flex flex-col lg:flex-row gap-16 items-start">
 
           <div className="lg:w-80 flex-shrink-0">
-            <span className="eyebrow-dash text-[#00193c] mb-4">
+            <span className="eyebrow-dash text-[#d4a53a] mb-4">
               Governance
             </span>
             <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance mb-5">
@@ -37,7 +37,7 @@ export default function LeadershipBoard() {
               >
                 <div
                   className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 font-heading text-white text-sm"
-                  style={{ background: index === 0 ? '#d4a53a' : '#383838' }}
+                  style={{ background: index === 0 ? '#d4a53a' : '#00193c' }}
                 >
                   {member.initial}
                 </div>

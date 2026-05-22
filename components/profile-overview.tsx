@@ -25,7 +25,7 @@ export default async function ProfileOverview() {
 
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-24">
           <div className="flex flex-col gap-6">
-            <span className="eyebrow-dash text-[#00193c]">
+            <span className="eyebrow-dash text-[#d4a53a]">
               Company Overview
             </span>
             <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl leading-tight text-balance">
@@ -62,10 +62,10 @@ export default async function ProfileOverview() {
           </div>
         </div>
 
-        <div className="bg-[#383838] rounded-3xl p-10 lg:p-14">
+        <div className="bg-brand-blue rounded-3xl p-10 lg:p-14">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="flex flex-col gap-6">
-              <span className="eyebrow-dash text-[#00193c]">
+              <span className="eyebrow-dash text-[#d4a53a]">
                 Our Focus
               </span>
               <h2 className="font-heading text-white text-3xl sm:text-4xl leading-tight text-balance">
