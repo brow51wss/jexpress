@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       'Our story, mission, values, and team behind safe and reliable tourist transport in Bloomingdale, DC.',
     images: [
       {
-        url: 'https://www.jexpresstransport.com/og-image.png',
+        url: 'https://www.jexpresstransport.com/og-image2.png',
         width: 1200,
         height: 630,
         alt: 'Jexpress Tourist Transport Cooperative',

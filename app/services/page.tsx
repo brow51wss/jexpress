@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       'Tourist transport, shuttle services, passenger solutions, and allied transport services by JTTC.',
     images: [
       {
-        url: 'https://www.jexpresstransport.com/og-image.png',
+        url: 'https://www.jexpresstransport.com/og-image2.png',
         width: 1200,
         height: 630,
         alt: 'Jexpress Tourist Transport Cooperative',

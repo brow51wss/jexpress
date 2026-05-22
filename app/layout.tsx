@@ -48,7 +48,7 @@ export const metadata: Metadata = {
       'Safe, comfortable, and reliable tourist transport services in Bloomingdale, DC. Professional and courteous service for DAR and OCD.',
     images: [
       {
-        url: 'https://www.jexpresstransport.com/og-image.png',
+        url: 'https://www.jexpresstransport.com/og-image2.png',
         width: 1200,
         height: 630,
         alt: 'Jexpress Tourist Transport Cooperative',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: 'Jexpress Tourist Transport Cooperative | Safe & Reliable Transport Services',
     description:
       'Safe, comfortable, and reliable tourist transport services in Bloomingdale, DC.',
-    images: ['https://www.jexpresstransport.com/og-image.png'],
+    images: ['https://www.jexpresstransport.com/og-image2.png'],
   },
   robots: {
     index: true,
