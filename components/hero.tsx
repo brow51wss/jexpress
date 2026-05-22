@@ -20,7 +20,7 @@ export default async function Hero() {
     <>
     <section
       id="home"
-      className="relative pt-[-150px] pb-[-50px] lg:pt-[150px] lg:pb-[150px] lg:py-8 h-auto bg-[#fefefe] flex flex-col overflow-hidden"
+      className="relative pt-[150px] pb-[-50px] lg:pt-[150px] lg:pb-[150px] lg:py-8 h-auto bg-[#fefefe] flex flex-col overflow-hidden"
     >
       {/* Two-column row: left = content, right = image panel */}
       <div className="flex-1 flex flex-col lg:flex-row">
