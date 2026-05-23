@@ -66,7 +66,7 @@ export default function ContactCta() {
 
             <div className="flex flex-col gap-3 w-full sm:w-auto">
               <a
-                href="mailto:jexpresstouristtransport.jttsc@gmail.com"
+                href="mailto:inquire@jexpresstransport.com"
                 className="inline-flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#d4a53a]/40 whitespace-nowrap"
               >
                 <ArrowRight size={16} strokeWidth={2} />

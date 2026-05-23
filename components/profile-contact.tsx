@@ -45,16 +45,16 @@ export default function ProfileContact() {
               </p>
               <div className="flex flex-col gap-1.5">
                 <a
-                  href="mailto:jexpresstouristtransport.jttsc@gmail.com"
+                  href="mailto:inquire@jexpresstransport.com"
                   className="font-inter text-[#6b6b6b] text-sm leading-relaxed hover:text-[#d4a53a] transition-colors break-all"
                 >
-                  jexpresstouristtransport.jttsc@gmail.com
+                  inquire@jexpresstransport.com
                 </a>
                 <a
-                  href="mailto:espasyostudyandofficehub@gmail.com"
+                  href="mailto:booking@jexpresstransport.com"
                   className="font-inter text-[#6b6b6b] text-sm leading-relaxed hover:text-[#d4a53a] transition-colors break-all"
                 >
-                  espasyostudyandofficehub@gmail.com
+                  booking@jexpresstransport.com
                 </a>
               </div>
             </div>

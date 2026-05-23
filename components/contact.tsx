@@ -155,10 +155,10 @@ export default function Contact() {
                 <div>
                   <p className="text-[#383838] font-bold text-sm">Email</p>
                   <a
-                    href="mailto:jexpresstouristtransport.jttsc@gmail.com"
+                    href="mailto:inquire@jexpresstransport.com"
                     className="text-[#6b6b6b] text-sm font-inter hover:text-[#d4a53a] transition-colors break-all"
                   >
-                    jexpresstouristtransport.jttsc@gmail.com
+                    inquire@jexpresstransport.com
                   </a>
                 </div>
               </div>

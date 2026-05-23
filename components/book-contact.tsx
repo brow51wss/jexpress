@@ -14,8 +14,8 @@ const contactDetails = [
     icon: Mail,
     label: 'Email Address',
     items: [
-      { text: 'jexpresstouristtransport.jttsc@gmail.com', href: 'mailto:jexpresstouristtransport.jttsc@gmail.com' },
-      { text: 'espasyostudyandofficehub@gmail.com', href: 'mailto:espasyostudyandofficehub@gmail.com' },
+      { text: 'inquire@jexpresstransport.com', href: 'mailto:inquire@jexpresstransport.com' },
+      { text: 'booking@jexpresstransport.com', href: 'mailto:booking@jexpresstransport.com' },
     ],
   },
   {
