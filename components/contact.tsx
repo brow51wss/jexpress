@@ -206,7 +206,7 @@ export default function Contact() {
                   noValidate
                   {...extensionSafeFormProps}
                 >
-                  <h3 className="font-heading text-[#383838] text-xl mb-1">
+                  <h3 className="font-heading text-[#383838] mb-1">
                     Transport Booking Form
                   </h3>
 

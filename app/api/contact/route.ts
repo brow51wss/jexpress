@@ -34,7 +34,7 @@ export async function POST(request: Request) {
 
   const supabase = createAdminClient()
   await supabase.from('submissions').insert({
-    form_type: 'contact',
+    form_type: 'booking',
     data: { fullName, email, phone, agency, serviceType, travelDate, passengers, message },
   })
 
