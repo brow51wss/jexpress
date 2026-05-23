@@ -139,7 +139,7 @@ export default function WhyUs() {
 
           <div className="bg-[#d4a53a] rounded-2xl p-8 lg:p-10 flex flex-col justify-between">
             <div>
-              <p className="eyebrow-dash text-white/80 mb-4 [&::before]:bg-white">
+              <p className="eyebrow-dash eyebrow-dash-white text-white/80 mb-4">
                 Our Mission
               </p>
               <blockquote className="font-heading text-white text-xl lg:text-2xl leading-snug mb-6">

@@ -172,6 +172,10 @@
     flex-shrink: 0;
   }
 
+  .eyebrow-dash-white::before {
+    background-color: white;
+  }
+
   /* Brand blue (#00193c) */
   .BrandBlue {
     color: var(--brand-blue);
