@@ -13,26 +13,35 @@ import FormField from '@/components/form-field'
 import { extensionSafeFormProps, extensionSafeInputProps } from '@/lib/form-extension-guard'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
+type FormErrors = Partial<Record<'fullName' | 'contactNumber' | 'email' | 'serviceNeeded', string>>
+
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
 
 export default function Contact() {
   const [formState, setFormState] = useState<FormState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [errors, setErrors] = useState<FormErrors>({})
   const [serviceNames, setServiceNames] = useState<string[]>([])
   const [formData, setFormData] = useState({
     fullName: '',
+    companyName: '',
+    contactNumber: '',
     email: '',
-    phone: '',
-    agency: '',
-    serviceType: '',
-    travelDate: '',
-    passengers: '',
-    message: '',
+    serviceNeeded: '',
+    tripDate: '',
+    pickupLocation: '',
+    dropoffLocation: '',
+    numberOfPassengers: '',
+    preferredVehicle: '',
+    additionalNotes: '',
   })
 
   useEffect(() => {
     const handler = (e: Event) => {
       const service = (e as CustomEvent<string>).detail
-      setFormData((prev) => ({ ...prev, serviceType: service }))
+      setFormData((prev) => ({ ...prev, serviceNeeded: service }))
     }
     window.addEventListener('selectService', handler)
     return () => window.removeEventListener('selectService', handler)
@@ -53,16 +62,38 @@ export default function Contact() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }))
+    }
+  }
+
+  function validate(): FormErrors {
+    const errs: FormErrors = {}
+    if (!formData.fullName.trim()) errs.fullName = 'Full name is required.'
+    if (!formData.contactNumber.trim()) errs.contactNumber = 'Contact number is required.'
+    if (!formData.email.trim()) {
+      errs.email = 'Email address is required.'
+    } else if (!isValidEmail(formData.email.trim())) {
+      errs.email = 'Please enter a valid email address.'
+    }
+    if (!formData.serviceNeeded) errs.serviceNeeded = 'Please select a service.'
+    return errs
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    const errs = validate()
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs)
+      return
+    }
     setFormState('loading')
     setErrorMessage('')
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/booking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -73,13 +104,16 @@ export default function Contact() {
       setFormState('success')
       setFormData({
         fullName: '',
+        companyName: '',
+        contactNumber: '',
         email: '',
-        phone: '',
-        agency: '',
-        serviceType: '',
-        travelDate: '',
-        passengers: '',
-        message: '',
+        serviceNeeded: '',
+        tripDate: '',
+        pickupLocation: '',
+        dropoffLocation: '',
+        numberOfPassengers: '',
+        preferredVehicle: '',
+        additionalNotes: '',
       })
     } catch (err: unknown) {
       setFormState('error')
@@ -91,6 +125,9 @@ export default function Contact() {
 
   const inputClass =
     'w-full bg-white border border-[#d1d5db] focus:border-[#d4a53a] focus:ring-2 focus:ring-[#d4a53a]/20 text-[#383838] placeholder:text-[#9ca3af] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200'
+  const inputErrorClass =
+    'w-full bg-white border border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-400/20 text-[#383838] placeholder:text-[#9ca3af] rounded-xl px-4 py-3 text-sm font-inter outline-none transition-all duration-200'
+  const labelClass = 'text-[#383838] text-xs font-bold font-inter uppercase tracking-wide'
 
   return (
     <section id="contact" className="py-24 bg-[#f5f5f5]">
@@ -219,121 +256,103 @@ export default function Contact() {
 
                   <div className="grid sm:grid-cols-2 gap-4" suppressHydrationWarning>
                     <FormField>
-                      <label
-                        htmlFor="fullName"
-                        className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
-                      >
+                      <label htmlFor="fullName" className={labelClass}>
                         Full Name <span className="text-[#d4a53a]">*</span>
                       </label>
                       <input
                         id="fullName"
                         name="fullName"
                         type="text"
-                        required
-                        placeholder="Enter your full name"
+                        placeholder="Your full name"
                         value={formData.fullName}
+                        onChange={handleChange}
+                        className={errors.fullName ? inputErrorClass : inputClass}
+                        {...extensionSafeInputProps}
+                      />
+                      {errors.fullName && <p className="text-red-500 text-xs font-inter mt-1">{errors.fullName}</p>}
+                    </FormField>
+                    <FormField>
+                      <label htmlFor="companyName" className={labelClass}>
+                        Company / Organization
+                      </label>
+                      <input
+                        id="companyName"
+                        name="companyName"
+                        type="text"
+                        placeholder="e.g. DAR, OCD, Hospital"
+                        value={formData.companyName}
                         onChange={handleChange}
                         className={inputClass}
                         {...extensionSafeInputProps}
                       />
                     </FormField>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-4" suppressHydrationWarning>
                     <FormField>
-                      <label
-                        htmlFor="email"
-                        className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
-                      >
+                      <label htmlFor="contactNumber" className={labelClass}>
+                        Contact Number <span className="text-[#d4a53a]">*</span>
+                      </label>
+                      <input
+                        id="contactNumber"
+                        name="contactNumber"
+                        type="tel"
+                        placeholder="+63 000 000 0000"
+                        value={formData.contactNumber}
+                        onChange={handleChange}
+                        className={errors.contactNumber ? inputErrorClass : inputClass}
+                        {...extensionSafeInputProps}
+                      />
+                      {errors.contactNumber && <p className="text-red-500 text-xs font-inter mt-1">{errors.contactNumber}</p>}
+                    </FormField>
+                    <FormField>
+                      <label htmlFor="email" className={labelClass}>
                         Email Address <span className="text-[#d4a53a]">*</span>
                       </label>
                       <input
                         id="email"
                         name="email"
                         type="email"
-                        required
                         placeholder="your@email.com"
                         value={formData.email}
                         onChange={handleChange}
-                        className={inputClass}
+                        className={errors.email ? inputErrorClass : inputClass}
                         {...extensionSafeInputProps}
                       />
+                      {errors.email && <p className="text-red-500 text-xs font-inter mt-1">{errors.email}</p>}
                     </FormField>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-4" suppressHydrationWarning>
                     <FormField>
-                      <label
-                        htmlFor="phone"
-                        className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
-                      >
-                        Phone Number
-                      </label>
-                      <input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="+63 000 000 0000"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className={inputClass}
-                        {...extensionSafeInputProps}
-                      />
-                    </FormField>
-                    <FormField>
-                      <label
-                        htmlFor="agency"
-                        className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
-                      >
-                        Agency / Organization
-                      </label>
-                      <input
-                        id="agency"
-                        name="agency"
-                        type="text"
-                        placeholder="e.g. DAR, OCD"
-                        value={formData.agency}
-                        onChange={handleChange}
-                        className={inputClass}
-                        {...extensionSafeInputProps}
-                      />
-                    </FormField>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-4" suppressHydrationWarning>
-                    <FormField>
-                      <label
-                        htmlFor="serviceType"
-                        className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
-                      >
-                        Service Type <span className="text-[#d4a53a]">*</span>
+                      <label htmlFor="serviceNeeded" className={labelClass}>
+                        Service Needed <span className="text-[#d4a53a]">*</span>
                       </label>
                       <select
-                        id="serviceType"
-                        name="serviceType"
-                        required
-                        value={formData.serviceType}
+                        id="serviceNeeded"
+                        name="serviceNeeded"
+                        value={formData.serviceNeeded}
                         onChange={handleChange}
-                        className={inputClass}
+                        className={errors.serviceNeeded ? inputErrorClass : inputClass}
                         {...extensionSafeInputProps}
                       >
                         <option value="">Select a service</option>
                         {serviceNames.map((name) => (
                           <option key={name} value={name}>{name}</option>
                         ))}
+                        <option value="Other Transport Requirements">Other Transport Requirements</option>
                       </select>
+                      {errors.serviceNeeded && <p className="text-red-500 text-xs font-inter mt-1">{errors.serviceNeeded}</p>}
                     </FormField>
                     <FormField>
-                      <label
-                        htmlFor="passengers"
-                        className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
-                      >
-                        Number of Passengers
+                      <label htmlFor="tripDate" className={labelClass}>
+                        Date of Trip / Service
                       </label>
                       <input
-                        id="passengers"
-                        name="passengers"
-                        type="number"
-                        min="1"
-                        placeholder="e.g. 30"
-                        value={formData.passengers}
+                        id="tripDate"
+                        name="tripDate"
+                        type="date"
+                        value={formData.tripDate}
                         onChange={handleChange}
                         className={inputClass}
                         {...extensionSafeInputProps}
@@ -341,37 +360,89 @@ export default function Contact() {
                     </FormField>
                   </div>
 
-                  <FormField>
-                    <label
-                      htmlFor="travelDate"
-                      className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
-                    >
-                      Preferred Travel Date
-                    </label>
-                    <input
-                      id="travelDate"
-                      name="travelDate"
-                      type="date"
-                      value={formData.travelDate}
-                      onChange={handleChange}
-                      className={inputClass}
-                      {...extensionSafeInputProps}
-                    />
-                  </FormField>
+                  <div className="grid sm:grid-cols-2 gap-4" suppressHydrationWarning>
+                    <FormField>
+                      <label htmlFor="pickupLocation" className={labelClass}>
+                        Pickup Location
+                      </label>
+                      <input
+                        id="pickupLocation"
+                        name="pickupLocation"
+                        type="text"
+                        placeholder="e.g. Marikina City"
+                        value={formData.pickupLocation}
+                        onChange={handleChange}
+                        className={inputClass}
+                        {...extensionSafeInputProps}
+                      />
+                    </FormField>
+                    <FormField>
+                      <label htmlFor="dropoffLocation" className={labelClass}>
+                        Drop-off Location
+                      </label>
+                      <input
+                        id="dropoffLocation"
+                        name="dropoffLocation"
+                        type="text"
+                        placeholder="e.g. Tagaytay City"
+                        value={formData.dropoffLocation}
+                        onChange={handleChange}
+                        className={inputClass}
+                        {...extensionSafeInputProps}
+                      />
+                    </FormField>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-4" suppressHydrationWarning>
+                    <FormField>
+                      <label htmlFor="numberOfPassengers" className={labelClass}>
+                        Number of Passengers
+                      </label>
+                      <input
+                        id="numberOfPassengers"
+                        name="numberOfPassengers"
+                        type="number"
+                        min="1"
+                        placeholder="e.g. 30"
+                        value={formData.numberOfPassengers}
+                        onChange={handleChange}
+                        className={inputClass}
+                        {...extensionSafeInputProps}
+                      />
+                    </FormField>
+                    <FormField>
+                      <label htmlFor="preferredVehicle" className={labelClass}>
+                        Preferred Vehicle Type
+                      </label>
+                      <select
+                        id="preferredVehicle"
+                        name="preferredVehicle"
+                        value={formData.preferredVehicle}
+                        onChange={handleChange}
+                        className={inputClass}
+                        {...extensionSafeInputProps}
+                      >
+                        <option value="">Select vehicle type</option>
+                        <option value="Toyota GL Grandia">Toyota GL Grandia (5 Units)</option>
+                        <option value="Toyota GL Grandia Tourer">Toyota GL Grandia Tourer (1 Unit)</option>
+                        <option value="Foton">Foton (1 Unit)</option>
+                        <option value="Toyota Commuter">Toyota Commuter (10 Units)</option>
+                        <option value="Nissan Commuter NV350">Nissan Commuter NV350 (13 Units)</option>
+                        <option value="Buses, SUVs, Coasters & Sedans">Buses, SUVs, Coasters &amp; Sedans (Upon Request)</option>
+                      </select>
+                    </FormField>
+                  </div>
 
                   <FormField>
-                    <label
-                      htmlFor="message"
-                      className="text-[#383838] text-xs font-bold font-inter uppercase tracking-wide"
-                    >
-                      Message / Special Requirements
+                    <label htmlFor="additionalNotes" className={labelClass}>
+                      Additional Notes / Special Requests
                     </label>
                     <textarea
-                      id="message"
-                      name="message"
+                      id="additionalNotes"
+                      name="additionalNotes"
                       rows={4}
-                      placeholder="Tell us about your transport needs, destination, or any special requirements..."
-                      value={formData.message}
+                      placeholder="Any special requirements, additional trip details, or other information that may help us assist you better..."
+                      value={formData.additionalNotes}
                       onChange={handleChange}
                       className={`${inputClass} resize-none`}
                       {...extensionSafeInputProps}
@@ -381,7 +452,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={formState === 'loading'}
-                    className="w-full flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:bg-[#d4a53a]/60 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-[#d4a53a]/30 mt-2"
+                    className="w-full flex items-center justify-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] disabled:bg-[#d4a53a]/60 text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#d4a53a]/40 mt-2"
                   >
                     {formState === 'loading' ? (
                       <>
@@ -392,19 +463,8 @@ export default function Contact() {
                           viewBox="0 0 24 24"
                           aria-hidden="true"
                         >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          />
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                          />
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                         </svg>
                         Sending...
                       </>

@@ -62,7 +62,7 @@ export default function WhyUsTrust() {
                 with reliable, professional, and courteous service.&rdquo;
               </p>
               <footer className="mt-3 font-inter text-[#6b6b6b] text-xs">
-                — JTTC Mission Statement
+                — Araceli Dumlao
               </footer>
             </blockquote>
           </div>

@@ -377,12 +377,11 @@ export default function BookForm() {
                       >
                         <option value="">Select vehicle type</option>
                         <option value="Toyota GL Grandia">Toyota GL Grandia</option>
+                        <option value="Toyota GL Grandia Tourer">Toyota GL Grandia Tourer</option>
+                        <option value="Foton">Foton</option>
                         <option value="Toyota Commuter">Toyota Commuter</option>
                         <option value="Nissan Commuter NV350">Nissan Commuter NV350</option>
-                        <option value="Bus">Bus</option>
-                        <option value="SUV">SUV</option>
-                        <option value="Closed Van">Closed Van</option>
-                        <option value="Sedan">Sedan</option>
+                        <option value="Buses, SUVs, Coasters & Sedans">Buses, SUVs, Coasters &amp; Sedans (Upon Request)</option>
                       </select>
                     </div>
                   </div>

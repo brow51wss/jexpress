@@ -123,9 +123,11 @@ export default function WhyUs() {
               <ul className="flex flex-col gap-2">
                 {[
                   '5 Toyota GL Grandia units',
+                  '1 Toyota GL Grandia Tourer',
+                  '1 Foton',
                   '10 Toyota Commuter units',
                   '13 Nissan Commuter NV350 units',
-                  'Buses, SUVs, Coasters & sedans available',
+                  'Buses, SUVs, Coasters & sedans available (available upon request)',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#d4a53a] flex-shrink-0" />
@@ -137,7 +139,7 @@ export default function WhyUs() {
 
           <div className="bg-[#d4a53a] rounded-2xl p-8 lg:p-10 flex flex-col justify-between">
             <div>
-              <p className="eyebrow-dash text-white/80 mb-4">
+              <p className="eyebrow-dash text-white/80 mb-4 [&::before]:bg-white">
                 Our Mission
               </p>
               <blockquote className="font-heading text-white text-xl lg:text-2xl leading-snug mb-6">
@@ -145,17 +147,7 @@ export default function WhyUs() {
                 with reliable, professional, and courteous service.&rdquo;
               </blockquote>
             </div>
-            <div className="flex items-center gap-4 pt-6 border-t border-white/20">
-              <div className="w-12 h-12 rounded-full overflow-hidden bg-[#f5f5f5]/20 flex items-center justify-center flex-shrink-0">
-                <span className="font-heading text-white text-lg">A</span>
-              </div>
-              <div>
-                <p className="text-white font-bold text-sm">Araceli Dumlao</p>
-                <p className="text-white/70 font-inter text-xs">
-                  Owner, Jexpress Tourist Transport Cooperative
-                </p>
-              </div>
-            </div>
+           
           </div>
         </div>
 
