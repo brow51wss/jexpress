@@ -22,7 +22,7 @@ export default function MessengerButton() {
 
       {/* Messenger icon — always visible */}
       <a
-        href="https://www.messenger.com/t/jexpressjttc"
+        href="https://www.messenger.com/t/jexpresstransport"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with us on Messenger"

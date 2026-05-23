@@ -55,7 +55,7 @@ export default async function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://www.facebook.com/jexpressjttc"
+                href="https://www.facebook.com/jexpresstransport"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-[#f5f5f5]/10 hover:bg-[#d4a53a] flex items-center justify-center transition-colors duration-200"

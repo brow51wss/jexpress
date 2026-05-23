@@ -94,7 +94,7 @@ const jsonLd = {
     addressRegion: 'Metro Manila',
     addressCountry: 'PH',
   },
-  sameAs: ['https://www.facebook.com/jexpressjttc'],
+  sameAs: ['https://www.facebook.com/jexpresstransport'],
   serviceType: 'Tourist Transport Services',
   areaServed: 'Marikina City, Philippines',
 }
