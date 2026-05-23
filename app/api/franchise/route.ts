@@ -76,7 +76,7 @@ export async function POST(request: Request) {
       resend.emails.send({
         from: 'Jexpress Tourist Transport <noreply@jexpresstransport.com>',
         to: [email],
-        subject: 'Your franchise inquiry has been received — J Express Transport',
+        subject: 'Your franchise inquiry has been received — Jexpress Transport',
         html: `
           <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#383838;">
             <div style="background:#d4a53a;padding:32px 40px;border-radius:12px 12px 0 0;">

@@ -110,7 +110,7 @@ export default function FranchiseForm() {
                   Inquiry Sent!
                 </h3>
                 <p className="font-inter text-[#6b6b6b] text-base max-w-sm leading-relaxed">
-                  Thank you for your interest in becoming a J Express Transport franchise partner. Our team will be in touch with you shortly.
+                  Thank you for your interest in becoming a Jexpress Transport franchise partner. Our team will be in touch with you shortly.
                 </p>
                 <button
                   onClick={() => setFormState('idle')}

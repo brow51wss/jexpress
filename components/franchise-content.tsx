@@ -65,7 +65,7 @@ const steps = [
   {
     number: '03',
     title: 'Launch Your Franchise',
-    description: 'Receive hands-on training, full operational support, and start serving clients under the J Express Transport brand.',
+    description: 'Receive hands-on training, full operational support, and start serving clients under the JExpress Transport brand.',
   },
 ]
 
@@ -100,7 +100,7 @@ export default function FranchiseContent() {
               to Partner with Us.
             </h1>
             <p className="font-inter text-white/70 text-base sm:text-lg leading-relaxed max-w-2xl mb-10">
-              Become a franchise partner and grow with a fast-rising transport and delivery network backed by years of operational experience.
+              Grow with a fast-rising tourist transport services
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -137,10 +137,10 @@ export default function FranchiseContent() {
               </span>
               <h2 className="font-heading text-[#383838] text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance mb-6">
                 Why Choose{' '}
-                <span className="text-[#d4a53a]">J Express Transport?</span>
+                <span className="text-[#d4a53a]">Jexpress Transport?</span>
               </h2>
               <p className="font-inter text-[#6b6b6b] text-base leading-relaxed mb-4">
-                The transport industry continues to grow rapidly — and J Express Transport is positioned to meet that demand with reliable, efficient, and scalable solutions.
+                The transport industry continues to grow rapidly — and Jexpress Transport is positioned to meet that demand with reliable, efficient, and scalable solutions.
               </p>
               <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
                 As a franchise partner, you gain access to a proven system designed to help you launch and grow your own transport business with confidence, operational support, and a recognized brand behind you.
@@ -158,7 +158,7 @@ export default function FranchiseContent() {
                   className="bg-[#f5f5f5] border border-[#f5f5f5] rounded-2xl p-6 flex flex-col gap-3"
                 >
                   <div className="w-2 h-2 rounded-full bg-[#d4a53a]" />
-                  <p className="font-heading text-[#383838] text-sm leading-snug">{title}</p>
+                  <h3 className="font-heading text-[#383838]">{title}</h3>
                   <p className="font-inter text-[#6b6b6b] text-xs leading-relaxed">{desc}</p>
                 </div>
               ))}
@@ -301,7 +301,7 @@ export default function FranchiseContent() {
                   <div className="hidden sm:block absolute top-6 left-[calc(100%_-_1.5rem)] w-12 h-px bg-[#f5f5f5]/10" aria-hidden="true" />
                 )}
                 <div className="flex items-center gap-4">
-                  <span className="font-stat text-[#d4a53a]/30 text-5xl leading-none select-none">
+                  <span className="font-stat text-[#d4a53a] text-5xl leading-none select-none">
                     {step.number}
                   </span>
                 </div>
@@ -368,7 +368,7 @@ export default function FranchiseContent() {
             <span className="text-[#d4a53a]">Transport Business?</span>
           </h2>
           <p className="font-inter text-white/70 text-base leading-relaxed mb-10 max-w-xl mx-auto">
-            Apply now and become a J Express Transport franchise partner today. Our team is ready to walk you through every step.
+            Apply now and become a JExpress Transport franchise partner today. Our team is ready to walk you through every step.
           </p>
           <a
             href="#franchise-form"

@@ -45,7 +45,7 @@ export default function DashboardNav({ isSuperAdmin, isMarketing, email }: NavPr
         <p className="text-[#d4a53a] font-inter text-xs font-semibold uppercase tracking-widest mb-1">
           JTTC Dashboard
         </p>
-        <p className="text-white font-heading text-base truncate">J Express Transport</p>
+        <p className="text-white font-heading text-base truncate">Jexpress Transport</p>
       </div>
 
       <nav className="flex-1 px-3 py-4 flex flex-col gap-1">
