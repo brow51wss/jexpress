@@ -28,7 +28,7 @@ export default function AboutCta() {
 
           <div className="relative z-10 flex flex-col sm:flex-row gap-4 flex-shrink-0">
             <Link
-              href="/contact"
+              href="/book"
               className="inline-flex items-center justify-center gap-2 bg-[#f5f5f5] text-[#d4a53a] font-bold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#d4a53a]/40"
             >
               Book Now

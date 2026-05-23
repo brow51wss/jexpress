@@ -17,7 +17,7 @@ export default function WhyUsCta() {
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            href="/#contact"
+            href="/book"
             className="inline-flex items-center gap-2 bg-[#d4a53a] hover:bg-[#d4a53a] text-white font-bold text-base px-8 py-4 rounded-full shadow-xl shadow-[#d4a53a]/40 hover:scale-105 active:scale-95 transition-all duration-200"
           >
             Book Now
