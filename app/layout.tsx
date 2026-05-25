@@ -71,9 +71,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/branding/JExpress-Icon.webp',
-    shortcut: '/branding/JExpress-Icon.webp',
-    apple: '/branding/JExpress-Icon.webp',
+    icon: '/branding/Jexpress-Icon.webp',
+    shortcut: '/branding/Jexpress-Icon.webp',
+    apple: '/branding/Jexpress-Icon.webp',
   },
     generator: 'v0.app'
 }
@@ -111,7 +111,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#d4a53a" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.jexpresstransport.com" />
-        <link rel="icon" href="/branding/JExpress-Icon.webp" />
+        <link rel="icon" href="/branding/Jexpress-Icon.webp" />
         <title>Jexpress Tourist Transport Cooperative | Safe & Reliable Transport Services</title>
         <meta
           name="description"

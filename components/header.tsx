@@ -47,7 +47,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
           <Image
-            src="/branding/JExpress-Icon.webp"
+            src="/branding/Jexpress-Icon.webp"
             alt=""
             width={100}
             height={100}
@@ -57,8 +57,8 @@ export default function Header() {
           />
           <div className="flex flex-col gap-0.5 min-w-0">
             <Image
-              src="/branding/JExpress-Wordmark.webp"
-              alt="JExpress"
+              src="/branding/Jexpress-Wordmark.webp"
+              alt="Jexpress"
               width={120}
               height={28}
               className="h-3.5 sm:h-4 lg:h-4 w-auto max-w-[88px] sm:max-w-[100px] lg:max-w-[112px] object-contain object-left"

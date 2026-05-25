@@ -37,11 +37,6 @@ const services = [
     title: 'Warehousing & Distribution',
     description: 'Scalable storage and distribution support to streamline your supply chain.',
   },
-  {
-    icon: RiGlobalLine,
-    title: 'Business & E-Commerce Transport',
-    description: 'Last-mile and fulfillment solutions built for online sellers and growing enterprises.',
-  },
 ]
 
 const audience = [
@@ -65,7 +60,7 @@ const steps = [
   {
     number: '03',
     title: 'Launch Your Franchise',
-    description: 'Receive hands-on training, full operational support, and start serving clients under the JExpress Transport brand.',
+    description: 'Receive hands-on training, full operational support, and start serving clients under the Jexpress Transport brand.',
   },
 ]
 
@@ -149,7 +144,7 @@ export default function FranchiseContent() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 ['Proven System', 'A business model built from years of real transport operations.'],
-                ['Growing Demand', 'Transport and delivery are among the fastest-growing sectors nationwide.'],
+                ['Growing Demand', 'Transport are among the fastest-growing sectors nationwide.'],
                 ['Full Support', 'Training, onboarding, and ongoing operational assistance.'],
                 ['Scalable Model', 'Start at your own pace and grow as your market expands.'],
               ].map(([title, desc]) => (
@@ -210,13 +205,13 @@ export default function FranchiseContent() {
               Expand your earning potential with multiple service offerings under one franchise.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {services.map((service) => {
               const Icon = service.icon
               return (
                 <div
                   key={service.title}
-                  className="bg-[#f5f5f5] rounded-2xl border border-[#f5f5f5] p-7 flex flex-col gap-4 hover:border-[#d4a53a] hover:shadow-xl hover:shadow-[#d4a53a]/10 transition-all duration-300 hover:-translate-y-1 group"
+                  className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] min-w-[220px] max-w-xs bg-[#f5f5f5] rounded-2xl border border-[#f5f5f5] p-7 flex flex-col gap-4 hover:border-[#d4a53a] hover:shadow-xl hover:shadow-[#d4a53a]/10 transition-all duration-300 hover:-translate-y-1 group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-[#d4a53a]/10 flex items-center justify-center group-hover:bg-[#d4a53a] transition-colors duration-300">
                     <Icon size={22} className="text-[#d4a53a] group-hover:text-white transition-colors duration-300" />
@@ -368,7 +363,7 @@ export default function FranchiseContent() {
             <span className="text-[#d4a53a]">Transport Business?</span>
           </h2>
           <p className="font-inter text-white/70 text-base leading-relaxed mb-10 max-w-xl mx-auto">
-            Apply now and become a JExpress Transport franchise partner today. Our team is ready to walk you through every step.
+            Apply now and become a Jexpress Transport franchise partner today. Our team is ready to walk you through every step.
           </p>
           <a
             href="#franchise-form"

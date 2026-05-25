@@ -38,7 +38,7 @@ export default async function Hero() {
               </h1>
 
               <p className="text-[#383838] text-lg leading-relaxed max-w-xl text-center lg:text-left">
-                JExpress delivers safe, reliable and comfortable transport solutions with speed and professionalism. We drive journeys that connect people to destinations and experiences that matter.
+                Jexpress delivers safe, reliable and comfortable transport solutions with speed and professionalism. We drive journeys that connect people to destinations and experiences that matter.
               </p>
 
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
