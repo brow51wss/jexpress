@@ -87,7 +87,7 @@ export default async function Hero() {
             {/* Service titles + icons pulled from dashboard */}
             <div className="hidden relative z-20 lg:flex lg:flex-row justify-center lg:flex-wrap gap-4 px-4 lg:pl-[5vw]">
               {services.map((service) => (
-                <div key={service.id} className="flex flex-col items-center justify-center gap-2 p-4 w-[150px] h-[200px] overflow-hidden shrink-0 grow-0">
+                <div key={service.id} className="flex flex-col items-center justify-center gap-2 p-4 w-[250px] h-[200px] overflow-hidden shrink-0 grow-0">
                   <div className="w-8 h-8 rounded-lg bg-[#d4a53a]/10 flex items-center justify-center shrink-0">
                     <ServiceIcon name={service.icon ?? ''} size={24} className="text-[#d4a53a]" />
                   </div>
