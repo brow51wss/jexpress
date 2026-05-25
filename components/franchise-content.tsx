@@ -333,7 +333,7 @@ export default function FranchiseContent() {
               <span className="text-[#d4a53a]">Right Time</span>
             </h2>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed mb-4">
-              The demand for delivery and transport services continues to rise with the growth of online businesses and regional trade. E-commerce, local distribution, and last-mile delivery are among the fastest-growing segments in the Philippine economy.
+              Tourist transport remains a high-demand sector in the Philippines, driven by growing domestic travel, government-organized trips, corporate events, and airport transfers. As more Filipinos and organizations seek reliable, professional transport solutions, the need for accredited cooperative partners continues to expand.
             </p>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
               This is your opportunity to enter a high-demand industry with the backing of an established transport network — before the window of early entry closes.
