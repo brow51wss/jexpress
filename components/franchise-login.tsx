@@ -46,7 +46,7 @@ export default function FranchiseLogin() {
         <div className="flex justify-center mb-8">
           <div className="relative h-10 w-44">
             <Image
-              src="/branding/Jexpress-Wordmark.webp"
+              src="/branding/JExpress-Wordmark.webp"
               alt="Jexpress Tourist Transport Cooperative"
               fill
               className="object-contain"
