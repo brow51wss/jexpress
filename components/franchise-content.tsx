@@ -32,11 +32,7 @@ const services = [
     title: 'Express & Scheduled Deliveries',
     description: 'Time-sensitive and recurring delivery solutions for businesses of all sizes.',
   },
-  {
-    icon: RiStore2Line,
-    title: 'Warehousing & Distribution',
-    description: 'Scalable storage and distribution support to streamline your supply chain.',
-  },
+ 
 ]
 
 const audience = [
