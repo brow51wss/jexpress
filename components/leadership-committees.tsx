@@ -1,29 +1,35 @@
-import { Search, Vote, Scale, Heart } from 'lucide-react'
+import { Search, Vote, Scale, Heart, Stethoscope } from 'lucide-react'
 
 const committees = [
   {
     name: 'Audit Committee',
     icon: Search,
-    members: ['Maricel Escobido', 'Rolem Quico'],
+    members: ['Maricel Escobido', 'Angel T. Reginaldo'],
     description: 'Responsible for financial transparency and accountability within the cooperative.',
   },
   {
     name: 'Election Committee',
     icon: Vote,
-    members: ['Alejandro Dela Cruz'],
+    members: ['Norman M. Ebora', 'Edwin A. Caño'],
     description: 'Oversees cooperative elections to ensure fair and proper conduct.',
   },
   {
     name: 'Ethics Committee',
     icon: Scale,
-    members: ['Juan Librao'],
+    members: ['Juan Librao', 'Regielyn O. Ugay'],
     description: 'Upholds the ethical standards, conduct, and integrity of cooperative members.',
   },
   {
     name: 'Gender & Development Committee',
     icon: Heart,
-    members: ['Edmar Reginaldo', 'Eden Reginaldo Baga', 'Jorlan Lorenzo Gumarac'],
+    members: ['Eden Reginaldo Baga', 'Christian Ray A. Soriano'],
     description: 'Supports gender-responsive programs and inclusive cooperative development.',
+  },
+  {
+    name: 'MED/CON Committee',
+    icon: Stethoscope,
+    members: ['John Henry Gonzales', 'Allan R. Gutierrez', 'Jonelle Jay-Ar Ma. Casiño', 'Ghary N. Nalupa', 'Victor C. Bulanhagui'],
+    description: 'Handles mediation and conciliation matters within the cooperative.',
   },
 ]
 
@@ -42,7 +48,7 @@ export default function LeadershipCommittees() {
             </h2>
             <p className="font-inter text-[#6b6b6b] text-base leading-relaxed">
               JTTC&apos;s structure includes committees that support transparency, accountability,
-              ethics, elections, and development within the cooperative.
+              ethics, elections, gender &amp; development, and mediation within the cooperative.
             </p>
           </div>
 

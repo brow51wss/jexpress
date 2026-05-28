@@ -1,4 +1,4 @@
-import { Crown, UserCheck, FileText, Wallet, Briefcase } from 'lucide-react'
+import { Crown, FileText, Wallet } from 'lucide-react'
 
 const officers = [
   {
@@ -21,20 +21,8 @@ const officers = [
   },
   {
     role: 'Treasurer',
-    name: 'Marilou S. Aniban',
+    name: 'Rolem P. Quico',
     icon: Wallet,
-    highlight: false,
-  },
-  {
-    role: 'Treasurer',
-    name: 'Angel Reginaldo',
-    icon: Wallet,
-    highlight: false,
-  },
-  {
-    role: 'General Manager',
-    name: 'Ghary Nalupa',
-    icon: Briefcase,
     highlight: false,
   },
 ]

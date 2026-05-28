@@ -1,13 +1,11 @@
 import { Users } from 'lucide-react'
 
 const board = [
-  { name: 'Larry N. Gnotob', initial: 'LG' },
-  { name: 'Orlando D. Ostol', initial: 'OO' },
-  { name: 'Anthony Forones Guzon', initial: 'AG' },
-  { name: 'Edmar Reginaldo', initial: 'ER' },
-  { name: 'Kernell Sumait', initial: 'KS' },
-  { name: 'Mac Robert Sicat', initial: 'MS' },
-  { name: 'Melchor Antonio', initial: 'MA' },
+  { name: 'Larry N. Gnotob', role: 'Board Chairperson', initial: 'LG' },
+  { name: 'Orlando D. Ostol', role: 'Vice Chairperson', initial: 'OO' },
+  { name: 'Anthony Forones Guzon', role: 'Board Member', initial: 'AG' },
+  { name: 'Edmar Reginaldo', role: 'Board Member', initial: 'ER' },
+  { name: 'Kernell Sumait', role: 'Board Member', initial: 'KS' },
 ]
 
 export default function LeadershipBoard() {
@@ -46,7 +44,7 @@ export default function LeadershipBoard() {
                     {member.name}
                   </p>
                   <p className="font-inter text-[#6b6b6b] text-xs mt-0.5">
-                    {index === 0 ? 'Board Chairperson' : 'Board Member'}
+                    {member.role}
                   </p>
                 </div>
               </div>
@@ -58,7 +56,7 @@ export default function LeadershipBoard() {
               </div>
               <div>
                 <p className="font-heading text-[#383838] text-sm leading-tight">
-                  7 Board Members
+                  5 Board Members
                 </p>
                 <p className="font-inter text-[#6b6b6b] text-xs mt-0.5">
                   Providing governance &amp; direction
