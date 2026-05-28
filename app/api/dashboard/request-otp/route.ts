@@ -45,7 +45,7 @@ export async function POST(request: Request) {
 
   // Always respond with success to avoid email enumeration
   if (!user) {
-    console.warn('[request-otp] No user found for email:', email)
+    console.warn('[request-otp] No user found for email domain:', email.split('@')[1])
     return NextResponse.json({ success: true })
   }
 
@@ -69,7 +69,7 @@ export async function POST(request: Request) {
     console.error('[request-otp] OTP insert error:', insertError.message)
   }
 
-  console.log('[request-otp] Sending OTP email to:', email)
+  console.log('[request-otp] Sending OTP email to domain:', email.split('@')[1])
 
   const { error: emailError } = await resend.emails.send({
     from: 'Jexpress Transport <noreply@jexpresstransport.com>',
@@ -96,7 +96,7 @@ export async function POST(request: Request) {
   if (emailError) {
     console.error('[request-otp] Resend error:', emailError.message)
   } else {
-    console.log('[request-otp] OTP email sent successfully to:', email)
+    console.log('[request-otp] OTP email sent successfully to domain:', email.split('@')[1])
   }
 
   return NextResponse.json({ success: true })
