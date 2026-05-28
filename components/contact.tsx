@@ -169,18 +169,18 @@ export default function Contact() {
                 <div>
                   <p className="text-[#383838] font-bold text-sm">Phone</p>
                   <div className="flex flex-col gap-0.5">
-                    <a href="tel:+639166112928" className="font-phone text-[#6b6b6b] text-lg hover:text-[#d4a53a] transition-colors">
-                      +63 916 611 2928
-                    </a>
-                    <a href="tel:+63287006042" className="font-phone text-[#6b6b6b] text-lg hover:text-[#d4a53a] transition-colors">
-                      +63 2 8700 6042
-                    </a>
-                    <a href="tel:+639190091985" className="font-phone text-[#6b6b6b] text-lg hover:text-[#d4a53a] transition-colors">
-                      +63 919 009 1985
-                    </a>
-                    <a href="tel:+63287439021" className="font-phone text-[#6b6b6b] text-lg hover:text-[#d4a53a] transition-colors">
-                      +63 2 8743 9021
-                    </a>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-[#9ca3af] text-xs font-inter uppercase tracking-wider">Booking</span>
+                      <a href="tel:+639190091985" className="font-phone text-[#6b6b6b] text-lg hover:text-[#d4a53a] transition-colors">
+                        +63 919 009 1985
+                      </a>
+                    </div>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-[#9ca3af] text-xs font-inter uppercase tracking-wider">Office / Marketing</span>
+                      <a href="tel:+63287439021" className="font-phone text-[#6b6b6b] text-lg hover:text-[#d4a53a] transition-colors">
+                        +63 2 8743 9021
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

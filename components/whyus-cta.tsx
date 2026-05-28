@@ -24,7 +24,7 @@ export default function WhyUsCta() {
             <ArrowRight size={16} strokeWidth={2} />
           </Link>
           <a
-            href="tel:+639166112928"
+            href="tel:+639190091985"
             className="inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blue text-white font-bold text-base px-8 py-4 rounded-full shadow-xl shadow-[#00193c]/40 hover:scale-105 active:scale-95 transition-all duration-200"
           >
             <PhoneCall size={16} strokeWidth={2} />

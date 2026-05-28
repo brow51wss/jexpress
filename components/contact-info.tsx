@@ -24,7 +24,8 @@ const infoItems = [
   {
     icon: Phone,
     label: 'Contact Numbers',
-    lines: ['+63 916 611 2928', '+63 2 8700 6042', '+63 919 009 1985', '+63 2 8743 9021'],
+    lines: ['+63 919 009 1985', '+63 2 8743 9021'],
+    sublabels: ['Booking', 'Office / Marketing'],
     type: 'phone',
   },
   {

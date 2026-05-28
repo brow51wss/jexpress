@@ -85,7 +85,7 @@ const jsonLd = {
   description:
     'Safe, comfortable, and reliable tourist transport services in Marikina City, Philippines.',
   url: 'https://www.jexpresstransport.com',
-  telephone: '+639166112928',
+  telephone: '+639190091985',
   email: 'inquire@jexpresstransport.com',
   address: {
     '@type': 'PostalAddress',

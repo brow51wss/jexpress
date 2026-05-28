@@ -164,7 +164,7 @@ export default function BookForm() {
                 For urgent inquiries, you may also reach us directly by phone.
               </p>
               <div className="flex flex-col gap-1 pt-1">
-                {['+63 916 611 2928', '+63 2 8700 6042', '+63 919 009 1985', '+63 2 8743 9021'].map((num) => (
+                {['+63 919 009 1985', '+63 2 8743 9021'].map((num) => (
                   <a
                     key={num}
                     href={`tel:${num.replace(/[\s-]/g, '')}`}

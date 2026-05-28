@@ -31,29 +31,18 @@ export default function ContactCta() {
             <div className="flex flex-col gap-4 w-full sm:w-auto">
               <div className="bg-[#f5f5f5]/5 border border-white/10 rounded-2xl px-7 py-5 flex flex-col gap-1">
                 <span className="text-white/50 font-inter text-xs uppercase tracking-widest">
-                  Primary
+                  Booking
                 </span>
                 <a
-                  href="tel:+639166112928"
+                  href="tel:+639190091985"
                   className="text-white font-phone text-xl hover:text-[#d4a53a] transition-colors"
                 >
-                  +63 916 611 2928
+                  +63 919 009 1985
                 </a>
               </div>
               <div className="bg-[#f5f5f5]/5 border border-white/10 rounded-2xl px-7 py-5 flex flex-col gap-1">
                 <span className="text-white/50 font-inter text-xs uppercase tracking-widest">
-                  Office Line
-                </span>
-                <a
-                  href="tel:+63287006042"
-                  className="text-white font-phone text-xl hover:text-[#d4a53a] transition-colors"
-                >
-                  +63 2 8700 6042
-                </a>
-              </div>
-              <div className="bg-[#f5f5f5]/5 border border-white/10 rounded-2xl px-7 py-5 flex flex-col gap-1">
-                <span className="text-white/50 font-inter text-xs uppercase tracking-widest">
-                  Office Line 2
+                  Office / Marketing
                 </span>
                 <a
                   href="tel:+63287439021"
@@ -73,7 +62,7 @@ export default function ContactCta() {
                 Email Us Now
               </a>
               <a
-                href="tel:+639166112928"
+                href="tel:+639190091985"
                 className="inline-flex items-center justify-center gap-2 bg-brand-blue hover:bg-brand-blue text-white font-bold text-base px-8 py-4 rounded-full shadow-xl shadow-[#00193c]/40 hover:scale-105 active:scale-95 transition-all duration-200 whitespace-nowrap"
               >
                 <PhoneCall size={16} strokeWidth={2} />

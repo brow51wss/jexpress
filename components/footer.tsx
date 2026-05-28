@@ -124,18 +124,18 @@ export default async function Footer() {
                   className="text-[#d4a53a] mt-0.5 flex-shrink-0"
                 />
                 <div className="flex flex-col gap-0.5">
-                  <a href="tel:+639166112928" className="font-phone text-white/70 hover:text-[#d4a53a] text-base transition-colors">
-                    +63 916 611 2928
-                  </a>
-                  <a href="tel:+63287006042" className="font-phone text-white/70 hover:text-[#d4a53a] text-base transition-colors">
-                    +63 2 8700 6042
-                  </a>
-                  <a href="tel:+639190091985" className="font-phone text-white/70 hover:text-[#d4a53a] text-base transition-colors">
-                    +63 919 009 1985
-                  </a>
-                  <a href="tel:+63287439021" className="font-phone text-white/70 hover:text-[#d4a53a] text-base transition-colors">
-                    +63 2 8743 9021
-                  </a>
+                  <div className="flex flex-col gap-0">
+                    <span className="text-white/30 font-inter text-[10px] uppercase tracking-wider">Booking</span>
+                    <a href="tel:+639190091985" className="font-phone text-white/70 hover:text-[#d4a53a] text-base transition-colors">
+                      +63 919 009 1985
+                    </a>
+                  </div>
+                  <div className="flex flex-col gap-0">
+                    <span className="text-white/30 font-inter text-[10px] uppercase tracking-wider">Office / Marketing</span>
+                    <a href="tel:+63287439021" className="font-phone text-white/70 hover:text-[#d4a53a] text-base transition-colors">
+                      +63 2 8743 9021
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="flex items-start gap-3">

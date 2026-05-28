@@ -93,7 +93,7 @@ export async function POST(request: Request) {
               </div>
               <p style="font-size:14px;line-height:1.6;">
                 For urgent inquiries, reach us directly:<br/>
-                <strong>+63 916 611 2928</strong> &nbsp;|&nbsp; <strong>+63 919 009 1985</strong> &nbsp;|&nbsp; <strong>+63 2 8743 9021</strong>
+                <strong>+63 919 009 1985</strong> (Booking) &nbsp;|&nbsp; <strong>+63 2 8743 9021</strong> (Office)|<strong>+63 919 009 1985</strong> (Booking) &nbsp;|&nbsp; <strong>+63 2 8743 9021</strong> (Office)|<strong>+63 919 009 1985</strong> (Booking) &nbsp;|&nbsp; <strong>+63 2 8743 9021</strong> (Office)
               </p>
               <p style="font-size:13px;color:#6b6b6b;margin-bottom:0;">
                 — The Jexpress Tourist Transport Cooperative Team<br/>
