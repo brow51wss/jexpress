@@ -61,9 +61,9 @@ export default async function Hero() {
           </div>
 
           {/* Right column — stats, services, group cars */}
-          <div className="relative z-10 w-full lg:w-3/5 flex flex-col items-center lg:items-start justify-end px-6 pb-8 lg:pb-0 animate-slide-in-from-right pointer-events-none">
+          <div className="relative z-10 w-full lg:w-3/5 flex flex-col items-center justify-end px-6 pb-8 lg:pb-0 animate-slide-in-from-right pointer-events-none">
             {/* Stats */}
-            <div className="flex flex-wrap justify-center items-center gap-6 pt-4 lg:pl-[5vw]  mb-[50px] lg:mb-0">
+            <div className="flex flex-wrap justify-center items-center gap-6 pt-4 mb-[50px] lg:mb-0">
               <div className="flex flex-col items-start">
                 <span className="font-stat text-3xl text-[#d4a53a]">100%</span>
                 <span className="text-[#6b6b6b] text-xs font-inter uppercase tracking-wider">Safety Record</span>
@@ -85,9 +85,9 @@ export default async function Hero() {
             </div>
 
             {/* Service titles + icons pulled from dashboard */}
-            <div className="hidden relative z-20 lg:flex lg:flex-row justify-center lg:flex-wrap gap-4 px-4 lg:pl-[5vw]">
+            <div className="hidden relative z-20 lg:flex lg:flex-row justify-center lg:flex-wrap gap-0 px-4 w-full">
               {services.map((service) => (
-                <div key={service.id} className="flex flex-col items-center justify-center gap-2 p-4 w-[250px] h-[200px] overflow-hidden shrink-0 grow-0">
+                <div key={service.id} className="flex flex-col items-center justify-center gap-2 p-4 w-full max-w-[200px] min-w-[125px] h-auto overflow-hidden shrink-0 grow-0">
                   <div className="w-8 h-8 rounded-lg bg-[#d4a53a]/10 flex items-center justify-center shrink-0">
                     <ServiceIcon name={service.icon ?? ''} size={24} className="text-[#d4a53a]" />
                   </div>
