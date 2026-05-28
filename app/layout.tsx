@@ -22,13 +22,13 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'Jexpress Tourist Transport Cooperative | Safe & Reliable Transport Services',
   description:
-    'Jexpress Tourist Transport Cooperative provides safe, comfortable, and reliable tourist transport services in Bloomingdale, DC. Serving DAR and OCD with professional, courteous service.',
+    'Jexpress Tourist Transport Cooperative provides safe, comfortable, and reliable tourist transport services in Marikina City, Philippines. Serving government agencies and organizations with professional, courteous service.',
   keywords: [
     'tourist transport',
     'cooperative transport',
-    'Bloomingdale DC transport',
-    'DAR transport',
-    'OCD transport',
+    'Marikina transport',
+    'government agency transport',
+    'airport transfer Philippines',
     'reliable transport services',
     'Jexpress',
   ],
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: 'Jexpress Tourist Transport Cooperative',
     title: 'Jexpress Tourist Transport Cooperative | Safe & Reliable Transport Services',
     description:
-      'Safe, comfortable, and reliable tourist transport services in Bloomingdale, DC. Professional and courteous service for DAR and OCD.',
+      'Safe, comfortable, and reliable tourist transport services in Marikina City, Philippines. Professional and courteous service for government agencies and organizations.',
     images: [
       {
         url: 'https://www.jexpresstransport.com/og-image2.png',
@@ -115,7 +115,7 @@ export default function RootLayout({
         <title>Jexpress Tourist Transport Cooperative | Safe & Reliable Transport Services</title>
         <meta
           name="description"
-          content="Jexpress Tourist Transport Cooperative provides safe, comfortable, and reliable tourist transport services in Bloomingdale, DC. Serving DAR and OCD with professional, courteous service."
+          content="Jexpress Tourist Transport Cooperative provides safe, comfortable, and reliable tourist transport services in Marikina City, Philippines. Serving government agencies and organizations with professional, courteous service."
         />
         <script
           type="application/ld+json"

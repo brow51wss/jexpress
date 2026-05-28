@@ -8,7 +8,7 @@ const values = [
   'Transparent and integrity-driven operations',
   'Flexible transport solutions for different client needs',
   'Serving tourism, hospitals, and organizations nationwide',
-  'LTFRB-franchised vans meeting DAR, OCD, and industry standards',
+  'LTFRB-franchised vans meeting government agency and industry standards',
 ]
 
 export default function About() {

@@ -238,7 +238,7 @@ export default function ContactForm() {
                         id="organization"
                         name="organization"
                         type="text"
-                        placeholder="e.g. DAR, OCD, Hospital"
+                        placeholder="e.g. Government Agency, Hospital, University"
                         value={formData.organization}
                         onChange={handleChange}
                         className={inputClass}

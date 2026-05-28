@@ -279,7 +279,7 @@ export default function Contact() {
                         id="companyName"
                         name="companyName"
                         type="text"
-                        placeholder="e.g. DAR, OCD, Hospital"
+                        placeholder="e.g. Government Agency, Hospital, University"
                         value={formData.companyName}
                         onChange={handleChange}
                         className={inputClass}

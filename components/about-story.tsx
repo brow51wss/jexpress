@@ -122,7 +122,7 @@ export default async function AboutStory() {
               </p>
               <p className="font-inter text-white/70 text-base leading-relaxed">
                 Our vans comply with LTFRB franchising requirements — meeting the same standards
-                required by government agencies such as DAR and OCD, as well as those followed
+                required by government agencies, as well as those followed
                 by large companies and professional shuttle service providers nationwide.
               </p>
             </div>
