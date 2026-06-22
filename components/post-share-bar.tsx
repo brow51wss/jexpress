@@ -1,10 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import {
   RiFacebookFill,
   RiTwitterXFill,
   RiLinkedinFill,
   RiMailFill,
+  RiFileCopyLine,
+  RiCheckLine,
 } from 'react-icons/ri'
 
 interface PostShareBarProps {
@@ -22,6 +25,7 @@ export default function PostShareBar({
   size = 'md',
   variant = 'light',
 }: PostShareBarProps) {
+  const [copied, setCopied] = useState(false)
   const iconSize = size === 'sm' ? 14 : 17
   const btnBase = size === 'sm' ? 'w-7 h-7' : 'w-9 h-9'
 
@@ -29,6 +33,25 @@ export default function PostShareBar({
     variant === 'dark' ? 'text-white/70 group-hover:text-white' : 'text-[#6b6b6b] group-hover:text-white'
   const defaultBg =
     variant === 'dark' ? 'bg-white/10 hover:bg-[#d4a53a]' : 'bg-[#f5f5f5] hover:bg-[#d4a53a]'
+
+  const copyUrl = async () => {
+    try {
+      await navigator.clipboard.writeText(url)
+    } catch {
+      const textarea = document.createElement('textarea')
+      textarea.value = url
+      textarea.setAttribute('readonly', '')
+      textarea.style.position = 'absolute'
+      textarea.style.left = '-9999px'
+      document.body.appendChild(textarea)
+      textarea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textarea)
+    }
+
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 2000)
+  }
 
   const shareLinks = [
     {
@@ -90,6 +113,25 @@ export default function PostShareBar({
           <Icon size={iconSize} className={`${defaultIcon} transition-colors duration-200`} />
         </button>
       ))}
+
+      <button
+        type="button"
+        aria-label={copied ? 'Link copied' : 'Copy link'}
+        onClick={(e) => {
+          e.stopPropagation()
+          e.preventDefault()
+          void copyUrl()
+        }}
+        className={`${btnBase} rounded-full ${
+          copied ? 'bg-[#d4a53a]' : defaultBg
+        } flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 group flex-shrink-0`}
+      >
+        {copied ? (
+          <RiCheckLine size={iconSize} className="text-white" />
+        ) : (
+          <RiFileCopyLine size={iconSize} className={`${defaultIcon} transition-colors duration-200`} />
+        )}
+      </button>
     </div>
   )
 }
