@@ -142,29 +142,39 @@ export default function PostShareBar({
 
   return (
     <div
-      className={`flex items-center ${size === 'sm' ? 'gap-1.5' : 'gap-2'}`}
+      className={`flex items-start ${size === 'sm' ? 'gap-1.5' : 'gap-2'}`}
       onClick={(e) => e.stopPropagation()}
     >
       {shareLinks.map(({ label, copiedLabel, Icon, CheckIcon, showCopied, action }) => (
-        <button
-          key={label}
-          type="button"
-          aria-label={showCopied && copiedLabel ? copiedLabel : label}
-          onClick={(e) => {
-            e.stopPropagation()
-            e.preventDefault()
-            action()
-          }}
-          className={`${btnBase} rounded-full ${
-            showCopied ? 'bg-[#d4a53a]' : defaultBg
-          } flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 group flex-shrink-0`}
-        >
-          {showCopied && CheckIcon ? (
-            <CheckIcon size={iconSize} className="text-white" />
-          ) : (
-            <Icon size={iconSize} className={`${defaultIcon} transition-colors duration-200`} />
+        <div key={label} className="flex flex-col items-center gap-1">
+          <button
+            type="button"
+            aria-label={showCopied && copiedLabel ? copiedLabel : label}
+            onClick={(e) => {
+              e.stopPropagation()
+              e.preventDefault()
+              action()
+            }}
+            className={`${btnBase} rounded-full ${
+              showCopied ? 'bg-[#d4a53a]' : defaultBg
+            } flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 group flex-shrink-0`}
+          >
+            {showCopied && CheckIcon ? (
+              <CheckIcon size={iconSize} className="text-white" />
+            ) : (
+              <Icon size={iconSize} className={`${defaultIcon} transition-colors duration-200`} />
+            )}
+          </button>
+          {showCopied && (
+            <span
+              className={`font-inter font-semibold leading-none ${
+                size === 'sm' ? 'text-[9px]' : 'text-[10px]'
+              } ${variant === 'dark' ? 'text-[#d4a53a]' : 'text-[#d4a53a]'}`}
+            >
+              Copied
+            </span>
           )}
-        </button>
+        </div>
       ))}
 
       <button
@@ -175,9 +185,9 @@ export default function PostShareBar({
           e.preventDefault()
           void copyUrl()
         }}
-        className={`${btnBase} rounded-full ${
+        className={`${btnBase} rounded-full flex-shrink-0 ${
           copied ? 'bg-[#d4a53a]' : defaultBg
-        } flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 group flex-shrink-0`}
+        } flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 group`}
       >
         {copied ? (
           <RiCheckLine size={iconSize} className="text-white" />
