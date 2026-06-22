@@ -53,16 +53,53 @@ export default function PostShareBar({
     window.setTimeout(() => setCopied(false), 2000)
   }
 
+  const isIOS = () => {
+    if (typeof navigator === 'undefined') return false
+    return (
+      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+    )
+  }
+
+  const openInNewTab = (href: string) => {
+    const link = document.createElement('a')
+    link.href = href
+    link.target = '_blank'
+    link.rel = 'noopener noreferrer'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
+  const shareOnFacebook = async () => {
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
+
+    // iOS intercepts facebook.com links and opens the app without the share URL.
+    // Web Share API passes the link correctly when the user picks Facebook.
+    if (isIOS() && typeof navigator.share === 'function') {
+      try {
+        await navigator.share({ url, title })
+        return
+      } catch (error) {
+        if (error instanceof DOMException && error.name === 'AbortError') return
+      }
+    }
+
+    if (isIOS()) {
+      openInNewTab(`https://m.facebook.com/sharer.php?u=${encodeURIComponent(url)}`)
+      return
+    }
+
+    window.open(facebookShareUrl, '_blank', 'noopener,noreferrer,width=600,height=400')
+  }
+
   const shareLinks = [
     {
       label: 'Share on Facebook',
       Icon: RiFacebookFill,
-      action: () =>
-        window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-          '_blank',
-          'noopener,noreferrer,width=600,height=400'
-        ),
+      action: () => {
+        void shareOnFacebook()
+      },
     },
     {
       label: 'Share on X',
