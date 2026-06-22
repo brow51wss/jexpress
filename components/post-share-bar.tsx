@@ -71,22 +71,33 @@ export default function PostShareBar({
     document.body.removeChild(link)
   }
 
-  const shareOnFacebook = async () => {
-    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
-
-    // iOS intercepts facebook.com links and opens the app without the share URL.
-    // Web Share API passes the link correctly when the user picks Facebook.
-    if (isIOS() && typeof navigator.share === 'function') {
-      try {
-        await navigator.share({ url, title })
-        return
-      } catch (error) {
-        if (error instanceof DOMException && error.name === 'AbortError') return
-      }
-    }
+  const shareOnFacebook = () => {
+    const encodedPostUrl = encodeURIComponent(url)
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedPostUrl}`
 
     if (isIOS()) {
-      openInNewTab(`https://m.facebook.com/sharer.php?u=${encodeURIComponent(url)}`)
+      // Web Share API opens the native compose screen without scraping OG tags.
+      // facewebmodal loads Facebook's sharer page in-app so title, excerpt, and image are fetched.
+      const fbInAppBrowserUrl = `fb://facewebmodal/f?href=${encodeURIComponent(facebookShareUrl)}`
+      let fallbackTimer: number | undefined
+
+      const cleanup = () => {
+        if (fallbackTimer !== undefined) window.clearTimeout(fallbackTimer)
+        document.removeEventListener('visibilitychange', onVisibilityChange)
+      }
+
+      const onVisibilityChange = () => {
+        if (document.hidden) cleanup()
+      }
+
+      document.addEventListener('visibilitychange', onVisibilityChange)
+
+      fallbackTimer = window.setTimeout(() => {
+        cleanup()
+        openInNewTab(`https://m.facebook.com/sharer.php?u=${encodedPostUrl}`)
+      }, 1200)
+
+      window.location.href = fbInAppBrowserUrl
       return
     }
 
