@@ -81,21 +81,19 @@ export default function PostShareBar({
     const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedPostUrl}`
     const facebookAppId = process.env.NEXT_PUBLIC_FACEBOOK_APP_ID
 
-    // Meta Share Dialog — most reliable path on iOS when a Facebook App ID is configured
-    if (facebookAppId) {
+    // Meta Share Dialog on desktop/Android when a Facebook App ID is configured
+    if (facebookAppId && !isIOS()) {
       const dialogUrl = `https://www.facebook.com/dialog/share?app_id=${facebookAppId}&href=${encodedPostUrl}&redirect_uri=${encodedRedirect}&display=popup`
       openInNewTab(dialogUrl)
       return
     }
 
     if (isIOS()) {
-      // fb:// deep links are unreliable on current Facebook iOS (often opens feed only).
-      // Copy the URL first, then open the mobile web sharer so OG can load in Safari.
-      // If iOS still hands off to the app without the share dialog, the user can paste.
+      // Any facebook.com URL on iOS triggers the native app and often drops the share context.
+      // Copy the link only — paste it into a new Facebook post to load the OG preview.
       await copyToClipboard(url)
       setFacebookCopied(true)
       window.setTimeout(() => setFacebookCopied(false), 2500)
-      openInNewTab(`https://m.facebook.com/sharer.php?u=${encodedPostUrl}`)
       return
     }
 
@@ -105,7 +103,7 @@ export default function PostShareBar({
   const shareLinks = [
     {
       label: 'Share on Facebook',
-      copiedLabel: 'Link copied — paste in Facebook if needed',
+      copiedLabel: 'Link copied — open Facebook and paste to share',
       Icon: RiFacebookFill,
       CheckIcon: RiCheckLine,
       showCopied: facebookCopied,
