@@ -18,6 +18,7 @@ const navLinks = [
     ],
   },
   { label: 'Why Us', href: '/why-us' },
+  { label: 'Travel Guides', href: '/travel-guides' },
   { label: 'Contact', href: '/contact' },
 ]
 

@@ -10,6 +10,7 @@ const quickLinks = [
   { label: 'Company Profile', href: '/company-profile' },
   { label: 'Leadership', href: '/leadership' },
   { label: 'Why Choose Us', href: '/why-us' },
+  { label: 'Travel Guides', href: '/travel-guides' },
   { label: 'Contact', href: '/contact' },
 ]
 
