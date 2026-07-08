@@ -1,4 +1,5 @@
 ---
+description: 
 alwaysApply: true
 ---
 
@@ -7,7 +8,7 @@ alwaysApply: true
 **CRITICAL**: Never edit, create, or remove files and folders outside:
 
 ```
-/Users/marlonsarmiento/Desktop/jexpress
+/Users/marlonsarmiento/Desktop/Projects/jexpress
 ```
 
 All file operations must stay within this directory. If asked to work on files outside this path, decline and remind the user of this safety boundary.

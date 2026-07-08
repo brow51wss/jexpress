@@ -9,6 +9,7 @@ import { RiMenuLine, RiCloseLine, RiArrowDownSLine } from 'react-icons/ri'
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
+  { label: 'Franchise', href: '/franchise' },
   {
     label: 'About',
     href: '/about',
